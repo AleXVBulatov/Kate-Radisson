@@ -102,3 +102,15 @@ body {
 }
 .active {
 }
+
+/* ==================== */
+.list-2 a:hover {
+  font-weight: 400;
+  color: var(--color-violet-100);
+  border-bottom: 1px solid var(--color-violet-100);
+}
+.list-3 a:hover {
+  font-weight: 400;
+  color: var(--color-violet-100);
+  border-bottom: none;
+}
