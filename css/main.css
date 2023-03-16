@@ -1,0 +1,104 @@
+@import "./reset.css";
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Ubuntu:wght@400;700&display=swap");
+
+:root {
+  --font-family-lato: Lato;
+  --font-family-Ubuntu: Ubuntu;
+
+  --container-width: 1310px; /*1280px контейнер + 15px * 2 paddings*/
+  --container-padding: 15px;
+
+  --font-size: 20px;
+  --line-height-lato: 1.2;
+  --line-height-ubuntu: 1.15;
+
+  --color-main: #161453;
+  --color-secondary: #000000;
+  --color-white: #fff;
+  --color-violet-100: #6f5cfc;
+  --color-violet-50: #6f5cfc80;
+}
+
+body {
+  font-family: var(--font-family-lato);
+  font-size: var(--font-size);
+  background-color: var(--color-main);
+}
+
+.container {
+  max-width: var(--container-width);
+  padding: 0 var(--container-padding);
+  margin: 0 auto;
+}
+
+.orange {
+  background-color: var(--color-white);
+}
+
+/* ==================== Header ==================== */
+.header {
+  max-height: 900px;
+}
+.header__top {
+  padding: 31px 0;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 38px;
+  line-height: 38px;
+}
+.nav__logo {
+  width: 185px;
+  height: 38px;
+  flex: 1 0 auto;
+}
+.nav__logo a {
+  font-family: var(--font-family-Ubuntu);
+  font-size: calc(var(--font-size) * 1.1);
+  line-height: calc(var(--font-size) * 1.1 * var(--line-height-ubuntu));
+  color: var(--color-white);
+}
+.nav__logo span {
+  font-weight: 700;
+  color: var(--color-violet-100);
+}
+
+.nav__logo a {
+  position: relative;
+  padding-left: 43px;
+}
+.nav__logo a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -6px;
+  width: 38px;
+  height: 38px;
+  background-image: url("./../img/header/Logo.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.logo {
+  display: inline-block;
+}
+.nav__list {
+  display: flex;
+  column-gap: 15px;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  font-size: calc(var(--font-size) * 0.85);
+  line-height: calc(var(--font-size) * 0.85 * var(--line-height-lato));
+}
+.nav__list a {
+  color: var(--color-white);
+}
+.nav__list a:hover {
+  font-weight: 700;
+  border-bottom: 1px solid var(--color-white);
+}
+.active {
+}
