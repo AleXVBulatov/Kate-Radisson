@@ -59,10 +59,10 @@ body {
     0px 18.53px 12.02px 0px rgba(0, 0, 0, 0.076), 0px 28.27px 21.44px 0px rgba(0, 0, 0, 0.0902),
     0px 43.89px 40.11px 0px rgba(0, 0, 0, 0.01175), 0px 77px 96px 0px rgba(0, 0, 0, 0.019);
 }
-.btn-color {
+.btn--color {
   background-color: var(--color-violet-100);
 }
-.btn-color:hover {
+.btn--color:hover {
   box-shadow: 0px 5.31px 2.66px 0px rgba(0, 0, 0, 0.0445), 0px 11.29px 6.38px 0px rgba(0, 0, 0, 0.0639),
     0px 18.53px 12.02px 0px rgba(0, 0, 0, 0.076), 0px 28.27px 21.44px 0px rgba(0, 0, 0, 0.0902),
     0px 43.89px 40.11px 0px rgba(0, 0, 0, 0.01175), 0px 77px 96px 0px rgba(0, 0, 0, 0.019);
@@ -70,8 +70,9 @@ body {
 
 /* ==================== Header ==================== */
 .header {
-  max-height: 900px;
-  /* filter: blur(10px); */
+  position: relative;
+  min-height: 900px;
+  /* height: 100%; */
 }
 .header__top {
   padding: 31px 0;
@@ -114,17 +115,33 @@ body {
 
 /* ----- header content----- */
 .header__row {
+  position: relative;
   display: flex;
   column-gap: 66px;
   align-items: center;
 }
+.header__row::after {
+  content: "";
+  position: absolute;
+  z-index: -20;
+  bottom: 0;
+  right: calc(-248px - 80px);
+  width: 810px;
+  height: 817px;
+  background-image: url(./../img/header/Vector.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
 .header__content {
+  position: relative;
+  z-index: 10;
   padding: 213px 0 360px;
   width: 630px;
   min-height: 800px;
 }
 .header__badge {
   margin-bottom: 25px;
+  font-weight: 500;
   color: var(--color-white-50);
 }
 .header__title {
@@ -142,6 +159,53 @@ body {
   justify-content: flex-end;
 }
 .header__img {
+  position: relative;
+  z-index: 2;
+  /* filter: blur(10px); */
+}
+
+.header__blur,
+.header__stars {
+  position: absolute;
+  bottom: 0;
+  top: 100px;
+  left: 0px;
+  width: calc((100% - var(--container-width)) / 2 + 940px);
+  min-height: 800px;
+}
+.header__blur {
+  z-index: 5;
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1), 0px 28px 61px 0px rgba(0, 0, 0, 0.1), 0px 110px 110px 0px rgba(0, 0, 0, 0.09),
+    0px 248px 149px 0px rgba(0, 0, 0, 0.05), 1px 441px 176px 0px rgba(0, 0, 0, 0.01), 1px 689px 193px 0px rgba(0, 0, 0, 0);
+  /* filter: blur(10px); */
+}
+.header__stars {
+  height: 800px;
+}
+.header__stars::after,
+.header__stars::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+}
+.header__stars::after {
+  bottom: 128px;
+  right: -55px;
+  width: 361px;
+  height: 354px;
+  background-image: url(./../img/header/Star-1.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.header__stars::before {
+  bottom: 376px;
+  left: calc(100% - 940px - 80px);
+  width: 329px;
+  height: 323px;
+  background-image: url(./../img/header/Star-2.png);
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 /* ----- btn-toggle (begin)----- */
@@ -207,3 +271,48 @@ body {
   transition: top var(--time) linear, transform var(--time) ease-in var(--time);
 }
 /* ----- btn-toggle (end)----- */
+
+/* ==================== Who-is-Kate ==================== */
+.who-is-Kate {
+  padding: 107px 0;
+  background-color: #eef1f4;
+}
+.who-is-Kate__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  column-gap: 20px;
+  padding: 0 110px;
+  min-height: 542px;
+}
+.who-is-Kate__img {
+}
+.who-is-Kate__img img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+.who-is-Kate__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 412px;
+  color: var(--color-main);
+}
+.who-is-Kate__title {
+  /* margin-bottom: 60px; */
+  margin-bottom: 50px;
+  font-weight: 700;
+  font-size: calc(var(--font-size) * 1.9);
+  line-height: calc(var(--font-size) * 1.9 * var(--line-height-lato));
+}
+.who-is-Kate__subtitle {
+  font-weight: 500;
+  margin-bottom: calc(var(--font-size) * 1 * var(--line-height-lato));
+}
+.who-is-Kate__text {
+  margin-bottom: 40px;
+  font-weight: 500;
+  line-height: calc(var(--font-size) * 1 * var(--line-height-lato));
+}
+.who-is-Kate__button {
+}
