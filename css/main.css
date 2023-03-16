@@ -178,7 +178,7 @@ body {
   background-color: rgba(255, 255, 255, 0.1);
   box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1), 0px 28px 61px 0px rgba(0, 0, 0, 0.1), 0px 110px 110px 0px rgba(0, 0, 0, 0.09),
     0px 248px 149px 0px rgba(0, 0, 0, 0.05), 1px 441px 176px 0px rgba(0, 0, 0, 0.01), 1px 689px 193px 0px rgba(0, 0, 0, 0);
-  /* filter: blur(10px); */
+  backdrop-filter: blur(3px);
 }
 .header__stars {
   height: 800px;
@@ -188,6 +188,7 @@ body {
   content: "";
   position: absolute;
   z-index: 1;
+  /* filter: blur(10px); */
 }
 .header__stars::after {
   bottom: 128px;
@@ -200,7 +201,7 @@ body {
 }
 .header__stars::before {
   bottom: 376px;
-  left: calc(100% - 940px - 80px);
+  left: calc(100% - 920px - 80px);
   width: 329px;
   height: 323px;
   background-image: url(./../img/header/Star-2.png);
@@ -283,7 +284,6 @@ body {
   align-items: flex-start;
   column-gap: 20px;
   padding: 0 110px;
-  min-height: 542px;
 }
 .who-is-Kate__img {
 }
@@ -292,9 +292,9 @@ body {
   border-radius: 10px;
 }
 .who-is-Kate__content {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-between; */
   max-width: 412px;
   color: var(--color-main);
 }
