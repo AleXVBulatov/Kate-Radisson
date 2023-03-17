@@ -131,6 +131,15 @@ body {
   background-image: url(./../img/header/Vector.svg);
   background-size: contain;
   background-repeat: no-repeat;
+  animation: img2 60s linear infinite;
+}
+@keyframes img2 {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
 }
 .header__content {
   position: relative;
@@ -159,10 +168,39 @@ body {
   justify-content: flex-end;
 }
 .header__img {
+  pointer-events: none;
   position: relative;
   z-index: 2;
+  /* animation: img 30s linear infinite; */
+  animation-name: img;
+  animation-duration: 30s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
   /* filter: blur(10px); */
 }
+@keyframes img {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* .header__img:hover {
+  cursor: pointer;
+  animation-name: img2;
+  animation-duration: 30s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+@keyframes img2 {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+} */
 
 .header__blur,
 .header__stars {
@@ -180,6 +218,7 @@ body {
     0px 248px 149px 0px rgba(0, 0, 0, 0.05), 1px 441px 176px 0px rgba(0, 0, 0, 0.01), 1px 689px 193px 0px rgba(0, 0, 0, 0);
   backdrop-filter: blur(3px);
 }
+
 .header__stars {
   height: 800px;
 }
@@ -188,7 +227,8 @@ body {
   content: "";
   position: absolute;
   z-index: 1;
-  /* filter: blur(10px); */
+
+  /* filter: blur(1px); */
 }
 .header__stars::after {
   bottom: 128px;
@@ -198,6 +238,15 @@ body {
   background-image: url(./../img/header/Star-1.png);
   background-size: contain;
   background-repeat: no-repeat;
+  animation: star1 10s linear infinite;
+}
+@keyframes star1 {
+  from {
+    transform: translate(0px, 0px);
+  }
+  to {
+    transform: translate(-700px, -240px);
+  }
 }
 .header__stars::before {
   bottom: 376px;
@@ -207,6 +256,15 @@ body {
   background-image: url(./../img/header/Star-2.png);
   background-size: contain;
   background-repeat: no-repeat;
+  animation: star2 10s linear infinite;
+}
+@keyframes star2 {
+  from {
+    transform: translate(0px, 0px);
+  }
+  to {
+    transform: translate(700px, 240px);
+  }
 }
 
 /* ----- btn-toggle (begin)----- */
