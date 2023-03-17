@@ -139,6 +139,10 @@ body {
   line-height: calc(var(--font-size) * 1.1 * var(--line-height-ubuntu));
   color: var(--color-white-100);
 }
+.nav__logo:hover {
+  cursor: pointer;
+}
+
 .nav__list {
   display: flex;
   column-gap: 15px;
