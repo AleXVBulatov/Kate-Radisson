@@ -238,14 +238,14 @@ body {
   background-image: url(./../img/header/Star-1.png);
   background-size: contain;
   background-repeat: no-repeat;
-  animation: star1 10s linear infinite;
+  animation: star1 10s linear infinite alternate;
 }
 @keyframes star1 {
   from {
-    transform: translate(0px, 0px);
+    transform: translateX(0px);
   }
   to {
-    transform: translate(-700px, -240px);
+    transform: translateX(-700px);
   }
 }
 .header__stars::before {
@@ -256,14 +256,14 @@ body {
   background-image: url(./../img/header/Star-2.png);
   background-size: contain;
   background-repeat: no-repeat;
-  animation: star2 10s linear infinite;
+  animation: star2 10s linear infinite alternate;
 }
 @keyframes star2 {
   from {
-    transform: translate(0px, 0px);
+    transform: translateX(0px);
   }
   to {
-    transform: translate(700px, 240px);
+    transform: translateX(700px);
   }
 }
 
