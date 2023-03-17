@@ -38,6 +38,14 @@ body {
   background-color: orange;
 }
 
+.title {
+  margin-bottom: 60px;
+  text-align: center;
+  font-weight: 700;
+  font-size: calc(var(--font-size) * 1.9);
+  line-height: calc(var(--font-size) * 1.9 * var(--line-height-lato));
+}
+
 .colored-bold-text {
   font-weight: 700;
   color: var(--color-violet-100);
@@ -80,6 +88,7 @@ body {
   background-color: var(--color-violet-100);
   text-align: center;
   transform: translate(50%, 50%);
+  opacity: 0.5;
 }
 .nav-btn a {
   display: inline-block;
@@ -95,11 +104,12 @@ body {
   font-size: calc(var(--font-size) * 1);
 }
 .nav-btn:hover {
+  opacity: 1;
   height: 60px;
   width: 60px;
-  box-shadow: 0px 0px 1.33px 0px rgba(0, 0, 0, 0.1), 0px 0px 3.19px 0px rgba(0, 0, 0, 0.12),
+  /* box-shadow: 0px 0px 1.33px 0px rgba(0, 0, 0, 0.1), 0px 0px 3.19px 0px rgba(0, 0, 0, 0.12),
     0px 0px 6.01px 0px rgba(0, 0, 0, 0.15), 0px 0px 10.22px 0px rgba(0, 0, 0, 0.2), 0px 0px 20.05px 0px rgba(0, 0, 0, 0.22),
-    0px 0px 48px 0px rgba(0, 0, 0, 0.4);
+    0px 0px 48px 0px rgba(0, 0, 0, 0.4); */
 }
 
 /* ==================== Header ==================== */
@@ -355,7 +365,7 @@ body {
 
 /* ==================== Who-is-Kate ==================== */
 .who-is-Kate {
-  padding: 107px 0;
+  padding: 100px 0;
   background-color: #eef1f4;
 }
 .who-is-Kate__row {
@@ -364,11 +374,13 @@ body {
   align-items: flex-start;
   column-gap: 20px;
   padding: 0 110px;
+  min-height: 550px; /*ВОЗМОЖНО НУЖНО БУДЕТ УДАЛИТЬ*/
 }
 .who-is-Kate__img {
 }
 .who-is-Kate__img img {
-  max-width: 100%;
+  height: 550px; /*СДЕЛАЛ НЕМНОГО ВЫШЕ ЧЕМ в проекте (на 8px)*/
+  width: contain;
   border-radius: 10px;
 }
 .who-is-Kate__content {
@@ -377,9 +389,7 @@ body {
 .who-is-Kate__title {
   /* margin-bottom: 60px; */
   margin-bottom: 50px;
-  font-weight: 700;
-  font-size: calc(var(--font-size) * 1.9);
-  line-height: calc(var(--font-size) * 1.9 * var(--line-height-lato));
+  text-align: left;
 }
 .who-is-Kate__subtitle {
   font-weight: 500;
@@ -402,11 +412,6 @@ body {
   color: var(--color-white-100);
 }
 .expertise__title {
-  margin-bottom: 60px;
-  text-align: center;
-  font-weight: 700;
-  font-size: calc(var(--font-size) * 1.9);
-  line-height: calc(var(--font-size) * 1.9 * var(--line-height-lato));
 }
 .expertise__row {
   display: flex;
@@ -435,14 +440,8 @@ body {
   background-color: #ccdef5;
 }
 .advantages__content {
-  /* margin: 0 -20px; */
 }
 .advantages__title {
-  margin-bottom: 60px;
-  text-align: center;
-  font-weight: 700;
-  font-size: calc(var(--font-size) * 1.9);
-  line-height: calc(var(--font-size) * 1.9 * var(--line-height-lato));
 }
 .advantages__row {
   display: flex;
@@ -456,6 +455,7 @@ body {
   margin: 0 -20px; /*для вертикальных отступов в 20px*/
   padding: 41px 34px 34px 34px;
   min-height: 350px;
+  border-radius: 5px;
   background-color: #eef1f4;
 }
 .advantages__card:hover {
@@ -468,7 +468,7 @@ body {
 .advantages__card-image img {
   width: 60px;
   height: 60px;
-  object-fit: cover;
+  object-fit: contain;
 }
 .advantages__card-title {
   margin-bottom: 15px;
@@ -480,6 +480,18 @@ body {
 }
 
 /* ==================== Count candidate’s cost ==================== */
+
+.candidates {
+  padding: 100px 0;
+  height: 800px;
+}
+.candidates__content {
+  color: var(--color-secondary);
+}
+
+.candidates__title {
+  color: var(--color-white-100);
+}
 
 /* --font-family-lato: Lato; */
 /* --font-family-Ubuntu: Ubuntu; */
