@@ -131,7 +131,7 @@ body {
   background-image: url(./../img/header/Vector.svg);
   background-size: contain;
   background-repeat: no-repeat;
-  animation: img2 60s linear infinite;
+  animation: img2 30s linear infinite alternate;
 }
 @keyframes img2 {
   from {
@@ -176,6 +176,7 @@ body {
   animation-duration: 30s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+  animation-direction: alternate;
   /* filter: blur(10px); */
 }
 @keyframes img {
@@ -186,21 +187,6 @@ body {
     transform: rotate(360deg);
   }
 }
-/* .header__img:hover {
-  cursor: pointer;
-  animation-name: img2;
-  animation-duration: 30s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-}
-@keyframes img2 {
-  from {
-    transform: rotate(360deg);
-  }
-  to {
-    transform: rotate(0deg);
-  }
-} */
 
 .header__blur,
 .header__stars {
@@ -238,7 +224,7 @@ body {
   background-image: url(./../img/header/Star-1.png);
   background-size: contain;
   background-repeat: no-repeat;
-  animation: star1 10s linear infinite alternate;
+  animation: star1 15s linear infinite alternate;
 }
 @keyframes star1 {
   from {
@@ -256,7 +242,7 @@ body {
   background-image: url(./../img/header/Star-2.png);
   background-size: contain;
   background-repeat: no-repeat;
-  animation: star2 10s linear infinite alternate;
+  animation: star2 15s linear infinite alternate;
 }
 @keyframes star2 {
   from {
