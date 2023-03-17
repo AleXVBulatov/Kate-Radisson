@@ -23,6 +23,8 @@
 body {
   font-family: var(--font-family-lato);
   font-size: var(--font-size);
+  line-height: calc(var(--font-size) * var(--line-height-lato));
+  color: var(--color-main);
   background-color: var(--color-main);
 }
 
@@ -68,10 +70,44 @@ body {
     0px 43.89px 40.11px 0px rgba(0, 0, 0, 0.01175), 0px 77px 96px 0px rgba(0, 0, 0, 0.019);
 }
 
+/* Кнопка вверх */
+.nav-btn {
+  position: fixed;
+  bottom: 60px;
+  right: 60px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: var(--color-violet-100);
+  text-align: center;
+  transform: translate(50%, 50%);
+}
+.nav-btn a {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  font-size: calc(var(--font-size) * 0.85);
+  line-height: 50px;
+  color: var(--color-white-100);
+}
+.nav-btn a:hover {
+  line-height: 60px;
+  font-weight: 700;
+  font-size: calc(var(--font-size) * 1);
+}
+.nav-btn:hover {
+  height: 60px;
+  width: 60px;
+  box-shadow: 0px 0px 1.33px 0px rgba(0, 0, 0, 0.1), 0px 0px 3.19px 0px rgba(0, 0, 0, 0.12),
+    0px 0px 6.01px 0px rgba(0, 0, 0, 0.15), 0px 0px 10.22px 0px rgba(0, 0, 0, 0.2), 0px 0px 20.05px 0px rgba(0, 0, 0, 0.22),
+    0px 0px 48px 0px rgba(0, 0, 0, 0.4);
+}
+
 /* ==================== Header ==================== */
 .header {
   position: relative;
   min-height: 900px;
+  overflow: hidden;
   /* height: 100%; */
 }
 .header__top {
@@ -207,6 +243,7 @@ body {
 
 .header__stars {
   height: 800px;
+  filter: blur(40px);
 }
 .header__stars::after,
 .header__stars::before {
@@ -224,7 +261,7 @@ body {
   background-image: url(./../img/header/Star-1.png);
   background-size: contain;
   background-repeat: no-repeat;
-  animation: star1 15s linear infinite alternate;
+  /* animation: star1 15s linear infinite alternate; */
 }
 @keyframes star1 {
   from {
@@ -242,7 +279,7 @@ body {
   background-image: url(./../img/header/Star-2.png);
   background-size: contain;
   background-repeat: no-repeat;
-  animation: star2 15s linear infinite alternate;
+  /* animation: star2 15s linear infinite alternate; */
 }
 @keyframes star2 {
   from {
@@ -336,11 +373,7 @@ body {
   border-radius: 10px;
 }
 .who-is-Kate__content {
-  /* display: flex;
-  flex-direction: column;
-  justify-content: space-between; */
   max-width: 412px;
-  color: var(--color-main);
 }
 .who-is-Kate__title {
   /* margin-bottom: 60px; */
@@ -360,3 +393,103 @@ body {
 }
 .who-is-Kate__button {
 }
+
+/* ==================== Expertise ==================== */
+.expertise {
+  padding: 100px 0 64px;
+}
+.expertise__contant {
+  position: relative;
+  color: var(--color-white-100);
+}
+.expertise__title {
+  margin-bottom: 60px;
+  text-align: center;
+  font-weight: 700;
+  font-size: calc(var(--font-size) * 1.9);
+  line-height: calc(var(--font-size) * 1.9 * var(--line-height-lato));
+}
+.expertise__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 20px;
+}
+.expertise__list {
+  width: 540px;
+  font-size: calc(var(--font-size) * 1.25);
+  line-height: calc(var(--font-size) * 1.25 * var(--line-height-lato));
+}
+.expertise__list-item {
+}
+.expertise__button {
+  position: absolute;
+  bottom: -64px;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+
+/* ==================== Advantages ==================== */
+
+.advantages {
+  padding: 126px 0 100px;
+  background-color: #ccdef5;
+}
+.advantages__content {
+  /* margin: 0 -20px; */
+}
+.advantages__title {
+  margin-bottom: 60px;
+  text-align: center;
+  font-weight: 700;
+  font-size: calc(var(--font-size) * 1.9);
+  line-height: calc(var(--font-size) * 1.9 * var(--line-height-lato));
+}
+.advantages__row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 40px;
+  padding: 0 20px; /*для вертикальных отступов в 20px*/
+}
+.advantages__card {
+  flex: 0 0 33.333%;
+  margin: 0 -20px; /*для вертикальных отступов в 20px*/
+  padding: 41px 34px 34px 34px;
+  min-height: 350px;
+  background-color: #eef1f4;
+}
+.advantages__card:hover {
+  box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.1);
+}
+.advantages__card-image {
+  margin-bottom: 36px;
+  pointer-events: none;
+}
+.advantages__card-image img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+}
+.advantages__card-title {
+  margin-bottom: 15px;
+  font-weight: 700;
+  color: var(--color-violet-100);
+}
+.advantages__card-text {
+  height: auto;
+}
+
+/* --font-family-lato: Lato; */
+/* --font-family-Ubuntu: Ubuntu; */
+/* --container-width: 1310px; */
+/* --container-padding: 15px; */
+/* --font-size: 20px; */
+/* --line-height-lato: 1.2; */
+/* --line-height-ubuntu: 1.15; */
+/* --color-main: #161453; */
+/* --color-secondary: #000000; */
+/* --color-white-100: #ffffff; */
+/* --color-white-50: #ffffff80; */
+/* --color-violet-100: #6f5cfc; */
+/* --color-violet-50: #6f5cfc80; */
