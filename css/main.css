@@ -701,7 +701,7 @@ body {
 .candidates__card-location:before {
   content: "";
   position: absolute;
-  bottom: 0px;
+  bottom: 4px;
   left: 0;
   width: 16px;
   height: 20px;
