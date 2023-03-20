@@ -487,7 +487,8 @@ body {
 
 .candidates {
   padding: 100px 0;
-  height: 1150px;
+  /* height: 1150px; */
+  height: auto;
 }
 
 .candidates__content {
@@ -655,6 +656,63 @@ body {
   font-size: calc(var(--font-size) * 0.7);
   line-height: calc(var(--font-size) * 0.7 * var(--line-height-lato));
   background-color: #ccdef5;
+}
+
+.candidates__cards {
+  margin-bottom: 65px;
+}
+
+.candidates__card {
+  padding: 29px;
+  background-color: #eef1f4;
+}
+.candidates__card:not(:last-child) {
+  margin-bottom: 40px;
+}
+.candidates__card-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 20px;
+}
+.candidates__card-direction {
+  margin-bottom: 15px;
+  color: var(--color-violet-50);
+}
+.candidates__card-work-type {
+  width: 100px;
+  padding: 5px;
+
+  text-align: center;
+  border-radius: 5px;
+  background-color: #ccdef5;
+}
+.candidates__card-title {
+  margin-bottom: 15px;
+  font-weight: 700;
+  font-size: calc(var(--font-size) * 1.25);
+  line-height: calc(var(--font-size) * 1.25 * var(--line-height-lato));
+}
+.candidates__card-location {
+  position: relative;
+  padding-left: 30px;
+  color: var(--color-violet-50);
+}
+.candidates__card-location:before {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 16px;
+  height: 20px;
+  background-image: url(./../img/candidats/label.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.candidates__buttons {
+  display: flex;
+  column-gap: 80px;
 }
 
 /* Дисплей none */
