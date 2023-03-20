@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./css/main.css" />
   </head>
   <body>
-    <header class="header">
+    <header class="header none">
       <div class="container">
         <div class="header__top">
           <nav class="nav">
@@ -50,7 +50,7 @@
       <div class="header__stars"></div>
     </header>
 
-    <section id="who-is-Kate" class="who-is-Kate">
+    <section id="who-is-Kate" class="who-is-Kate none">
       <div class="container">
         <div class="who-is-Kate__row">
           <div class="who-is-Kate__img">
@@ -69,7 +69,7 @@
       </div>
     </section>
 
-    <section id="expertise" class="expertise">
+    <section id="expertise" class="expertise none">
       <div class="container">
         <div class="expertise__contant">          
           <h2 class="expertise__title title">Our areas of expertise are IT and Digital</h2>
@@ -98,7 +98,7 @@
       </div>
     </section>
 
-    <section id="advantages" class="advantages">
+    <section id="advantages" class="advantages none">
       <div class="container">
         <div class="advantages__content">
           <h2 class="advantages__title title">Advantages</h2>
@@ -156,9 +156,89 @@
           <h2 class="candidates__title title">Find out what the most suitable specialist will cost you</h2>
           <div class="candidates__row">
             <div class="candidates__filter">
-              <form class="form__filter"></form>
+              <div class="candidates__filter-locations">
+                <h3 class="candidates__filter-title active">Locations <span></span></h3>
+                <label class="candidates__settings">
+                  <div><input type="checkbox" name="location-checkbox-1" value="ukraine" checked />Ukraine</div>
+                  <div><input type="checkbox" name="location-checkbox-2" value="poland" />Poland</div>
+                  <div><input type="checkbox" name="location-checkbox-3" value="bulgaria" />Bulgaria</div>
+                  <div><input type="checkbox" name="location-checkbox-4" value="usa" />Usa</div>
+                  <div><input type="checkbox" name="location-checkbox-5" value="canada" />Canada</div>
+                  <div><input type="checkbox" name="location-checkbox-6" value="uk" />UK</div>
+                  <div><input type="checkbox" name="location-checkbox-7" value="germany" />Germany</div>
+                  <div><input type="checkbox" name="location-checkbox-8" value="sweden" />Sweden</div>
+                  <div><input type="checkbox" name="location-checkbox-9" value="singapore" />Singapore</div>
+                  <div><input type="checkbox" name="location-checkbox-10" value="spain" />Spain</div>
+                </label>
+              </div>
+              <div class="candidates__filter-directions">
+                <h3 class="candidates__filter-title">Directions <span></span></h3>
+                <label class="candidates__settings none">
+                  <div><input type="checkbox" name="directions-checkbox-1" value="advancedTech" />Advanced Tech</div>
+                  <div><input type="checkbox" name="directions-checkbox-1" value="platforms" />Platforms</div>
+                  <div><input type="checkbox" name="directions-checkbox-1" value="it" />IT</div>
+                </label>
+              </div>
+              <div class="candidates__filter-tech-levels">
+                <h3 class="candidates__filter-title">Tech levels <span></span></h3>
+                <label class="candidates__settings none">
+                  <div><input type="checkbox" name="levels-checkbox-1" value="trainee" />Trainee</div>
+                  <div><input type="checkbox" name="levels-checkbox-2" value="junior" />Junior</div>
+                  <div><input type="checkbox" name="levels-checkbox-3" value="intermidiate" />Intermidiate</div>
+                </label>
+              </div>
+              <div class="candidates__filter-work-type">
+                <h3 class="candidates__filter-title">Work type <span></span></h3>
+                <div class="candidates__settings none">
+                  <div><input type="checkbox" name="type-checkbox-1" value="remote-office" />Remote/office</div>
+                  <div><input type="checkbox" name="type-checkbox-2" value="office" />Office</div>
+                  <div><input type="checkbox" name="type-checkbox-3" value="relocation" />Relocation</div>
+                  <div><input type="checkbox" name="type-checkbox-3" value="freelance" />Freelance</div>
+                </div>
+              </div>
             </div>
-            <div class="candidates__cards"></div>
+
+            <div class="candidates__container">
+              <div class="candidates__container-search search-container">
+                <img src="./img/candidats/search.svg" alt="">
+                <input type="text" name="candidates--input" value="">
+                <div class="search-container__output">75 job opening</div>
+              </div>
+              <div class="candidates__container-result result-candidates">
+                <div class="result-candidates__row">
+                  <div class="result-candidates__box box-result">
+                    <h3 class="box-result__name">Spain</h3>
+                    <button class="box-result__btn">✕</button>
+                  </div>
+                  <div class="result-candidates__box box-result">
+                    <h3 class="box-result__name">Poland</h3>
+                    <button class="box-result__btn">✕</button>
+                  </div>                  
+                </div>
+              </div>
+              <div class="candidates__cards">
+                <div class="candidates__card">
+                  <h4 class="candidates__card-direction">DESIGN</h4>
+                  <h4 class="candidates__card-work-type">OFFICE</h4>
+                  <h3 class="candidates__card-title">Expert UX Designer</h3>
+                  <h4 class="candidates__card-location">Spain</h4>
+                </div>
+                <div class="candidates__card">
+                  <h4 class="candidates__card-direction">PROJECT MANAGEMENT</h4>
+                  <h4 class="candidates__card-work-type">REMOTE</h4>
+                  <h3 class="candidates__card-title">Project Coordinator</h3>
+                  <h4 class="candidates__card-location">Wroclaw</h4>
+                </div>
+                <div class="candidates__card">
+                  <h4 class="candidates__card-direction">SOFTWARE DEVELOPMENT</h4>
+                  <h4 class="candidates__card-work-type">OFFICE</h4>
+                  <h3 class="candidates__card-title">Senior. NET Engineer (+React)</h3>
+                  <h4 class="candidates__card-location">Spain</h4>
+                </div>
+              </div>
+              <button id="btn-1" class="btn btn--color">Candidate’s monthly salary</button>
+              <button id="btn-2" class="btn btn--color">Cost for agency</button>
+            </div>
           </div>
         </div>
       </div>

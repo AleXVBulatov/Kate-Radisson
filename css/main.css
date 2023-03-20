@@ -483,18 +483,183 @@ body {
   height: auto;
 }
 
-/* ==================== Count candidate’s cost ==================== */
+/* ==================== Cost specialist ==================== */
 
 .candidates {
   padding: 100px 0;
-  height: 800px;
+  height: 1150px;
 }
+
 .candidates__content {
   color: var(--color-secondary);
 }
 
 .candidates__title {
   color: var(--color-white-100);
+}
+
+.candidates__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  column-gap: 30px;
+}
+
+.candidates__filter {
+  width: 415px;
+  border-radius: 5px;
+  background-color: #eef1f4;
+}
+
+.candidates__filter-locations {
+  max-height: 570px;
+}
+
+.candidates__filter-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 44px;
+  font-weight: 700;
+  font-size: calc(var(--font-size) * 1.25);
+  line-height: calc(var(--font-size) * 1.25 * var(--line-height-lato));
+  border-radius: 5px;
+  background-color: #ccdef5;
+}
+.candidates__filter-title span {
+  position: relative;
+  display: block;
+  width: 25px;
+  height: 30px;
+  /* background-color: yellow; */
+}
+.candidates__filter-title span:hover {
+  cursor: pointer;
+}
+.candidates__filter-title span::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 100%;
+  height: 4px;
+  transform: translateY(-50%);
+  background-color: black;
+}
+.candidates__filter-title span::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: center;
+  width: 100%;
+  height: 4px;
+  transform: translateY(-50%) rotate(90deg);
+  background-color: black;
+}
+.candidates__filter-title.active span {
+  width: 30px;
+  right: -2.5px;
+}
+.candidates__filter-title.active span::after {
+  content: "";
+  width: 0px;
+  height: 0px;
+}
+
+.candidates__settings {
+  display: inline-block;
+  width: 100%;
+  height: 510px;
+  overflow-y: scroll;
+  padding: 15px 44px;
+  background-color: #eef1f4;
+}
+.candidates__settings > * {
+  padding: 12px 15px;
+}
+.candidates__settings input {
+  margin-right: 30px;
+  width: 15px;
+  height: 15px;
+}
+.candidates__filter-directions {
+  max-height: 570px;
+}
+.candidates__filter-tech-levels {
+  max-height: 570px;
+}
+.candidates__filter-work-type {
+  max-height: 570px;
+}
+.candidates__container {
+  width: 740px;
+}
+.candidates__container-search {
+  margin-bottom: 20px;
+}
+.search-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 10px;
+  width: 100%;
+  height: 60px;
+  padding: 18px 30px;
+  border-radius: 5px;
+  background-color: #eef1f4;
+}
+.search-container img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+.search-container input {
+  flex: 1 1 auto;
+  height: 100%;
+  width: 100%;
+  font-size: calc(var(--font-size) * 1);
+  line-height: calc(var(--font-size) * 1 * var(--line-height-lato));
+  background-color: #eef1f4;
+}
+.search-container__output {
+  font-weight: 500;
+  flex: 1 0 auto;
+  min-width: auto;
+}
+.candidates__container-result {
+  margin-bottom: 30px;
+}
+.result-candidates {
+}
+.result-candidates__row {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+  row-gap: 10px;
+  flex-wrap: wrap;
+}
+.result-candidates__box {
+}
+.box-result {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #ccdef5;
+}
+.box-result__name {
+}
+.box-result__btn {
+  font-size: calc(var(--font-size) * 0.7);
+  line-height: calc(var(--font-size) * 0.7 * var(--line-height-lato));
+  background-color: #ccdef5;
+}
+
+/* Дисплей none */
+.none {
+  display: none;
 }
 
 /* --font-family-lato: Lato; */
