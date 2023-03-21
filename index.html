@@ -22,7 +22,7 @@
               <li><a href="#advantages">Advantages</a></li>
               <li><a href="#candidates">Count candidate’s cost</a></li>
               <li><a href="#application-form">Find a candidate</a></li>
-              <li><a href="#!">Find a company</a></li>
+              <li><a href="#rewies">Find a company</a></li>
               <li><a href="#!">Contacts</a></li>
             </ul>
             <button type="button" class="nav__btn-toggle">
@@ -92,7 +92,7 @@
             </ul>
           </div>
           <div class="expertise__button">
-            <button class="btn btn--color">More information</button>
+            <button class="expertise__btn btn btn--color">More information</button>
           </div>  
         </div>
       </div>
@@ -243,8 +243,8 @@
                 </div>
               </div>
               <div class="candidates__buttons">
-                <button id="btn-1" class="btn btn--color">Candidate’s monthly salary</button>
-                <button id="btn-2" class="btn btn--color">Cost for agency</button>
+                <button id="btn-1" class="candidates__btn btn btn--color">Candidate’s monthly salary</button>
+                <button id="btn-2" class="candidates__btn btn btn--color">Cost for agency</button>
               </div>
             </div>
           </div>
@@ -261,12 +261,12 @@
             with you soon.
           </h2>
 
-          <form class="form-container__form-aplication" action="#" method="post" enctype="multipart/form-data">
+          <form class="form-container__form-aplication" action="#" method="post" enctype="multipart/form-data" autocomplete="off">
             <div class="form-aplication__group">
               <input class="form-aplication__input" type="text" name="username" value="" placeholder=" ">
               <label class="form-aplication__label">Name</label>
             </div>
-            <div class="form-aplication__group form-aplication__group_higher">
+            <div class="form-aplication__group">
               <input class="form-aplication__input" type="еуд" name="telephone" value="" placeholder=" ">
               <label class="form-aplication__label">Telephone</label>
             </div>
@@ -279,7 +279,7 @@
               <label class="form-aplication__label">Vacancy</label>
             </div>
             <div class="form-aplication__group">
-              <input class="form-aplication__input" type="number" name="budget" value="" placeholder=" ">              
+              <input class="form-aplication__input" type="tel" name="budget" value="" placeholder=" ">              
               <label class="form-aplication__label">Preferred vacancy budget</label>
             </div>
             <button type="submit" class="form-aplication__btn btn btn--color">Get the result</button>
@@ -289,6 +289,61 @@
       </div>
     </section>
     
+    <section id="rewies" class="rewies">
+      <div class="container">
+        <h2 class="rewies__title title">What our clients say</h2>
+        <div class="rewies__row">          
+          <div class="rewies__card">
+            <div class="rewies__header">
+              <div class="rewies__card-image">
+                <img src="./img/clients/Ellipse 1.png" alt="icon">
+              </div>
+              <div class="rewies__body">
+                <h3 class="rewies__card-title">Joseph Doha</h3>
+                <h4 class="rewies__card-subtitle">CEO “MD Аssociation”</h4>
+              </div>
+            </div>
+            <div class="rewies__text">
+              <p>We decided on Kate Radisson and were extremely happy with both their services and the flexibility they gave. We were able to pivot and use their team for additional services, as needed; which is something lacking from other providers. Highly recommend their services!</p>
+            </div>
+          </div>
+          <div class="rewies__card">
+            <div class="rewies__header">
+              <div class="rewies__card-image">
+                <img src="./img/clients/Ellipse 2.png" alt="icon">
+              </div>
+              <div class="rewies__body">
+                <h3 class="rewies__card-title">Christopher Gogoshar </h3>
+                <h4 class="rewies__card-subtitle">VP “ITUP”</h4>
+              </div>
+            </div>
+            <div class="rewies__text">
+              <p> I know them to be professionals and I can always count on them to deliver results with their well trained staff. They provide guidance and communication during every step of the project. Their commitment to the success of my projects make them a true partner.</p>
+            </div>
+          </div>
+          <div class="rewies__card">
+            <div class="rewies__header">
+              <div class="rewies__card-image">
+                <img src="./img/clients/Ellipse 3.png" alt="icon">
+              </div>
+              <div class="rewies__body">
+                <h3 class="rewies__card-title">Dora Maneshkin</h3>
+                <h4 class="rewies__card-subtitle">AGENCY “Privat “</h4>
+              </div>
+            </div>
+            <div class="rewies__text">
+              <p>I am very pleased with the result. My request was completed in the shortest possible time and with the highest quality. This speaks of the professionalism and excellent experience of the agency.</p>
+            </div>
+          </div>
+        </div>
+        <div class="rewies__carousel">
+          <div class="rewies__circle-left"></div>
+          <div class="rewies__circle-center"></div>
+          <div class="rewies__circle-right"></div>
+        </div>
+      </div>
+    </section> 
+
     <button class="nav-btn"><a href="#">Up</a></button>
 
     <script src="./js/main.js"></script>

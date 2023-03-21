@@ -52,7 +52,7 @@ body {
 }
 
 .btn {
-  padding: 15px 36px;
+  padding: 14px 36px;
   border: 1px solid var(--color-violet-100);
   border-radius: 10px;
   font-size: calc(var(--font-size) * 0.85);
@@ -374,7 +374,7 @@ body {
   justify-content: space-between;
   align-items: flex-start;
   column-gap: 20px;
-  padding: 0 110px;
+  padding: 0 108px;
   min-height: 550px; /*ВОЗМОЖНО НУЖНО БУДЕТ УДАЛИТЬ*/
 }
 .who-is-Kate__img {
@@ -388,8 +388,6 @@ body {
   max-width: 412px;
 }
 .who-is-Kate__title {
-  /* margin-bottom: 60px; */
-  margin-bottom: 50px;
   text-align: left;
 }
 .who-is-Kate__subtitle {
@@ -433,6 +431,9 @@ body {
   left: 50%;
   transform: translate(-50%, 50%);
 }
+.expertise__btn {
+  padding: 15px 32px;
+}
 
 /* ==================== Advantages ==================== */
 
@@ -459,9 +460,9 @@ body {
   border-radius: 5px;
   background-color: #eef1f4;
 }
-.advantages__card:hover {
+/* .advantages__card:hover {
   box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.1);
-}
+} */
 .advantages__card-image {
   margin-bottom: 36px;
   pointer-events: none;
@@ -712,6 +713,10 @@ body {
   display: flex;
   column-gap: 80px;
 }
+.candidates__btn {
+  padding: 14px 5px;
+  width: 244px;
+}
 
 /* ==================== Application-form ==================== */
 .application-form {
@@ -739,13 +744,9 @@ body {
 
 .form-aplication__group {
   position: relative;
-  margin-bottom: 22px;
+  margin-bottom: 21px;
   width: 100%;
   text-align: left;
-}
-
-.form-aplication__group_higher {
-  margin-bottom: 32px;
 }
 
 .form-aplication__input {
@@ -783,9 +784,99 @@ body {
 }
 
 .form-aplication__btn {
-  margin-top: 18px;
+  margin-top: 19px;
+  padding: 16px 46px;
 }
 
+/* ==================== Rewies ==================== */
+.rewies {
+  padding: 100px 0;
+}
+
+.rewies__title {
+  color: var(--color-white-100);
+}
+
+.rewies__row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  margin-bottom: 40px;
+  min-height: 314px;
+}
+
+.rewies__card {
+  height: auto;
+  flex: 0 0 33.333%;
+  margin: 0 -20px;
+  padding: 38px 33px 33px 33px;
+  border-radius: 5px;
+  background-color: #eef1f4;
+}
+
+.rewies__header {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+  margin-bottom: 25px;
+  pointer-events: none;
+}
+
+.rewies__card-image {
+  width: 88px;
+  height: 88px;
+  object-fit: contain;
+}
+
+.rewies__body {
+}
+
+.rewies__card-title {
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.rewies__card-subtitle {
+  font-size: calc(var(--font-size) * 0.85);
+  line-height: calc(var(--font-size) * 0.85 * var(--line-height-lato));
+  color: var(--color-violet-50);
+}
+
+.rewies__text {
+  font-size: calc(var(--font-size) * 0.85);
+  line-height: calc(var(--font-size) * 0.85 * var(--line-height-lato));
+}
+
+.rewies__carousel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  width: 63px;
+  height: 15px;
+}
+
+.rewies__circle-left {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background-color: #d9d9d9;
+  cursor: pointer;
+}
+.rewies__circle-center {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #6e5cfc;
+  cursor: pointer;
+}
+.rewies__circle-right {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background-color: #d9d9d9;
+  cursor: pointer;
+}
 /* Дисплей none */
 .none {
   display: none;
