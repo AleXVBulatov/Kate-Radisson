@@ -59,22 +59,19 @@ body {
   line-height: calc(var(--font-size) * 0.85 * var(--line-height-lato));
   background-color: transparent;
   color: var(--color-white-100);
+  /* transition: 0.3s; */
 }
 .btn:hover {
   position: relative;
   top: 5px;
-  padding: 15px 36px;
+  /* border: 1px solid var(--color-violet-50);
+  background-color: var(--color-violet-50); */
   box-shadow: 0px 5.31px 2.66px 0px rgba(0, 0, 0, 0.0445), 0px 11.29px 6.38px 0px rgba(0, 0, 0, 0.0639),
     0px 18.53px 12.02px 0px rgba(0, 0, 0, 0.076), 0px 28.27px 21.44px 0px rgba(0, 0, 0, 0.0902),
     0px 43.89px 40.11px 0px rgba(0, 0, 0, 0.01175), 0px 77px 96px 0px rgba(0, 0, 0, 0.019);
 }
 .btn--color {
   background-color: var(--color-violet-100);
-}
-.btn--color:hover {
-  box-shadow: 0px 5.31px 2.66px 0px rgba(0, 0, 0, 0.0445), 0px 11.29px 6.38px 0px rgba(0, 0, 0, 0.0639),
-    0px 18.53px 12.02px 0px rgba(0, 0, 0, 0.076), 0px 28.27px 21.44px 0px rgba(0, 0, 0, 0.0902),
-    0px 43.89px 40.11px 0px rgba(0, 0, 0, 0.01175), 0px 77px 96px 0px rgba(0, 0, 0, 0.019);
 }
 
 /* Кнопка вверх */
@@ -765,10 +762,10 @@ body {
 }
 .form-aplication__input:focus ~ .form-aplication__label,
 .form-aplication__input:not(:placeholder-shown) ~ .form-aplication__label {
-  bottom: 34px;
-  color: var(--color-white-100);
-  font-size: calc(var(--font-size) * 0.75);
-  line-height: calc(var(--font-size) * 0.75 * var(--line-height-lato));
+  bottom: 30px;
+  color: var(--color-violet-50);
+  font-size: calc(var(--font-size) * 0.7);
+  line-height: calc(var(--font-size) * 0.7 * var(--line-height-lato));
 }
 
 .form-aplication__label {
