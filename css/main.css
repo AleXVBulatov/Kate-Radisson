@@ -54,7 +54,7 @@ body {
 }
 
 .colored-bold-text {
-  font-weight: 700;
+  font-weight: 800;
   color: var(--color-violet-100);
 }
 
@@ -142,7 +142,7 @@ body {
   font-family: var(--font-family-Ubuntu);
   font-size: calc(var(--font-size) * 1.1);
   line-height: calc(var(--font-size) * 1.1 * var(--line-height-ubuntu));
-  font-weight: 800;
+  font-weight: 400;
   color: var(--color-white-100);
 }
 .nav__logo:hover {
@@ -946,6 +946,44 @@ body {
   object-fit: contain;
 }
 
+/* ==================== Footer ==================== */
+.footer {
+  padding: 65px 0;
+  overflow: hidden;
+}
+.footer__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 15px;
+  line-height: 38px;
+}
+.footer__logo {
+  flex: 0 0 auto;
+}
+.colored-bold-text {
+}
+.footer__contacts-list {
+  display: flex;
+  column-gap: 22px;
+  justify-content: space-between;
+  align-items: center;
+  flex: 0 0 auto;
+}
+.footer__contacts-item {
+}
+.footer__buttons {
+  flex: 0 0 auto;
+}
+.footer__btn {
+}
+.footer__privacy-policy {
+  flex: 0 0 auto;
+  font-weight: 500;
+  color: var(--color-white-100);
+}
+
+/* =============================== */
 /* Дисплей none */
 .none {
   display: none;
