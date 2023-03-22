@@ -948,6 +948,18 @@ body {
 }
 
 .contacts__map {
+  position: relative;
+}
+.contacts__map:after {
+  content: "";
+  position: absolute;
+  bottom: 141px;
+  left: 163px;
+  width: 28px;
+  height: 37px;
+  background-image: url(./../img/contacts/Location.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 .contacts__map img {
   height: 100%;
