@@ -222,6 +222,12 @@ body {
   column-gap: 20px;
   justify-content: flex-end;
 }
+.header__btn-1 {
+  padding: 14px 55px;
+}
+.header__btn-2 {
+}
+
 .header__img {
   pointer-events: none;
   position: relative;
@@ -408,6 +414,8 @@ body {
   line-height: calc(var(--font-size) * 1 * var(--line-height-lato));
 }
 .who-is-Kate__button {
+}
+.who-is-Kate__btn {
 }
 
 /* ==================== Expertise ==================== */
@@ -724,11 +732,12 @@ body {
   display: flex;
   column-gap: 80px;
 }
-.candidates__btn {
-  padding: 14px 5px;
-  width: 244px;
+.candidates__btn-1 {
+  padding: 14px 21px;
 }
-
+.candidates__btn-2 {
+  padding: 14px 63px;
+}
 /* ==================== Application-form ==================== */
 .application-form {
   padding: 100px 0;
@@ -973,10 +982,18 @@ body {
 .footer__contacts-item {
 }
 .footer__buttons {
+  display: flex;
+  column-gap: 20px;
   flex: 0 0 auto;
 }
-.footer__btn {
+.footer__btn-1 {
+  flex: 0 0 auto;
+  padding: 14px 39px;
 }
+.footer__btn-2 {
+  flex: 0 0 auto;
+}
+
 .footer__privacy-policy {
   flex: 0 0 auto;
   font-weight: 500;
