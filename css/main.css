@@ -24,6 +24,7 @@ body {
   font-family: var(--font-family-lato);
   font-size: var(--font-size);
   line-height: calc(var(--font-size) * var(--line-height-lato));
+  font-weight: 400;
   color: var(--color-main);
   background-color: var(--color-main);
 }
@@ -32,6 +33,12 @@ body {
   max-width: var(--container-width);
   padding: 0 var(--container-padding);
   margin: 0 auto;
+}
+.container_smaller {
+  max-width: calc(var(--container-width) - 108px * 2);
+}
+.container_smallest {
+  max-width: calc(var(--container-width) - 217px * 2);
 }
 
 .orange {
@@ -55,6 +62,7 @@ body {
   padding: 14px 36px;
   border: 1px solid var(--color-violet-100);
   border-radius: 10px;
+  font-weight: 400;
   font-size: calc(var(--font-size) * 0.85);
   line-height: calc(var(--font-size) * 0.85 * var(--line-height-lato));
   background-color: transparent;
@@ -134,6 +142,7 @@ body {
   font-family: var(--font-family-Ubuntu);
   font-size: calc(var(--font-size) * 1.1);
   line-height: calc(var(--font-size) * 1.1 * var(--line-height-ubuntu));
+  font-weight: 800;
   color: var(--color-white-100);
 }
 .nav__logo:hover {
@@ -374,7 +383,6 @@ body {
   justify-content: space-between;
   align-items: flex-start;
   column-gap: 20px;
-  padding: 0 108px;
   min-height: 550px; /*ВОЗМОЖНО НУЖНО БУДЕТ УДАЛИТЬ*/
 }
 .who-is-Kate__img {
@@ -475,10 +483,13 @@ body {
 .advantages__card-title {
   margin-bottom: 15px;
   font-weight: 700;
+  font-size: calc(var(--font-size) * 1.25);
+  line-height: calc(var(--font-size) * 1.25 * var(--line-height-lato));
   color: var(--color-violet-100);
 }
 .advantages__card-text {
   height: auto;
+  font-weight: 500;
 }
 
 /* ==================== Cost specialist ==================== */
@@ -647,6 +658,7 @@ body {
   column-gap: 10px;
   padding: 5px;
   border-radius: 5px;
+  font-weight: 400;
   background-color: #ccdef5;
 }
 .box-result__name {
@@ -681,7 +693,6 @@ body {
 .candidates__card-work-type {
   width: 100px;
   padding: 5px;
-
   text-align: center;
   border-radius: 5px;
   background-color: #ccdef5;
@@ -725,7 +736,6 @@ body {
 }
 
 .application-form__form-container {
-  max-width: 846px;
   margin: 0 auto;
 }
 
@@ -877,6 +887,83 @@ body {
   background-color: #d9d9d9;
   cursor: pointer;
 }
+
+/* ==================== Contacts ==================== */
+.contacts {
+  padding: 100px 0;
+  background-color: #ccdef5;
+}
+.contacts__title {
+}
+.contacts__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.contacts__info {
+  /* flex: 0 0 auto; */
+  font-weight: 500;
+  max-width: 434px;
+  /* overflow: hidden; */
+}
+.contacts__info-text {
+  margin-bottom: 42px;
+  font-size: calc(var(--font-size) * 1.25);
+  line-height: calc(var(--font-size) * 1.25 * var(--line-height-lato));
+}
+
+.contacts__info-adress,
+.contacts__info-email,
+.contacts__info-tel {
+  position: relative;
+  padding-left: 48px;
+  font-weight: 500;
+}
+.contacts__info-adress {
+  margin-bottom: 20px;
+}
+.contacts__info-email {
+  margin-bottom: 22px;
+}
+.contacts__info-tel {
+}
+.contacts__info-adress:before,
+.contacts__info-email:before,
+.contacts__info-tel:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25px;
+  height: 25px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  object-fit: auto;
+}
+.contacts__info-adress:before {
+  left: 3px;
+  background-image: url(./../img/contacts/Vector_1.svg);
+}
+.contacts__info-email:before {
+  top: 3px;
+  background-image: url(./../img/contacts/Vector_2.svg);
+}
+.contacts__info-tel:before {
+  top: 1px;
+  width: 24px;
+  height: 24px;
+  background-image: url(./../img/contacts/Vector_3.svg);
+}
+
+.contacts__map {
+  /* flex: 0 1 auto; */
+  width: auto;
+}
+.contacts__map img {
+  height: 291px;
+  /* object-fit: contain; */
+}
+
 /* Дисплей none */
 .none {
   display: none;
