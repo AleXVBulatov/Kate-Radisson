@@ -955,6 +955,7 @@ body {
   position: absolute;
   bottom: 141px;
   left: 163px;
+  z-index: 10;
   width: 28px;
   height: 37px;
   background-image: url(./../img/contacts/Location.svg);
