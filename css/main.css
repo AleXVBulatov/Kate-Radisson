@@ -1163,7 +1163,8 @@ body {
     line-height: calc(var(--font-size) * 0.9 * var(--line-height-lato));
   }
   .header__title {
-    padding-right: 14px;
+    text-align-last: right;
+    text-align: justify;
     margin-bottom: 86px;
     font-size: calc(var(--font-size) * 1);
     line-height: calc(var(--font-size) * 1 * var(--line-height-ubuntu));
