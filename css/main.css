@@ -212,7 +212,7 @@ body {
 }
 .header__title {
   margin-bottom: 40px;
-  text-align-last: right;
+  text-align: end;
   font-weight: 700;
   font-family: var(--font-family-Ubuntu);
   font-size: calc(var(--font-size) * 1.9);
@@ -1263,6 +1263,7 @@ body {
 
   .header__content {
     padding: 50px 0 0 0;
+    width: auto;
   }
   .header__badge {
     margin-bottom: 10px;
