@@ -120,11 +120,11 @@ body {
 /* ==================== Header ==================== */
 .header {
   position: relative;
-  /* min-height: 900px; */
   min-height: 100%;
   overflow: hidden;
 }
 .header__top {
+  min-height: autopx;
   padding: 31px 0;
 }
 .nav {
@@ -174,7 +174,7 @@ body {
 .header__row {
   position: relative;
   display: flex;
-  column-gap: 66px;
+  column-gap: 54px;
   align-items: center;
 }
 .header__row::after {
@@ -202,7 +202,7 @@ body {
   position: relative;
   z-index: 10;
   padding: 213px 0 360px;
-  width: 625px;
+  width: auto;
   min-height: 800px;
 }
 .header__badge {
@@ -212,7 +212,7 @@ body {
 }
 .header__title {
   margin-bottom: 40px;
-  text-align: right;
+  text-align-last: right;
   font-weight: 700;
   font-family: var(--font-family-Ubuntu);
   font-size: calc(var(--font-size) * 1.9);
@@ -263,7 +263,6 @@ body {
   top: 100px;
   left: 0px;
   width: calc((100% - var(--container-width)) / 2 + 940px);
-  min-height: 800px;
 }
 .header__blur {
   z-index: 5;
@@ -1035,6 +1034,9 @@ body {
   :root {
     --font-size: 18px;
   }
+  .header__top {
+    padding: 33px 0;
+  }
   .nav__logo img {
     width: 34px;
     height: 34px;
@@ -1045,9 +1047,12 @@ body {
   .header__row {
     column-gap: 30px;
   }
+  .header__row::after {
+    width: calc(810px / 1.2);
+    height: calc(810px / 1.2);
+  }
   .header__content {
     padding: 200px 0 300px;
-    width: 560px;
     min-height: auto;
   }
   .header__badge {
@@ -1056,10 +1061,6 @@ body {
   .header__img img {
     width: calc(536px / 1.2);
     height: calc(536px / 1.2);
-  }
-  .header__row::after {
-    width: calc(810px / 1.2);
-    height: calc(810px / 1.2);
   }
   .header__stars:before {
     left: -50px;
@@ -1136,13 +1137,6 @@ body {
     display: block;
     z-index: 101;
   }
-  .header__row {
-    column-gap: 30px;
-  }
-  .header__content {
-    padding: 200px 0 300px;
-    width: 500px;
-  }
   .header__blur,
   .header__stars {
     width: calc((100% - var(--container-width)) / 2 + 900px);
@@ -1177,17 +1171,14 @@ body {
     display: none;
   }
   .header__row {
-    padding: 0;
     flex-direction: column-reverse;
-    row-gap: 30px;
-  }
-  .header__content {
-    padding: 50px 0;
-    min-height: auto;
   }
   .header__row::after {
     top: 0;
     right: -200px;
+  }
+  .header__content {
+    padding: 50px 0;
   }
 }
 
@@ -1226,9 +1217,6 @@ body {
     width: 715px;
     height: 721px;
   }
-  .header__content {
-    width: 375px;
-  }
   .header__btn-1 {
     display: none;
   }
@@ -1262,8 +1250,6 @@ body {
   }
   .header__row {
     padding: 50px 0;
-    flex-direction: column-reverse;
-    row-gap: 0;
   }
   .header__row::after {
     content: "";
@@ -1276,9 +1262,7 @@ body {
   }
 
   .header__content {
-    max-width: 330px;
     padding: 50px 0 0 0;
-    /* margin: 0 auto; */
   }
   .header__badge {
     margin-bottom: 10px;
@@ -1286,7 +1270,6 @@ body {
     line-height: calc(16px * var(--line-height-lato));
   }
   .header__title {
-    text-align: right;
     margin-bottom: 80px;
     font-size: 20px;
     line-height: calc(20px * var(--line-height-ubuntu));
@@ -1311,7 +1294,7 @@ body {
   }
 }
 
-@media (max-width: 376px) {
+@media (max-width: 378px) {
   .nav__logo img {
     width: 29px;
     height: 29px;
@@ -1337,10 +1320,9 @@ body {
     line-height: calc(16px * var(--line-height-lato));
   }
   .header__title {
-    text-align: right;
     margin-bottom: 70px;
-    font-size: 20px;
-    line-height: calc(20px * var(--line-height-ubuntu));
+    font-size: 18px;
+    line-height: calc(18px * var(--line-height-ubuntu));
   }
   .header__btn-1 {
     display: none;
@@ -1362,7 +1344,7 @@ body {
   }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 345px) {
   .header__img img {
     width: 250px;
     height: 250px;
@@ -1376,11 +1358,14 @@ body {
   }
   .header__content {
     padding: 30px 0;
-    width: 100%;
+  }
+  .header__badge {
+    font-size: 14px;
+    line-height: calc(14px * var(--line-height-lato));
   }
   .header__title {
     margin-bottom: 50px;
-    font-size: 18px;
+    font-size: 16px;
     line-height: calc(18px * var(--line-height-ubuntu));
   }
 
