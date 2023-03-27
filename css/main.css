@@ -227,7 +227,8 @@ body {
 .header__btn-1 {
   padding: 14px 55px;
 }
-.header__btn-2 {
+.header__btn-2 a {
+  color: var(--color-white-100);
 }
 
 .header__img {
@@ -262,7 +263,7 @@ body {
   bottom: 0;
   top: 100px;
   left: 0px;
-  width: calc((100% - var(--container-width)) / 2 + 940px);
+  width: calc((100% - var(--container-width)) / 2 + 980px);
 }
 .header__blur {
   z-index: 5;
@@ -398,25 +399,24 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  column-gap: 20px;
-  min-height: 550px; /*ВОЗМОЖНО НУЖНО БУДЕТ УДАЛИТЬ*/
+  column-gap: 40px;
 }
 .who-is-Kate__img {
+  /* flex: 1 1 50%; */
 }
 .who-is-Kate__img img {
-  height: 550px; /*СДЕЛАЛ НЕМНОГО ВЫШЕ ЧЕМ в проекте (на 8px)*/
-  width: contain;
+  flex: 1 1 50%;
+  width: 100%;
+  max-height: 542px;
+  object-fit: contain;
   border-radius: 10px;
 }
 .who-is-Kate__content {
+  flex: 1 1 50%;
   max-width: 412px;
 }
 .who-is-Kate__title {
   text-align: left;
-}
-.who-is-Kate__subtitle {
-  font-weight: 500;
-  margin-bottom: calc(var(--font-size) * 1 * var(--line-height-lato));
 }
 .who-is-Kate__text {
   margin-bottom: 40px;
@@ -1045,6 +1045,7 @@ body {
     line-height: 34px;
   }
   .header__row {
+    justify-content: space-between;
     column-gap: 30px;
   }
   .header__row::after {
@@ -1066,7 +1067,13 @@ body {
     left: -50px;
     bottom: 420px;
   }
+  .who-is-Kate {
+    padding: 80px 0;
+  }
+  .who-is-Kate__row {
+  }
 }
+
 @media (max-width: 1110px) {
   :root {
     --font-size: 16px;
@@ -1139,7 +1146,7 @@ body {
   }
   .header__blur,
   .header__stars {
-    width: calc((100% - var(--container-width)) / 2 + 900px);
+    width: calc((100% - var(--container-width)) / 2 + 960px);
   }
 }
 
@@ -1182,10 +1189,16 @@ body {
   }
 }
 
-@media (max-width: 767px) {
-  :root {
-    --font-size: 12px;
+@media (max-width: 920px) {
+  .who-is-Kate__img {
+    flex: 1 1 50%;
   }
+  .who-is-Kate__img img {
+    flex: none;
+  }
+}
+
+@media (max-width: 767px) {
   .nav__logo a {
     line-height: 29px;
     font-size: 18px;
@@ -1223,6 +1236,30 @@ body {
   .header__btn-2 {
     width: 100%;
     font-size: 12px;
+  }
+  .title {
+    margin-bottom: 40px;
+  }
+  .who-is-Kate__row {
+    column-gap: 25px;
+  }
+  .who-is-Kate__text {
+    overflow-y: scroll;
+    height: 290px;
+  }
+}
+
+@media (max-width: 550px) {
+  :root {
+    --font-size: 12px;
+  }
+  .title {
+    margin-bottom: 30px;
+  }
+  .who-is-Kate__text {
+    overflow-y: scroll;
+    height: 160px;
+    margin-bottom: 30px;
   }
 }
 
@@ -1292,6 +1329,33 @@ body {
   }
   .nav__list-active:after {
     min-width: 50%;
+  }
+
+  .who-is-Kate {
+    padding: 20px 0 50px 0;
+  }
+  .who-is-Kate__row {
+    flex-direction: column;
+    row-gap: 30px;
+  }
+  .title {
+    margin-bottom: 30px;
+  }
+  .who-is-Kate__title {
+    text-align: center;
+    font-size: 20px;
+    line-height: calc(20px * var(--line-height-lato));
+  }
+  .who-is-Kate__text {
+    margin-bottom: 40px;
+    height: 157px;
+    font-size: 16px;
+    line-height: calc(16px * var(--line-height-lato));
+  }
+  .who-is-Kate__btn {
+    width: 100%;
+    font-size: 14px;
+    line-height: calc(14px * var(--line-height-lato));
   }
 }
 
