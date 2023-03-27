@@ -59,7 +59,9 @@ body {
 }
 
 .btn {
-  padding: 14px 36px;
+  min-width: 198px;
+  padding: 14px 0px;
+  /* padding: 14px 36px; */
   border: 1px solid var(--color-violet-100);
   border-radius: 10px;
   font-weight: 400;
@@ -423,7 +425,8 @@ body {
   font-weight: 500;
   line-height: calc(var(--font-size) * 1 * var(--line-height-lato));
 }
-.who-is-Kate__button {
+.who-is-Kate__button a {
+  color: var(--color-white-100);
 }
 .who-is-Kate__btn {
 }
@@ -441,15 +444,16 @@ body {
 .expertise__row {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  column-gap: 20px;
+  align-items: flex-start;
+  column-gap: 40px;
 }
 .expertise__list {
   width: 540px;
   font-size: calc(var(--font-size) * 1.25);
-  line-height: calc(var(--font-size) * 1.25 * var(--line-height-lato));
+  line-height: calc(var(--font-size) * 1.55 * var(--line-height-lato));
 }
 .expertise__list-item {
+  margin-bottom: 15px;
 }
 .expertise__button {
   position: absolute;
@@ -458,7 +462,7 @@ body {
   transform: translate(-50%, 50%);
 }
 .expertise__btn {
-  padding: 15px 32px;
+  padding: 14px 0px;
 }
 
 /* ==================== Advantages ==================== */
@@ -743,10 +747,12 @@ body {
   column-gap: 80px;
 }
 .candidates__btn-1 {
-  padding: 14px 21px;
+  min-width: 244px;
+  padding: 14px 10px;
 }
 .candidates__btn-2 {
-  padding: 14px 63px;
+  min-width: 244px;
+  padding: 14px 10px;
 }
 /* ==================== Application-form ==================== */
 .application-form {
@@ -1067,10 +1073,18 @@ body {
     left: -50px;
     bottom: 420px;
   }
+
   .who-is-Kate {
     padding: 80px 0;
   }
   .who-is-Kate__row {
+  }
+
+  .expertise {
+    padding: 80px 0;
+  }
+  .expertise__button {
+    bottom: -80px;
   }
 }
 
@@ -1240,12 +1254,29 @@ body {
   .title {
     margin-bottom: 40px;
   }
+
+  .who-is-Kate {
+    padding: 60px 0;
+  }
   .who-is-Kate__row {
     column-gap: 25px;
   }
   .who-is-Kate__text {
     overflow-y: scroll;
     height: 290px;
+  }
+
+  .expertise {
+    padding: 60px 0;
+  }
+  .expertise__button {
+    bottom: -75px;
+  }
+  .expertise__row {
+    display: block;
+  }
+  .expertise__list {
+    width: 100%;
   }
 }
 
@@ -1256,10 +1287,14 @@ body {
   .title {
     margin-bottom: 30px;
   }
+
   .who-is-Kate__text {
     overflow-y: scroll;
     height: 160px;
     margin-bottom: 30px;
+  }
+  .expertise__list-item {
+    margin-bottom: 10px;
   }
 }
 
@@ -1340,20 +1375,31 @@ body {
   }
   .title {
     margin-bottom: 30px;
-  }
-  .who-is-Kate__title {
-    text-align: center;
     font-size: 20px;
     line-height: calc(20px * var(--line-height-lato));
   }
+
+  .who-is-Kate__title {
+    text-align: center;
+  }
   .who-is-Kate__text {
     margin-bottom: 40px;
-    height: 157px;
+    height: 155px;
     font-size: 16px;
     line-height: calc(16px * var(--line-height-lato));
   }
   .who-is-Kate__btn {
     width: 100%;
+    font-size: 14px;
+    line-height: calc(14px * var(--line-height-lato));
+  }
+
+  .expertise__list {
+    font-size: 16px;
+    line-height: calc(16px * var(--line-height-lato));
+  }
+  .expertise__btn {
+    /* width: 100%; */
     font-size: 14px;
     line-height: calc(14px * var(--line-height-lato));
   }
