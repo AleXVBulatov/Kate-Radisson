@@ -60,13 +60,12 @@ body {
 
 .btn {
   min-width: 198px;
-  padding: 14px 0px;
-  /* padding: 14px 36px; */
+  height: 50px;
   border: 1px solid var(--color-violet-100);
   border-radius: 10px;
   font-weight: 400;
   font-size: calc(var(--font-size) * 0.85);
-  line-height: calc(var(--font-size) * 0.85 * var(--line-height-lato));
+  line-height: 50px;
   background-color: transparent;
   color: var(--color-white-100);
   /* transition: 0.3s; */
@@ -122,7 +121,7 @@ body {
 /* ==================== Header ==================== */
 .header {
   position: relative;
-  min-height: 100%;
+  min-height: 100vh;
   overflow: hidden;
 }
 .header__top {
@@ -227,7 +226,6 @@ body {
   justify-content: flex-end;
 }
 .header__btn-1 {
-  padding: 14px 55px;
 }
 .header__btn-2 a {
   color: var(--color-white-100);
@@ -462,13 +460,12 @@ body {
   transform: translate(-50%, 50%);
 }
 .expertise__btn {
-  padding: 14px 0px;
 }
 
 /* ==================== Advantages ==================== */
 
 .advantages {
-  padding: 126px 0 100px;
+  padding: 125px 0 100px;
   background-color: #ccdef5;
 }
 .advantages__content {
@@ -483,10 +480,12 @@ body {
   padding: 0 20px; /*для вертикальных отступов в 20px*/
 }
 .advantages__card {
+  /* min-width: 225px; */
   flex: 0 0 33.333%;
   margin: 0 -20px; /*для вертикальных отступов в 20px*/
-  padding: 41px 34px 34px 34px;
-  min-height: 350px;
+  padding: 45px 35px 35px 35px;
+  /* min-height: 365px; */
+  min-height: auto;
   border-radius: 5px;
   background-color: #eef1f4;
 }
@@ -748,11 +747,9 @@ body {
 }
 .candidates__btn-1 {
   min-width: 244px;
-  padding: 14px 10px;
 }
 .candidates__btn-2 {
   min-width: 244px;
-  padding: 14px 10px;
 }
 /* ==================== Application-form ==================== */
 .application-form {
@@ -768,7 +765,7 @@ body {
 }
 
 .form-container__form-aplication {
-  padding: 50px 108px;
+  padding: 60px 108px;
   text-align: center;
   border-radius: 5px;
   background-color: #ccdef5;
@@ -820,7 +817,6 @@ body {
 
 .form-aplication__btn {
   margin-top: 19px;
-  padding: 16px 46px;
 }
 
 /* ==================== Rewies ==================== */
@@ -1017,7 +1013,6 @@ body {
 }
 .footer__btn-1 {
   flex: 0 0 auto;
-  padding: 14px 39px;
 }
 .footer__btn-2 {
   flex: 0 0 auto;
@@ -1081,10 +1076,18 @@ body {
   }
 
   .expertise {
-    padding: 80px 0;
+    padding: 80px 0 65px 0;
   }
   .expertise__button {
-    bottom: -80px;
+    bottom: -65px;
+  }
+
+  .advantages {
+    padding: 105px 0 80px;
+  }
+
+  .application-form {
+    padding: 80px 0;
   }
 }
 
@@ -1162,6 +1165,12 @@ body {
   .header__stars {
     width: calc((100% - var(--container-width)) / 2 + 960px);
   }
+
+  .form-container__title {
+    max-width: 750px;
+    text-align: center;
+    margin: 0 auto 60px;
+  }
 }
 
 @media (max-width: 1023px) {
@@ -1192,6 +1201,7 @@ body {
     display: none;
   }
   .header__row {
+    height: 100%;
     flex-direction: column-reverse;
   }
   .header__row::after {
@@ -1201,6 +1211,17 @@ body {
   .header__content {
     padding: 50px 0;
   }
+
+  .advantages__card {
+    padding: 35px 25px 25px 25px;
+  }
+  .advantages__card-image {
+    margin-bottom: 30px;
+  }
+  .advantages__card-image img {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 @media (max-width: 920px) {
@@ -1209,6 +1230,13 @@ body {
   }
   .who-is-Kate__img img {
     flex: none;
+  }
+
+  .form-container__form-aplication {
+    margin: 0 -25px;
+  }
+  .container_smallest {
+    max-width: 100%;
   }
 }
 
@@ -1267,16 +1295,44 @@ body {
   }
 
   .expertise {
-    padding: 60px 0;
+    padding: 60px 0 85px 0;
   }
   .expertise__button {
-    bottom: -75px;
+    bottom: -100px;
   }
   .expertise__row {
     display: block;
   }
   .expertise__list {
     width: 100%;
+  }
+
+  .advantages {
+    padding: 85px 0 60px;
+  }
+  .advantages__row {
+    padding: 0 10px;
+  }
+  .advantages__card {
+    flex: 0 0 50%;
+    margin: 0 -10px;
+  }
+
+  .application-form {
+    padding: 60px 0;
+  }
+  .form-container__form-aplication {
+    padding: 40px 78px;
+  }
+}
+
+.br-1 {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .br-1 {
+    display: inline;
   }
 }
 
@@ -1287,17 +1343,47 @@ body {
   .title {
     margin-bottom: 30px;
   }
+  .br-1 {
+    display: none;
+  }
 
   .who-is-Kate__text {
     overflow-y: scroll;
     height: 160px;
     margin-bottom: 30px;
   }
+
   .expertise__list-item {
     margin-bottom: 10px;
   }
   .expertise__button {
     bottom: -70px;
+  }
+
+  .advantages__row {
+    row-gap: 20px;
+    padding: 0 5px;
+  }
+  .advantages__card {
+    margin: 0 -5px;
+    padding: 25px 15px 15px 15px;
+  }
+  .advantages__card-image {
+    margin-bottom: 24px;
+  }
+  .advantages__card-image img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .form-container__form-aplication {
+    padding: 40px 50px;
+  }
+}
+
+@media (max-width: 460px) {
+  .br-1 {
+    display: inline;
   }
 }
 
@@ -1369,19 +1455,18 @@ body {
     min-width: 50%;
   }
 
+  .title {
+    margin-bottom: 30px;
+    font-size: 20px;
+  }
+
   .who-is-Kate {
-    padding: 20px 0 50px 0;
+    padding: 20px 0 40px 0;
   }
   .who-is-Kate__row {
     flex-direction: column;
     row-gap: 30px;
   }
-  .title {
-    margin-bottom: 30px;
-    font-size: 20px;
-    line-height: calc(20px * var(--line-height-lato));
-  }
-
   .who-is-Kate__title {
     text-align: center;
   }
@@ -1394,17 +1479,61 @@ body {
   .who-is-Kate__btn {
     width: 100%;
     font-size: 14px;
-    line-height: calc(14px * var(--line-height-lato));
   }
 
+  .expertise {
+    padding: 40px 0 65px 0;
+  }
   .expertise__list {
     font-size: 16px;
     line-height: calc(16px * var(--line-height-lato));
   }
+  .expertise__button {
+    bottom: -75px;
+  }
   .expertise__btn {
-    /* width: 100%; */
     font-size: 14px;
     line-height: calc(14px * var(--line-height-lato));
+  }
+
+  .advantages {
+    padding: 65px 0 40px;
+  }
+  .advantages__row {
+    padding: 0;
+  }
+  .advantages__card {
+    margin: 0;
+    flex: 0 0 100%;
+  }
+  .advantages__card-title {
+    margin-bottom: 6px;
+    font-size: 18px;
+    line-height: calc(18px * var(--line-height-lato));
+  }
+  .advantages__card-text {
+    font-size: 14px;
+    line-height: calc(14px * var(--line-height-lato));
+  }
+
+  .application-form {
+    padding: 40px 0;
+  }
+  .form-aplication__input {
+    font-size: 16px;
+    line-height: calc(16px * var(--line-height-lato));
+  }
+  .form-aplication__label {
+    font-size: 16px;
+    line-height: calc(16px * var(--line-height-lato));
+  }
+  .form-aplication__input:focus ~ .form-aplication__label,
+  .form-aplication__input:not(:placeholder-shown) ~ .form-aplication__label {
+    font-size: 12px;
+    line-height: calc(12px * var(--line-height-lato));
+  }
+  .form-aplication__btn {
+    font-size: 14px;
   }
 }
 
