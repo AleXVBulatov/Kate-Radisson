@@ -104,18 +104,13 @@ body {
   line-height: 50px;
   color: var(--color-white-100);
 }
-.nav-btn-up a:hover {
-  line-height: 60px;
-  font-weight: 700;
-  font-size: calc(var(--font-size) * 1);
-}
-.nav-btn-up:hover {
+.no-touch:hover {
   opacity: 1;
   height: 60px;
   width: 60px;
-  /* box-shadow: 0px 0px 1.33px 0px rgba(0, 0, 0, 0.1), 0px 0px 3.19px 0px rgba(0, 0, 0, 0.12),
-    0px 0px 6.01px 0px rgba(0, 0, 0, 0.15), 0px 0px 10.22px 0px rgba(0, 0, 0, 0.2), 0px 0px 20.05px 0px rgba(0, 0, 0, 0.22),
-    0px 0px 48px 0px rgba(0, 0, 0, 0.4); */
+  line-height: 60px;
+  font-weight: 700;
+  font-size: calc(var(--font-size) * 1);
 }
 
 /* ==================== Header ==================== */
@@ -1277,7 +1272,6 @@ body {
   }
   .header__btn-2 {
     width: 100%;
-    font-size: 12px;
   }
   .title {
     margin-bottom: 40px;
@@ -1347,10 +1341,21 @@ body {
     display: none;
   }
 
+  .nav-btn-up a {
+    font-size: 12px;
+  }
+
+  .header__btn-2 {
+    font-size: 12px;
+  }
+
   .who-is-Kate__text {
     overflow-y: scroll;
     height: 160px;
     margin-bottom: 30px;
+  }
+  .who-is-Kate__btn {
+    font-size: 12px;
   }
 
   .expertise__list-item {
@@ -1358,6 +1363,9 @@ body {
   }
   .expertise__button {
     bottom: -70px;
+  }
+  .expertise__btn {
+    font-size: 12px;
   }
 
   .advantages__row {
@@ -1378,6 +1386,9 @@ body {
 
   .form-container__form-aplication {
     padding: 40px 50px;
+  }
+  .form-aplication__btn {
+    font-size: 12px;
   }
 }
 
