@@ -1437,8 +1437,9 @@ body {
     width: 50%;
   }
   .footer__contacts-list {
-    justify-content: space-between;
-    width: 100%;
+    /* justify-content: space-between; */
+    /* width: 100%; */
+    column-gap: 40px;
   }
   .footer__contacts-item img {
     display: none;
@@ -1732,10 +1733,11 @@ body {
   }
   .footer__contacts-list {
     width: 100%;
+    column-gap: 5px;
   }
   .footer__buttons {
     flex: 1 1 100%;
-    column-gap: 5px;
+    column-gap: 10px;
     justify-content: space-between;
   }
   .footer__btn-1 {
