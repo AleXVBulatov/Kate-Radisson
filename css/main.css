@@ -1446,6 +1446,7 @@ body {
   }
   .footer__contacts-item a span {
     display: block;
+    font-weight: 500;
     color: var(--color-white-100);
   }
   .footer__contacts-item span:hover {
@@ -1453,6 +1454,7 @@ body {
   }
   .footer__contacts-list span {
     display: block;
+    font-weight: 700;
     color: var(--color-white-100);
   }
 }
