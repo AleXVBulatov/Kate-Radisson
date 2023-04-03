@@ -1115,13 +1115,14 @@ body {
     justify-content: flex-start;
     align-items: flex-start;
     row-gap: 30px;
-    position: fixed;
+    position: absolute;
     top: 0px;
     right: 0px;
     z-index: 100;
     width: 100%;
     height: 100%;
     padding: 100px 0 0 77%;
+    overflow-y: auto;
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(3px);
     animation: nav_mob-open_text 0.4s linear 0s 1 reverse forwards;
@@ -1563,8 +1564,8 @@ body {
 
 @media (max-width: 426px) {
   .nav__logo img {
-    width: 29px;
-    height: 29px;
+    width: 30px;
+    height: 30px;
   }
   .header__top {
     padding: 17px 0 0 0;
@@ -1615,6 +1616,7 @@ body {
     line-height: calc(14px * var(--line-height-lato));
   }
   .nav__list-active {
+    overflow-y: auto;
     row-gap: 52px;
     padding: 100px 0 0 52%;
   }

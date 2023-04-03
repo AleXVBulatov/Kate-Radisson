@@ -26,6 +26,24 @@ menuBtn.addEventListener("click", () => {
   document.body.classList.toggle("no-scroll");
 });
 
+// 1 вариант оформления закрытия меню (предпочтительный):
+// navList.addEventListener("click", (event) => {
+//   menuIcon.classList.toggle("js-menu-icon-active");
+//   nav.classList.toggle("nav--mobile");
+//   navList.classList.toggle("nav__list-active");
+//   document.body.classList.toggle("no-scroll");
+// });
+// 2 вариант оформления закрытия меню:
+document.body.addEventListener("click", (event) => {
+  if (event.target.classList.contains("menu-icon")) return;
+  if (navList.classList.contains("nav__list-active") && !event.target.closest("LI")) {
+    menuIcon.classList.toggle("js-menu-icon-active");
+    nav.classList.toggle("nav--mobile");
+    navList.classList.toggle("nav__list-active");
+    document.body.classList.toggle("no-scroll");
+  }
+});
+
 // window.addEventListener("scroll", (event) => {
 //   console.log(event);
 // });
