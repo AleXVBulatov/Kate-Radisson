@@ -35,7 +35,7 @@ menuBtn.addEventListener("click", () => {
 // });
 // 2 вариант оформления закрытия меню:
 document.body.addEventListener("click", (event) => {
-  if (event.target.classList.contains("menu-icon")) return;
+  if (event.target.closest(".nav__btn-toggle")) return;
   if (navList.classList.contains("nav__list-active") && !event.target.closest("LI")) {
     menuIcon.classList.toggle("js-menu-icon-active");
     nav.classList.toggle("nav--mobile");

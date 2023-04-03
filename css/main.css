@@ -323,6 +323,8 @@ body {
 /* ----- btn-toggle (begin)----- */
 .nav__btn-toggle {
   display: none;
+  position: fixed;
+  right: 25px;
   background: none;
 }
 .menu-icon-wrapper {
@@ -1115,7 +1117,7 @@ body {
     justify-content: flex-start;
     align-items: flex-start;
     row-gap: 30px;
-    position: absolute;
+    position: fixed;
     top: 0px;
     right: 0px;
     z-index: 100;
@@ -1170,6 +1172,7 @@ body {
   }
   .nav__btn-toggle {
     display: block;
+    /* position: fixed; */
     z-index: 101;
   }
   .header__blur,
