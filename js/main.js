@@ -27,22 +27,22 @@ menuBtn.addEventListener("click", () => {
 });
 
 // 1 вариант оформления закрытия меню (предпочтительный):
-// navList.addEventListener("click", (event) => {
-//   menuIcon.classList.toggle("js-menu-icon-active");
-//   nav.classList.toggle("nav--mobile");
-//   navList.classList.toggle("nav__list-active");
-//   document.body.classList.toggle("no-scroll");
-// });
-// 2 вариант оформления закрытия меню:
-document.body.addEventListener("click", (event) => {
-  if (event.target.closest(".nav__btn-toggle")) return;
-  if (navList.classList.contains("nav__list-active") && !event.target.closest("LI")) {
-    menuIcon.classList.toggle("js-menu-icon-active");
-    nav.classList.toggle("nav--mobile");
-    navList.classList.toggle("nav__list-active");
-    document.body.classList.toggle("no-scroll");
-  }
+navList.addEventListener("click", () => {
+  menuIcon.classList.toggle("js-menu-icon-active");
+  nav.classList.toggle("nav--mobile");
+  navList.classList.toggle("nav__list-active");
+  document.body.classList.toggle("no-scroll");
 });
+// 2 вариант оформления закрытия меню:
+// document.body.addEventListener("click", (event) => {
+//   if (event.target.closest(".nav__btn-toggle")) return;
+//   if (navList.classList.contains("nav__list-active") && !event.target.closest("LI")) {
+//     menuIcon.classList.toggle("js-menu-icon-active");
+//     nav.classList.toggle("nav--mobile");
+//     navList.classList.toggle("nav__list-active");
+//     document.body.classList.toggle("no-scroll");
+//   }
+// });
 
 // window.addEventListener("scroll", (event) => {
 //   console.log(event);

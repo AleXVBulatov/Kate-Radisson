@@ -1118,6 +1118,7 @@ body {
     align-items: flex-start;
     row-gap: 30px;
     position: fixed;
+    /* position: absolute; */
     top: 0px;
     right: 0px;
     z-index: 100;
@@ -1131,7 +1132,8 @@ body {
   }
   .nav__list-active:before {
     content: "";
-    position: absolute;
+    position: fixed;
+    /* position: absolute; */
     top: 0px;
     right: 0px;
     z-index: -2;
@@ -1143,7 +1145,8 @@ body {
   }
   .nav__list-active:after {
     content: "";
-    position: absolute;
+    position: fixed;
+    /* position: absolute; */
     top: 0px;
     right: 0px;
     z-index: -2;
