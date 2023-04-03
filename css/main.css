@@ -1215,14 +1215,14 @@ body {
     height: 29px;
   }
   .nav__logo a {
-    font-size: 18px;
+    /* font-size: 18px; */
   }
   .nav__list {
-    font-size: 17px;
-    line-height: 20px;
+    /* font-size: 17px;
+    line-height: 20px; */
   }
   .nav__list-active {
-    row-gap: 52px;
+    row-gap: 30px;
     padding: 100px 0 0 calc(100% - 240px);
   }
   .nav__list-active:before {

@@ -18,6 +18,7 @@ if ("ontouchstart" in window || (window.DocumentTouch && document instanceof Doc
   navBtnUp.classList.add("no-touch");
 }
 
+// ============= кнопка menu btn toggle ================ //
 menuBtn.addEventListener("click", () => {
   menuIcon.classList.toggle("js-menu-icon-active");
   nav.classList.toggle("nav--mobile");
@@ -43,6 +44,7 @@ navList.addEventListener("click", () => {
 //     document.body.classList.toggle("no-scroll");
 //   }
 // });
+// ======================================================= //
 
 // window.addEventListener("scroll", (event) => {
 //   console.log(event);
