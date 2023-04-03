@@ -26,7 +26,6 @@ menuBtn.addEventListener("click", () => {
   headerBlur.classList.toggle("none");
   document.body.classList.toggle("no-scroll");
 });
-
 // 1 вариант оформления закрытия меню (предпочтительный):
 navList.addEventListener("click", () => {
   menuIcon.classList.toggle("js-menu-icon-active");
@@ -34,6 +33,7 @@ navList.addEventListener("click", () => {
   navList.classList.toggle("nav__list-active");
   document.body.classList.toggle("no-scroll");
 });
+
 // 2 вариант оформления закрытия меню:
 // document.body.addEventListener("click", (event) => {
 //   if (event.target.closest(".nav__btn-toggle")) return;

@@ -1327,9 +1327,12 @@ body {
     line-height: 20px;
   }
   .nav__list-active {
-    row-gap: 52px;
-    padding: 100px 0 0 calc(100% - 240px);
+    /* row-gap: 52px; */
+    padding: 100px 0 30px calc(100% - 240px);
     overflow-y: auto;
+  }
+  .nav__list-active:not(:last-child) {
+    row-gap: 52px;
   }
   .nav__list-active:before {
     min-width: 250px;
