@@ -23,6 +23,7 @@ menuBtn.addEventListener("click", () => {
   menuIcon.classList.toggle("js-menu-icon-active");
   nav.classList.toggle("nav--mobile");
   navList.classList.toggle("nav__list-active");
+  navList.lastElementChild.style.marginBottom = "30px";
   headerBlur.classList.toggle("none");
   document.body.classList.toggle("no-scroll");
 });
