@@ -6,9 +6,10 @@ const refs = {
   navList: document.querySelector(".nav__list"),
   headerBlur: document.querySelector(".header__blur"),
   navBtnUp: document.querySelector(".nav-btn-up"),
+  navActiveBlur: document.querySelector(".nav__blur"),
   // headerTitle: document.querySelector(".header__title"),
 };
-const { menuBtn, menuIcon, nav, navList, headerBlur, headerTitle, navBtnUp } = refs;
+const { menuBtn, menuIcon, nav, navList, headerBlur, headerTitle, navBtnUp, navActiveBlur } = refs;
 
 if ("ontouchstart" in window || (window.DocumentTouch && document instanceof DocumentTouch)) {
   console.log("this is a touch device");
@@ -25,28 +26,24 @@ menuBtn.addEventListener("click", () => {
   navList.classList.toggle("nav__list-active");
   navList.lastElementChild.style.marginBottom = "25px";
   headerBlur.classList.toggle("none");
+  navActiveBlur.classList.toggle("none");
   document.body.classList.toggle("no-scroll");
 });
 // 1 вариант оформления закрытия меню (предпочтительный):
-navList.addEventListener("click", () => {
-  if (navList.classList.contains("nav__list-active")) {
+document.body.addEventListener("click", (event) => {
+  if (
+    event.target.matches("[class$='nav__blur']") ||
+    (event.target.tagName === "A" && navList.classList.contains("nav__list-active"))
+  ) {
     menuIcon.classList.toggle("js-menu-icon-active");
     nav.classList.toggle("nav--mobile");
     navList.classList.toggle("nav__list-active");
+    headerBlur.classList.toggle("none");
+    navActiveBlur.classList.toggle("none");
     document.body.classList.toggle("no-scroll");
   }
 });
 
-// 2 вариант оформления закрытия меню:
-// document.body.addEventListener("click", (event) => {
-//   if (event.target.closest(".nav__btn-toggle")) return;
-//   if (navList.classList.contains("nav__list-active") && !event.target.closest("LI")) {
-//     menuIcon.classList.toggle("js-menu-icon-active");
-//     nav.classList.toggle("nav--mobile");
-//     navList.classList.toggle("nav__list-active");
-//     document.body.classList.toggle("no-scroll");
-//   }
-// });
 // ======================================================= //
 
 // window.addEventListener("scroll", (event) => {
