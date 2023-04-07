@@ -57,7 +57,7 @@ const slider = tns({
   gutter: 20, // отступы между блоками
   autoplayButtonOutput: false, // скрыть кнопку autoplay
   navPosition: "bottom", // расположение навигации сназу
-  // controls: false, // Убрать кнопки переключения
+  controls: false, // Убрать кнопки переключения
   controlsPosition: "bottom", // расположение кнопок переключения
   controlsText: ["Prev", "Next"],
   mouseDrag: true,
