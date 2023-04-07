@@ -1422,6 +1422,7 @@ body {
   }
 
   .rewies {
+    padding: 60px 0;
     margin-left: -25px;
     margin-right: -25px;
   }
@@ -1762,6 +1763,9 @@ body {
     font-size: 14px;
   }
 
+  .rewies {
+    padding: 40px 0;
+  }
   .rewies__slider {
     height: 270px;
   }
