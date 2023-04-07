@@ -7,7 +7,6 @@ const refs = {
   headerBlur: document.querySelector(".header__blur"),
   navBtnUp: document.querySelector(".nav-btn-up"),
   navActiveBlur: document.querySelector(".nav__blur"),
-  // headerTitle: document.querySelector(".header__title"),
 };
 const { menuBtn, menuIcon, nav, navList, headerBlur, headerTitle, navBtnUp, navActiveBlur } = refs;
 
@@ -24,7 +23,11 @@ menuBtn.addEventListener("click", () => {
   menuIcon.classList.toggle("js-menu-icon-active");
   nav.classList.toggle("nav--mobile");
   navList.classList.toggle("nav__list-active");
-  navList.lastElementChild.style.marginBottom = "25px";
+  if (navList.classList.contains("nav__list-active")) {
+    navList.lastElementChild.style.marginBottom = "25px";
+  } else {
+    navList.lastElementChild.style.marginBottom = "";
+  }
   headerBlur.classList.toggle("none");
   navActiveBlur.classList.toggle("none");
   document.body.classList.toggle("no-scroll");
@@ -38,10 +41,50 @@ document.body.addEventListener("click", (event) => {
     menuIcon.classList.toggle("js-menu-icon-active");
     nav.classList.toggle("nav--mobile");
     navList.classList.toggle("nav__list-active");
+    navList.lastElementChild.style.marginBottom = "";
     headerBlur.classList.toggle("none");
     navActiveBlur.classList.toggle("none");
     document.body.classList.toggle("no-scroll");
   }
+});
+
+// Подключение слайдера
+const slider = tns({
+  container: ".rewies__slider",
+  items: 3,
+  slideBy: "page",
+  // autoplay: true,
+  gutter: 20, // отступы между блоками
+  autoplayButtonOutput: false, // скрыть кнопку autoplay
+  navPosition: "bottom", // расположение навигации сназу
+  // controls: false, // Убрать кнопки переключения
+  controlsPosition: "bottom", // расположение кнопок переключения
+  controlsText: ["Prev", "Next"],
+  mouseDrag: true,
+  responsive: {
+    100: {
+      items: 1,
+      edgePadding: 40,
+    },
+    320: {
+      items: 1,
+      edgePadding: 80,
+    },
+    550: {
+      items: 2,
+      edgePadding: 80,
+    },
+    767: {
+      items: 3,
+      edgePadding: 0,
+    },
+  },
+});
+
+const controls = document.querySelector(".tns-controls");
+controls.classList.add("rewies__buttons");
+Array.from(controls.children).forEach((btn, index) => {
+  btn.classList.add(`rewies__btn-${index + 1}`);
 });
 
 // ======================================================= //

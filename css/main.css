@@ -820,31 +820,28 @@ body {
 }
 
 /* ==================== Rewies ==================== */
+
 .rewies {
   padding: 100px 0;
 }
-
 .rewies__title {
   color: var(--color-white-100);
 }
-
-.rewies__row {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 20px;
+.rewies__slider {
   margin-bottom: 40px;
-  min-height: auto;
+  height: 300px;
 }
-
 .rewies__card {
-  height: auto;
-  flex: 0 0 33.333%;
-  margin: 0 -20px;
+  height: 100%;
+}
+.rewies__content {
+  height: 100%;
   padding: 33px;
+  /* border-bottom: 33px solid transparent; */
   border-radius: 5px;
   background-color: #eef1f4;
+  overflow: hidden;
 }
-
 .rewies__header {
   display: flex;
   align-items: center;
@@ -852,61 +849,79 @@ body {
   margin-bottom: 25px;
   pointer-events: none;
 }
-
 .rewies__card-image {
   width: 88px;
   height: 88px;
+}
+.rewies__card-image img {
+  width: 100%;
+  height: 100%;
   object-fit: contain;
 }
-
 .rewies__body {
 }
-
 .rewies__card-title {
   margin-bottom: 10px;
   font-weight: 700;
 }
-
 .rewies__card-subtitle {
   font-size: calc(var(--font-size) * 0.85);
   line-height: calc(var(--font-size) * 0.85 * var(--line-height-lato));
   color: var(--color-violet-50);
 }
-
 .rewies__text {
+  max-height: 130px;
   font-size: calc(var(--font-size) * 0.85);
   line-height: calc(var(--font-size) * 0.85 * var(--line-height-lato));
 }
 
-.rewies__carousel {
+.tns-nav {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin: 0 auto;
-  width: 63px;
-  height: 15px;
+  justify-content: center;
+  column-gap: 13px;
 }
-
-.rewies__circle-left {
+.tns-nav button {
   width: 11px;
   height: 11px;
   border-radius: 50%;
-  background-color: #d9d9d9;
-  cursor: pointer;
+  background: rgba(217, 217, 217, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.2);
 }
-.rewies__circle-center {
+.tns-nav button.tns-nav-active {
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background-color: #6e5cfc;
-  cursor: pointer;
+  background: #6e5cfc;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
-.rewies__circle-right {
-  width: 11px;
-  height: 11px;
+
+.rewies__buttons {
+  position: relative;
+  top: -28px;
+  left: 0;
+}
+
+.rewies__btn-1,
+.rewies__btn-2 {
+  position: absolute;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
-  background-color: #d9d9d9;
-  cursor: pointer;
+  background-color: var(--color-violet-100);
+  font-size: calc(var(--font-size) * 0.85);
+  opacity: 0.5;
+  color: #fff;
+}
+.rewies__btn-1:hover,
+.rewies__btn-2:hover {
+  opacity: 1;
+}
+.rewies__btn-1 {
+  left: 0;
+}
+.rewies__btn-2 {
+  right: 0;
 }
 
 /* ==================== Contacts ==================== */
@@ -1087,7 +1102,7 @@ body {
   .rewies {
     padding: 80px 0;
   }
-  .rewies__card {
+  .rewies__content {
     padding: 25px;
   }
 
@@ -1125,7 +1140,7 @@ body {
     height: 100%;
     padding: 100px 0 0 77%;
     overflow-y: hidden;
-    animation: nav_mob-open_text 0.4s linear 0s 1 reverse forwards;
+    /* animation: nav_mob-open_text 0.4s linear 0s 1 reverse forwards; */
   }
   .nav__list-active:before {
     content: "";
@@ -1137,7 +1152,7 @@ body {
     height: 100%;
     padding: 100% 0px 0 20px;
     background: var(--color-main);
-    animation: nav_mob-open 0.4s linear 0s 1 reverse forwards;
+    /* animation: nav_mob-open 0.4s linear 0s 1 reverse forwards; */
   }
   .nav__blur {
     position: fixed;
@@ -1149,10 +1164,10 @@ body {
     width: 75%;
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(3px);
-    animation: nav_mob-open 0.4s linear 0s 1 reverse forwards;
+    /* animation: nav_mob-open 5.4s linear 0s 1 reverse forwards; */
   }
 
-  @keyframes nav_mob-open_text {
+  /* @keyframes nav_mob-open_text {
     from {
       transform: translateX(0);
     }
@@ -1167,7 +1182,7 @@ body {
     to {
       transform: translateX(100%);
     }
-  }
+  } */
   .nav__btn-toggle {
     display: block;
     /* position: fixed; */
@@ -1184,12 +1199,16 @@ body {
     margin: 0 auto 60px;
   }
 
-  .rewies__header {
-    flex-direction: column;
-    align-items: flex-start;
+  .rewies__slider {
+    height: 240px;
+  }
+  .rewies__content {
+    padding: 20px;
   }
   .rewies__card-image {
-    margin-bottom: 15px;
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
   }
 
   .br-2 {
@@ -1255,6 +1274,17 @@ body {
     height: 50px;
   }
 
+  .rewies__slider {
+    height: 300px;
+  }
+  .rewies__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .rewies__card-image {
+    margin-bottom: 15px;
+  }
+
   .footer__row {
     flex-wrap: wrap;
     row-gap: 20px;
@@ -1283,18 +1313,15 @@ body {
     flex: none;
   }
 
+  .rewies__slider {
+    height: 350px;
+  }
+
   .form-container__form-aplication {
     margin: 0 -25px;
   }
   .container_smallest {
     max-width: 100%;
-  }
-
-  .rewies__row {
-    /* overflow-x: hidden; */
-  }
-  .rewies__card {
-    flex: 0 0 275px;
   }
 
   .contacts__row {
@@ -1394,6 +1421,17 @@ body {
     padding: 40px 78px;
   }
 
+  .rewies {
+    margin-left: -25px;
+    margin-right: -25px;
+  }
+  .rewies__slider {
+    height: 350px;
+  }
+  .rewies__header {
+    margin-bottom: 15px;
+  }
+
   .br-2 {
     display: none;
   }
@@ -1462,6 +1500,15 @@ body {
   }
 }
 
+@media (max-width: 650px) {
+  .rewies__slider {
+    height: 370px;
+  }
+  .rewies__content {
+    padding: 15px;
+  }
+}
+
 @media (max-width: 600px) {
   .br-1 {
     display: inline;
@@ -1520,6 +1567,13 @@ body {
   .advantages__card-image img {
     width: 40px;
     height: 40px;
+  }
+
+  .rewies__slider {
+    height: 250px;
+  }
+  .tns-nav {
+    column-gap: 10px;
   }
 
   .form-container__form-aplication {
@@ -1708,6 +1762,39 @@ body {
     font-size: 14px;
   }
 
+  .rewies__slider {
+    height: 270px;
+  }
+  .rewies__header {
+    margin-bottom: 8px;
+  }
+  .rewies__card-image {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 8px;
+  }
+  .rewies__card-title {
+    font-size: 16px;
+    line-height: calc(16px * var(--line-height-lato));
+    margin-bottom: 6px;
+  }
+  .rewies__card-subtitle {
+    font-size: 14px;
+    line-height: calc(16px * var(--line-height-lato));
+  }
+  .rewies__text {
+    font-size: 12px;
+    line-height: calc(12px * var(--line-height-lato));
+  }
+  .rewies__buttons {
+    top: 20px;
+  }
+  .rewies__btn-1,
+  .rewies__btn-2 {
+    font-size: 12px;
+    line-height: calc(12px * var(--line-height-lato));
+  }
+
   .contacts {
     padding: 40px 0 0 0;
   }
@@ -1794,6 +1881,10 @@ body {
   }
   .nav__blur {
     width: 40%;
+  }
+
+  .rewies__slider {
+    height: 300px;
   }
 
   .footer__buttons {
