@@ -1421,10 +1421,12 @@ body {
     padding: 40px 78px;
   }
 
+  .container-2 {
+    padding-left: 0;
+    padding-right: 0;
+  }
   .rewies {
     padding: 60px 0;
-    margin-left: -25px;
-    margin-right: -25px;
   }
   .rewies__slider {
     height: 350px;
