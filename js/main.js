@@ -52,8 +52,8 @@ document.body.addEventListener("click", (event) => {
 const slider = tns({
   container: ".rewies__slider",
   items: 3,
-  slideBy: "page",
-  autoplay: true,
+  slideBy: 1,
+  autoplay: "page",
   gutter: 20, // отступы между блоками
   autoplayButtonOutput: false, // скрыть кнопку autoplay
   navPosition: "bottom", // расположение навигации сназу
