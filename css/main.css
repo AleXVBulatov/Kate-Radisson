@@ -837,7 +837,7 @@ body {
 .rewies__content {
   height: 100%;
   padding: 33px;
-  /* border-bottom: 33px solid transparent; */
+  border-bottom: 33px solid transparent;
   border-radius: 5px;
   background-color: #eef1f4;
   overflow: hidden;
@@ -898,20 +898,17 @@ body {
 
 .rewies__buttons {
   position: relative;
-  top: -28px;
+  top: -405px;
   left: 0;
 }
 
 .rewies__btn-1,
 .rewies__btn-2 {
   position: absolute;
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-  background-color: var(--color-violet-100);
-  font-size: calc(var(--font-size) * 0.85);
-  opacity: 0.5;
-  color: #fff;
+  height: 350px;
+  width: 80px;
+  border-radius: 0 5px 5px 0;
+  background-color: transparent;
 }
 .rewies__btn-1:hover,
 .rewies__btn-2:hover {
@@ -1510,6 +1507,13 @@ body {
   .rewies__content {
     padding: 15px;
   }
+  .rewies__buttons {
+    top: -425px;
+  }
+  .rewies__btn-1,
+  .rewies__btn-2 {
+    height: 370px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -1577,6 +1581,13 @@ body {
   }
   .tns-nav {
     column-gap: 10px;
+  }
+  .rewies__buttons {
+    top: -305px;
+  }
+  .rewies__btn-1,
+  .rewies__btn-2 {
+    height: 250px;
   }
 
   .form-container__form-aplication {
@@ -1800,6 +1811,13 @@ body {
     font-size: 12px;
     line-height: calc(12px * var(--line-height-lato));
   }
+  .rewies__buttons {
+    top: -325px;
+  }
+  .rewies__btn-1,
+  .rewies__btn-2 {
+    height: 270px;
+  }
 
   .contacts {
     padding: 40px 0 0 0;
@@ -1890,6 +1908,13 @@ body {
   }
 
   .rewies__slider {
+    height: 300px;
+  }
+  .rewies__buttons {
+    top: -355px;
+  }
+  .rewies__btn-1,
+  .rewies__btn-2 {
     height: 300px;
   }
 
