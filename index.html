@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./libs/tiny-slider/tiny-slider.css">
   </head>
   <body>
-    <header id="header" class="header">
+    <header id="header" class="header none">
       <div class="container">
         <div class="header__top">
           <nav class="nav">
@@ -56,7 +56,7 @@
       <div class="header__stars"></div>
     </header>
 
-    <section id="who-is-Kate" class="who-is-Kate">
+    <section id="who-is-Kate" class="who-is-Kate none">
       <div class="container container_smaller">
         <div class="who-is-Kate__row">
           <div class="who-is-Kate__img">
@@ -75,7 +75,7 @@
       </div>
     </section>
 
-    <section id="expertise" class="expertise">
+    <section id="expertise" class="expertise none">
       <div class="container">
         <div class="expertise__contant">          
           <h2 class="expertise__title title">Our areas of expertise are IT and Digital</h2>
@@ -104,7 +104,7 @@
       </div>
     </section>
 
-    <section id="advantages" class="advantages">
+    <section id="advantages" class="advantages none">
       <div class="container">
         <div class="advantages__content">
           <h2 class="advantages__title title">Advantages</h2>
@@ -156,7 +156,7 @@
       </div>
     </section>
 
-    <section id="candidates" class="candidates none">
+    <section id="candidates" class="candidates">
       <div class="container">
         <div class="candidates__content">
           <h2 class="candidates__title title">Find out what the most suitable specialist will cost you</h2>
@@ -164,42 +164,42 @@
             <div class="candidates__filter">
               <div class="candidates__filter-locations">
                 <h3 class="candidates__filter-title active">Locations <span></span></h3>
-                <label class="candidates__settings">
-                  <div><input type="checkbox" name="location-checkbox-1" value="ukraine" />Ukraine</div>
-                  <div><input type="checkbox" name="location-checkbox-2" value="poland" checked />Poland</div>
-                  <div><input type="checkbox" name="location-checkbox-3" value="bulgaria" />Bulgaria</div>
-                  <div><input type="checkbox" name="location-checkbox-4" value="usa" />Usa</div>
-                  <div><input type="checkbox" name="location-checkbox-5" value="canada" />Canada</div>
-                  <div><input type="checkbox" name="location-checkbox-6" value="uk" />UK</div>
-                  <div><input type="checkbox" name="location-checkbox-7" value="germany" />Germany</div>
-                  <div><input type="checkbox" name="location-checkbox-8" value="sweden" />Sweden</div>
-                  <div><input type="checkbox" name="location-checkbox-9" value="singapore" />Singapore</div>
-                  <div><input type="checkbox" name="location-checkbox-10" value="spain" checked />Spain</div>
-                </label>
+                <div class="candidates__settings" >
+                  <label><input type="checkbox" name="location-checkbox-1" value="ukraine" data-index="0"/><span></span>Ukraine</label>
+                  <label><input type="checkbox" name="location-checkbox-2" value="poland" data-index="1" checked/><span class="check-active"></span>Poland</label>
+                  <label><input type="checkbox" name="location-checkbox-3" value="bulgaria" /><span></span>Bulgaria</label>
+                  <label><input type="checkbox" name="location-checkbox-4" value="usa" /><span></span>Usa</label>
+                  <label><input type="checkbox" name="location-checkbox-5" value="canada" /><span></span>Canada</label>
+                  <label><input type="checkbox" name="location-checkbox-6" value="uk" /><span></span>UK</label>
+                  <label><input type="checkbox" name="location-checkbox-7" value="germany" /><span></span>Germany</label>
+                  <label><input type="checkbox" name="location-checkbox-8" value="sweden" /><span></span>Sweden</label>
+                  <label><input type="checkbox" name="location-checkbox-9" value="singapore" /><span></span>Singapore</label>
+                  <label><input type="checkbox" name="location-checkbox-10" value="spain" checked/><span class="check-active"></span>Spain</label>
+                </div>
               </div>
               <div class="candidates__filter-directions">
                 <h3 class="candidates__filter-title">Directions <span></span></h3>
-                <label class="candidates__settings none">
-                  <div><input type="checkbox" name="directions-checkbox-1" value="advancedTech" />Advanced Tech</div>
-                  <div><input type="checkbox" name="directions-checkbox-1" value="platforms" />Platforms</div>
-                  <div><input type="checkbox" name="directions-checkbox-1" value="it" />IT</div>
-                </label>
+                <div class="candidates__settings" hidden>
+                  <label><input type="checkbox" name="directions-checkbox-1" value="advancedTech" /><span></span>Advanced Tech</label>
+                  <label><input type="checkbox" name="directions-checkbox-1" value="platforms" /><span></span>Platforms</label>
+                  <label><input type="checkbox" name="directions-checkbox-1" value="it" /><span></span>IT</label>
+                </div>
               </div>
               <div class="candidates__filter-tech-levels">
                 <h3 class="candidates__filter-title">Tech levels <span></span></h3>
-                <label class="candidates__settings none">
-                  <div><input type="checkbox" name="levels-checkbox-1" value="trainee" />Trainee</div>
-                  <div><input type="checkbox" name="levels-checkbox-2" value="junior" />Junior</div>
-                  <div><input type="checkbox" name="levels-checkbox-3" value="intermidiate" />Intermidiate</div>
-                </label>
+                <div class="candidates__settings" hidden>
+                  <label><input type="checkbox" name="levels-checkbox-1" value="trainee" /><span></span>Trainee</label>
+                  <label><input type="checkbox" name="levels-checkbox-2" value="junior" /><span></span>Junior</label>
+                  <label><input type="checkbox" name="levels-checkbox-3" value="intermidiate" /><span></span>Intermidiate</label>
+                </div>
               </div>
               <div class="candidates__filter-work-type">
                 <h3 class="candidates__filter-title">Work type <span></span></h3>
-                <div class="candidates__settings none">
-                  <div><input type="checkbox" name="type-checkbox-1" value="remote-office" />Remote/office</div>
-                  <div><input type="checkbox" name="type-checkbox-2" value="office" />Office</div>
-                  <div><input type="checkbox" name="type-checkbox-3" value="relocation" />Relocation</div>
-                  <div><input type="checkbox" name="type-checkbox-3" value="freelance" />Freelance</div>
+                <div class="candidates__settings" hidden>
+                  <label><input type="checkbox" name="type-checkbox-1" value="remote-office" /><span></span>Remote/office</label>
+                  <label><input type="checkbox" name="type-checkbox-2" value="office" /><span></span>Office</label>
+                  <label><input type="checkbox" name="type-checkbox-3" value="relocation" /><span></span>Relocation</label>
+                  <label><input type="checkbox" name="type-checkbox-3" value="freelance" /><span></span>Freelance</label>
                 </div>
               </div>
             </div>
@@ -258,7 +258,7 @@
       </div>
     </section>
 
-    <section id="application-form" class="application-form">
+    <section id="application-form" class="application-form none">
       <div class="container container_smallest">
         <div class="application-form__form-container">
           <h2 class="form-container__title title">
@@ -295,7 +295,7 @@
       </div>
     </section>
     
-    <section id="rewies" class="rewies">
+    <section id="rewies" class="rewies none">
       <div class="container container-2">
         <h2 class="rewies__title title">What our clients say</h2>
         <div class="rewies__slider">
@@ -497,7 +497,7 @@
       </div>
     </section> 
 
-    <section id="contacts" class="contacts">
+    <section id="contacts" class="contacts none">
       <div class="container">
         <div class="contacts__title title">Contacts</div>
         <div class="contacts__row">
@@ -525,7 +525,7 @@
       </div>
     </section>
 
-    <footer class="footer">
+    <footer class="footer none">
       <div class="container">
         <div class="footer__row">
           <div class="footer__logo nav__logo">            

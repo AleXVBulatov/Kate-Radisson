@@ -91,15 +91,37 @@ Array.from(controls.children).forEach((btn, index) => {
 });
 
 // ======================================================= //
+// ============= Candidates ================ //
+const candidates = document.querySelector(".candidates__filter");
 
-// window.addEventListener("scroll", (event) => {
-//   console.log(event);
-// });
+candidates.addEventListener("click", (event) => {
+  if (event.target.tagName !== "SPAN" || !event.target.closest(".candidates__filter-title")) return;
+  if (event.target.closest(".candidates__filter-locations")) return candidatesToggle("locations");
+  if (event.target.closest(".candidates__filter-directions")) return candidatesToggle("directions");
+  if (event.target.closest(".candidates__filter-tech-levels")) return candidatesToggle("tech-levels");
+  if (event.target.closest(".candidates__filter-work-type")) return candidatesToggle("work-type");
+});
 
-// console.log(navBtnUp.getBoundingClientRect().top + window.pageYOffset);
+const candidatesToggle = (elem) => {
+  const candidatesFilter = document.querySelector(`.candidates__filter-${elem}`);
+  const candidatesSettings = candidatesFilter.querySelector(".candidates__settings");
+  const candidatesFilterTitle = candidatesFilter.querySelector(".candidates__filter-title");
 
-// Перенос текста на новую строку
-// if (document.documentElement.clientWidth < 1109) {
-//   const brElem = document.createElement("br");
-//   headerTitle.firstElementChild.prepend(brElem);
-// }
+  if (candidatesSettings.closest(`.candidates__filter-${elem}`)) {
+    candidatesSettings.hidden = !candidatesSettings.hidden;
+    // candidatesSettings.classList.toggle("none");
+  }
+  if (candidatesFilterTitle.closest(`.candidates__filter-${elem}`)) {
+    candidatesFilterTitle.classList.toggle("active");
+  }
+};
+
+// Программирование чекбокса:
+document.addEventListener("click", (event) => {
+  if (!event.target.matches("[type$='checkbox']")) return;
+  // добавление атрибута checked
+  event.target.hasAttribute("checked") ? event.target.removeAttribute("checked") : event.target.setAttribute("checked", "");
+  // добавление class check-active на чекбокс
+  const check = event.target.nextElementSibling;
+  check.classList.toggle("check-active");
+});

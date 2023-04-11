@@ -543,7 +543,7 @@ body {
 }
 
 .candidates__filter-locations {
-  max-height: 570px;
+  /* max-height: 570px; */
 }
 
 .candidates__filter-title {
@@ -586,6 +586,7 @@ body {
   height: 4px;
   transform: translateY(-50%) rotate(90deg);
   background-color: black;
+  transition: 0.2s linear;
 }
 .candidates__filter-title.active span {
   width: 30px;
@@ -596,16 +597,24 @@ body {
   width: 0px;
   height: 0px;
 }
+.candidates__filter-title span:hover,
+.candidates__filter-title.active span:hover {
+  background-color: var(--color-white-50);
+  border-radius: 5px;
+}
 
 .candidates__settings {
-  display: inline-block;
+  /* display: block; */
   width: 100%;
-  height: 510px;
-  overflow-y: scroll;
+  height: auto;
+  /* height: 510px; */
+  /* overflow-y: scroll; */
   padding: 15px 44px;
   background-color: #eef1f4;
 }
+
 .candidates__settings > * {
+  display: block;
   padding: 12px 15px;
 }
 .candidates__settings input {
@@ -613,14 +622,49 @@ body {
   width: 18px;
   height: 18px;
 }
+
+/*скрываем дефолтный чекбокс*/
+.candidates__settings input {
+  display: none;
+}
+/*стилизуем новый*/
+.candidates__settings span {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-right: 30px;
+  padding: 3px;
+  position: relative;
+  border: 2px solid #49454f;
+  border-radius: 2px;
+  background-color: transparent;
+}
+.check-active {
+  border: none !important;
+}
+/* ставим иконку когда чекбокс включен */
+[type="checkbox"]:checked + span::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(./../img/candidats/check.svg);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-color: #6750a4;
+  border-radius: 2px;
+}
+
 .candidates__filter-directions {
-  max-height: 570px;
+  /* max-height: 570px; */
 }
 .candidates__filter-tech-levels {
-  max-height: 570px;
+  /* max-height: 570px; */
 }
 .candidates__filter-work-type {
-  max-height: 570px;
+  /* max-height: 570px; */
 }
 .candidates__container {
   width: 740px;
