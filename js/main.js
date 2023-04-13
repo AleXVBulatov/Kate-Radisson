@@ -49,45 +49,56 @@ document.body.addEventListener("click", (event) => {
 });
 
 // Подключение слайдера
-const slider = tns({
-  container: ".rewies__slider",
-  items: 3,
-  slideBy: 1,
-  autoplay: "page",
-  gutter: 20, // отступы между блоками
-  autoplayButtonOutput: false, // скрыть кнопку autoplay
-  navPosition: "bottom", // расположение навигации сназу
-  controlsPosition: "bottom", // расположение кнопок переключения
-  controlsText: ["", ""],
-  mouseDrag: true, // перелистывание по касанию
-  responsive: {
-    100: {
-      items: 1,
-      edgePadding: 40,
-      controls: true, // Убрать кнопки переключения
+new Swiper(".rewies-slider", {
+  navigation: {
+    prevEl: ".swiper-button-prev",
+    nextEl: ".swiper-button-next",
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true, // переключение между элементами при нажатии на пагинацию
+    dynamicBullets: true, // используется только часть буллетов, останоные не видимые
+    type: "bullets", // тип элементов пагинации 'bullets'|'fraction'|'progressbar'|'custom'
+  },
+  keyboard: {
+    enabled: true, // включить/выключить переключения слайдов с стрелками лево/право
+    pageUpDown: true, // включить/выключить переключения слайдов с стрелками PageUp/PageDown
+  },
+  // autoplay: {
+  //   delay: 3000, // время задержки слайда
+  //   disableOnInteraction: false, // отключить после ручного переключения
+  //   pauseOnMouseEnter: true, // пауза перелистывания слайдов при наведении мыши на слайд
+  // },
+  // freeMode: true, // свободный режим перелистывания без фиксирования конкретного слайда
+  grabCursor: true, // курсор перетаскивания (рука)
+  slidesPerView: 3, // количество слайдов для показа
+  slidesPerGroup: 1, // количество пролистываемых слайдов
+  spaceBetween: 20, // расстояние между слайдами
+  // centeredSlides: true, // расположить активный первый слайд по центру
+  // initialSlide: 0, // индекс активного слайда
+  loop: true, // бесконечно прокручивающийся слайдер
+  speed: 500, // скорость переключения слайдов (300ms по умолчанию)
+  effect: "slide", // 'slide' | 'fade' | 'cube' | 'coverflow' | 'flip' | 'creative' | 'cards'
+  breakpoints: {
+    200: {
+      slidesPerView: 1.5,
+      spaceBetween: 20,
+      centeredSlides: true,
     },
-    320: {
-      items: 1,
-      edgePadding: 80,
+    390: {
+      slidesPerView: 2,
+      centeredSlides: true,
     },
-    550: {
-      items: 2,
-      edgePadding: 80,
+    460: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+      centeredSlides: false,
     },
     767: {
-      items: 3,
-      edgePadding: 0,
-    },
-    768: {
-      controls: false, // Убрать кнопки переключения
+      slidesPerView: 3,
+      spaceBetween: 20,
     },
   },
-});
-
-const controls = document.querySelector(".tns-controls");
-controls.classList.add("rewies__buttons");
-Array.from(controls.children).forEach((btn, index) => {
-  btn.classList.add(`rewies__btn-${index + 1}`);
 });
 
 // ======================================================= //
@@ -125,3 +136,45 @@ document.addEventListener("click", (event) => {
   const check = event.target.nextElementSibling;
   check.classList.toggle("check-active");
 });
+
+// Подключение слайдера
+// const slider = tns({
+//   container: ".rewies__slider",
+//   items: 3,
+//   slideBy: 1,
+//   autoplay: "page",
+//   gutter: 20, // отступы между блоками
+//   autoplayButtonOutput: false, // скрыть кнопку autoplay
+//   navPosition: "bottom", // расположение навигации сназу
+//   controlsPosition: "bottom", // расположение кнопок переключения
+//   controlsText: ["", ""],
+//   mouseDrag: true, // перелистывание по касанию
+//   responsive: {
+//     100: {
+//       items: 1,
+//       edgePadding: 40,
+//       controls: true, // Убрать кнопки переключения
+//     },
+//     320: {
+//       items: 1,
+//       edgePadding: 80,
+//     },
+//     550: {
+//       items: 2,
+//       edgePadding: 80,
+//     },
+//     767: {
+//       items: 3,
+//       edgePadding: 0,
+//     },
+//     768: {
+//       controls: false, // Убрать кнопки переключения
+//     },
+//   },
+// });
+
+// const controls = document.querySelector(".tns-controls");
+// controls.classList.add("rewies__buttons");
+// Array.from(controls.children).forEach((btn, index) => {
+//   btn.classList.add(`rewies__btn-${index + 1}`);
+// });

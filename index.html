@@ -7,7 +7,8 @@
     <title>Kate Radisson</title>
     <link rel="shortcut icon" href="img/header/Logo.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/main.css" />
-    <link rel="stylesheet" href="./libs/tiny-slider/tiny-slider.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+  />
   </head>
   <body>
     <header id="header" class="header none">
@@ -156,7 +157,7 @@
       </div>
     </section>
 
-    <section id="candidates" class="candidates">
+    <section id="candidates" class="candidates none">
       <div class="container">
         <div class="candidates__content">
           <h2 class="candidates__title title">Find out what the most suitable specialist will cost you</h2>
@@ -295,207 +296,167 @@
       </div>
     </section>
     
-    <section id="rewies" class="rewies none">
+    <section id="rewies" class="rewies">
       <div class="container container-2">
         <h2 class="rewies__title title">What our clients say</h2>
-        <div class="rewies__slider">
-          <div class="rewies__card">
-            <div class="rewies__content">
-              <div class="rewies__header">
-                <div class="rewies__card-image">
-                  <img src="./img/clients/Ellipse 1.png" alt="icon 1">
-                </div>
-                <div class="rewies__body">
-                  <h3 class="rewies__card-title">Joseph Doha</h3>
-                  <h4 class="rewies__card-subtitle">CEO “MD Аssociation”</h4>
+        <div class="rewies__row">
+          <div class="swiper-container rewies-slider">
+            <div class="swiper-wrapper rewies-slider__wrapper">
+              <div class="swiper-slide rewies-slider__card">
+                <div class="rewies-slider__content">
+                  <div class="rewies-slider__header">
+                    <div class="rewies-slider__card-image">
+                      <img src="./img/clients/Ellipse 1.png" alt="icon 1">
+                    </div>
+                    <div class="rewies-slider__body">
+                      <h3 class="rewies-slider__card-title">Joseph Doha</h3>
+                      <h4 class="rewies-slider__card-subtitle">CEO “MD Аssociation”</h4>
+                    </div>
+                  </div>
+                  <div class="rewies-slider__text">
+                    <p>We decided on Kate Radisson and were extremely happy with both their services and the flexibility they gave. We were able to pivot and use their team for additional services, as needed; which is something lacking from other providers. Highly recommend their services!</p>
+                  </div>
                 </div>
               </div>
-              <div class="rewies__text">
-                <p>We decided on Kate Radisson and were extremely happy with both their services and the flexibility they gave. We were able to pivot and use their team for additional services, as needed; which is something lacking from other providers. Highly recommend their services!</p>
+              <div class="swiper-slide rewies-slider__card">
+                <div class="rewies-slider__content">
+                  <div class="rewies-slider__header">
+                    <div class="rewies-slider__card-image">
+                      <img src="./img/clients/Ellipse 2.png" alt="icon 2">
+                    </div>
+                    <div class="rewies-slider__body">
+                      <h3 class="rewies-slider__card-title">Christopher Gogoshar</h3>
+                      <h4 class="rewies-slider__card-subtitle">VP “ITUP”</h4>
+                    </div>
+                  </div>
+                  <div class="rewies-slider__text">
+                    <p> I know them to be professionals and I can always count on them to deliver results with their well trained staff. They provide guidance and communication during every step of the project. Their commitment to the success of my projects make them a true partner.</p>
+                  </div>
+                </div>
               </div>
+              <div class="swiper-slide rewies-slider__card">
+                <div class="rewies-slider__content">
+                  <div class="rewies-slider__header">
+                    <div class="rewies-slider__card-image">
+                      <img src="./img/clients/Ellipse 3.png" alt="icon 3">
+                    </div>
+                    <div class="rewies-slider__body">
+                      <h3 class="rewies-slider__card-title">Dora Maneshkin</h3>
+                      <h4 class="rewies-slider__card-subtitle">AGENCY “Privat “</h4>
+                    </div>
+                  </div>
+                  <div class="rewies-slider__text">
+                    <p>I am very pleased with the result. My request was completed in the shortest possible time and with the highest quality. This speaks of the professionalism and excellent experience of the agency.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide rewies-slider__card">
+                <div class="rewies-slider__content">
+                  <div class="rewies-slider__header">
+                    <div class="rewies-slider__card-image">
+                      <img src="./img/clients/Ellipse 1.png" alt="icon 1">
+                    </div>
+                    <div class="rewies-slider__body">
+                      <h3 class="rewies-slider__card-title">Joseph Doha</h3>
+                      <h4 class="rewies-slider__card-subtitle">CEO “MD Аssociation”</h4>
+                    </div>
+                  </div>
+                  <div class="rewies-slider__text">
+                    <p>We decided on Kate Radisson and were extremely happy with both their services and the flexibility they gave. We were able to pivot and use their team for additional services, as needed; which is something lacking from other providers. Highly recommend their services!</p>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide rewies-slider__card">
+                <div class="rewies-slider__content">
+                  <div class="rewies-slider__header">
+                    <div class="rewies-slider__card-image">
+                      <img src="./img/clients/Ellipse 2.png" alt="icon 2">
+                    </div>
+                    <div class="rewies-slider__body">
+                      <h3 class="rewies-slider__card-title">Christopher Gogoshar</h3>
+                      <h4 class="rewies-slider__card-subtitle">VP “ITUP”</h4>
+                    </div>
+                  </div>
+                  <div class="rewies-slider__text">
+                    <p> I know them to be professionals and I can always count on them to deliver results with their well trained staff. They provide guidance and communication during every step of the project. Their commitment to the success of my projects make them a true partner.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide rewies-slider__card">
+                <div class="rewies-slider__content">
+                  <div class="rewies-slider__header">
+                    <div class="rewies-slider__card-image">
+                      <img src="./img/clients/Ellipse 3.png" alt="icon 3">
+                    </div>
+                    <div class="rewies-slider__body">
+                      <h3 class="rewies-slider__card-title">Dora Maneshkin</h3>
+                      <h4 class="rewies-slider__card-subtitle">AGENCY “Privat “</h4>
+                    </div>
+                  </div>
+                  <div class="rewies-slider__text">
+                    <p>I am very pleased with the result. My request was completed in the shortest possible time and with the highest quality. This speaks of the professionalism and excellent experience of the agency.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide rewies-slider__card">
+                <div class="rewies-slider__content">
+                  <div class="rewies-slider__header">
+                    <div class="rewies-slider__card-image">
+                      <img src="./img/clients/Ellipse 1.png" alt="icon 1">
+                    </div>
+                    <div class="rewies-slider__body">
+                      <h3 class="rewies-slider__card-title">Joseph Doha</h3>
+                      <h4 class="rewies-slider__card-subtitle">CEO “MD Аssociation”</h4>
+                    </div>
+                  </div>
+                  <div class="rewies-slider__text">
+                    <p>We decided on Kate Radisson and were extremely happy with both their services and the flexibility they gave. We were able to pivot and use their team for additional services, as needed; which is something lacking from other providers. Highly recommend their services!</p>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide rewies-slider__card">
+                <div class="rewies-slider__content">
+                  <div class="rewies-slider__header">
+                    <div class="rewies-slider__card-image">
+                      <img src="./img/clients/Ellipse 2.png" alt="icon 2">
+                    </div>
+                    <div class="rewies-slider__body">
+                      <h3 class="rewies-slider__card-title">Christopher Gogoshar</h3>
+                      <h4 class="rewies-slider__card-subtitle">VP “ITUP”</h4>
+                    </div>
+                  </div>
+                  <div class="rewies-slider__text">
+                    <p> I know them to be professionals and I can always count on them to deliver results with their well trained staff. They provide guidance and communication during every step of the project. Their commitment to the success of my projects make them a true partner.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide rewies-slider__card">
+                <div class="rewies-slider__content">
+                  <div class="rewies-slider__header">
+                    <div class="rewies-slider__card-image">
+                      <img src="./img/clients/Ellipse 3.png" alt="icon 3">
+                    </div>
+                    <div class="rewies-slider__body">
+                      <h3 class="rewies-slider__card-title">Dora Maneshkin</h3>
+                      <h4 class="rewies-slider__card-subtitle">AGENCY “Privat “</h4>
+                    </div>
+                  </div>
+                  <div class="rewies-slider__text">
+                    <p>I am very pleased with the result. My request was completed in the shortest possible time and with the highest quality. This speaks of the professionalism and excellent experience of the agency.</p>
+                  </div>
+                </div>
+              </div>
+  
             </div>
+            <!-- стрелки переключения: -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <!-- пагинация (если нужна): -->
+            <div class="swiper-pagination"></div>
           </div>
-          <div class="rewies__card">
-            <div class="rewies__content">
-              <div class="rewies__header">
-                <div class="rewies__card-image">
-                  <img src="./img/clients/Ellipse 2.png" alt="icon 2">
-                </div>
-                <div class="rewies__body">
-                  <h3 class="rewies__card-title">Christopher Gogoshar</h3>
-                  <h4 class="rewies__card-subtitle">VP “ITUP”</h4>
-                </div>
-              </div>
-              <div class="rewies__text">
-                <p> I know them to be professionals and I can always count on them to deliver results with their well trained staff. They provide guidance and communication during every step of the project. Their commitment to the success of my projects make them a true partner.</p>
-              </div>
-            </div>
-          </div>
-          <div class="rewies__card">
-            <div class="rewies__content">
-              <div class="rewies__header">
-                <div class="rewies__card-image">
-                  <img src="./img/clients/Ellipse 3.png" alt="icon 3">
-                </div>
-                <div class="rewies__body">
-                  <h3 class="rewies__card-title">Dora Maneshkin</h3>
-                  <h4 class="rewies__card-subtitle">AGENCY “Privat “</h4>
-                </div>
-              </div>
-              <div class="rewies__text">
-                <p>I am very pleased with the result. My request was completed in the shortest possible time and with the highest quality. This speaks of the professionalism and excellent experience of the agency.</p>
-              </div>
-            </div>
-          </div>
-          <div class="rewies__card">
-            <div class="rewies__content">
-              <div class="rewies__header">
-                <div class="rewies__card-image">
-                  <img src="./img/clients/Ellipse 1.png" alt="icon 1">
-                </div>
-                <div class="rewies__body">
-                  <h3 class="rewies__card-title">Joseph Doha</h3>
-                  <h4 class="rewies__card-subtitle">CEO “MD Аssociation”</h4>
-                </div>
-              </div>
-              <div class="rewies__text">
-                <p>We decided on Kate Radisson and were extremely happy with both their services and the flexibility they gave. We were able to pivot and use their team for additional services, as needed; which is something lacking from other providers. Highly recommend their services!</p>
-              </div>
-            </div>
-          </div>
-          <div class="rewies__card">
-            <div class="rewies__content">
-              <div class="rewies__header">
-                <div class="rewies__card-image">
-                  <img src="./img/clients/Ellipse 2.png" alt="icon 2">
-                </div>
-                <div class="rewies__body">
-                  <h3 class="rewies__card-title">Christopher Gogoshar</h3>
-                  <h4 class="rewies__card-subtitle">VP “ITUP”</h4>
-                </div>
-              </div>
-              <div class="rewies__text">
-                <p> I know them to be professionals and I can always count on them to deliver results with their well trained staff. They provide guidance and communication during every step of the project. Their commitment to the success of my projects make them a true partner.</p>
-              </div>
-            </div>
-          </div>
-          <div class="rewies__card">
-            <div class="rewies__content">
-              <div class="rewies__header">
-                <div class="rewies__card-image">
-                  <img src="./img/clients/Ellipse 3.png" alt="icon 3">
-                </div>
-                <div class="rewies__body">
-                  <h3 class="rewies__card-title">Dora Maneshkin</h3>
-                  <h4 class="rewies__card-subtitle">AGENCY “Privat “</h4>
-                </div>
-              </div>
-              <div class="rewies__text">
-                <p>I am very pleased with the result. My request was completed in the shortest possible time and with the highest quality. This speaks of the professionalism and excellent experience of the agency.</p>
-              </div>
-            </div>
-          </div>
-          <div class="rewies__card">
-            <div class="rewies__content">
-              <div class="rewies__header">
-                <div class="rewies__card-image">
-                  <img src="./img/clients/Ellipse 1.png" alt="icon 1">
-                </div>
-                <div class="rewies__body">
-                  <h3 class="rewies__card-title">Joseph Doha</h3>
-                  <h4 class="rewies__card-subtitle">CEO “MD Аssociation”</h4>
-                </div>
-              </div>
-              <div class="rewies__text">
-                <p>We decided on Kate Radisson and were extremely happy with both their services and the flexibility they gave. We were able to pivot and use their team for additional services, as needed; which is something lacking from other providers. Highly recommend their services!</p>
-              </div>
-            </div>
-          </div>
-          <div class="rewies__card">
-            <div class="rewies__content">
-              <div class="rewies__header">
-                <div class="rewies__card-image">
-                  <img src="./img/clients/Ellipse 2.png" alt="icon 2">
-                </div>
-                <div class="rewies__body">
-                  <h3 class="rewies__card-title">Christopher Gogoshar</h3>
-                  <h4 class="rewies__card-subtitle">VP “ITUP”</h4>
-                </div>
-              </div>
-              <div class="rewies__text">
-                <p> I know them to be professionals and I can always count on them to deliver results with their well trained staff. They provide guidance and communication during every step of the project. Their commitment to the success of my projects make them a true partner.</p>
-              </div>
-            </div>
-          </div>
-          <div class="rewies__card">
-            <div class="rewies__content">
-              <div class="rewies__header">
-                <div class="rewies__card-image">
-                  <img src="./img/clients/Ellipse 3.png" alt="icon 3">
-                </div>
-                <div class="rewies__body">
-                  <h3 class="rewies__card-title">Dora Maneshkin</h3>
-                  <h4 class="rewies__card-subtitle">AGENCY “Privat “</h4>
-                </div>
-              </div>
-              <div class="rewies__text">
-                <p>I am very pleased with the result. My request was completed in the shortest possible time and with the highest quality. This speaks of the professionalism and excellent experience of the agency.</p>
-              </div>
-            </div>
-          </div>
-          <div class="rewies__card">
-            <div class="rewies__content">
-              <div class="rewies__header">
-                <div class="rewies__card-image">
-                  <img src="./img/clients/Ellipse 1.png" alt="icon 1">
-                </div>
-                <div class="rewies__body">
-                  <h3 class="rewies__card-title">Joseph Doha</h3>
-                  <h4 class="rewies__card-subtitle">CEO “MD Аssociation”</h4>
-                </div>
-              </div>
-              <div class="rewies__text">
-                <p>We decided on Kate Radisson and were extremely happy with both their services and the flexibility they gave. We were able to pivot and use their team for additional services, as needed; which is something lacking from other providers. Highly recommend their services!</p>
-              </div>
-            </div>
-          </div>
-          <div class="rewies__card">
-            <div class="rewies__content">
-              <div class="rewies__header">
-                <div class="rewies__card-image">
-                  <img src="./img/clients/Ellipse 2.png" alt="icon 2">
-                </div>
-                <div class="rewies__body">
-                  <h3 class="rewies__card-title">Christopher Gogoshar</h3>
-                  <h4 class="rewies__card-subtitle">VP “ITUP”</h4>
-                </div>
-              </div>
-              <div class="rewies__text">
-                <p> I know them to be professionals and I can always count on them to deliver results with their well trained staff. They provide guidance and communication during every step of the project. Their commitment to the success of my projects make them a true partner.</p>
-              </div>
-            </div>
-          </div>
-          <div class="rewies__card">
-            <div class="rewies__content">
-              <div class="rewies__header">
-                <div class="rewies__card-image">
-                  <img src="./img/clients/Ellipse 3.png" alt="icon 3">
-                </div>
-                <div class="rewies__body">
-                  <h3 class="rewies__card-title">Dora Maneshkin</h3>
-                  <h4 class="rewies__card-subtitle">AGENCY “Privat “</h4>
-                </div>
-              </div>
-              <div class="rewies__text">
-                <p>I am very pleased with the result. My request was completed in the shortest possible time and with the highest quality. This speaks of the professionalism and excellent experience of the agency.</p>
-              </div>
-            </div>
-          </div>
-
-
         </div>
       </div>
-    </section> 
+    </section>  
 
     <section id="contacts" class="contacts none">
       <div class="container">
@@ -557,7 +518,9 @@
 
     <button class="nav-btn-up" aria-haspopup="true"><a href="#header">Up</a></button>
     
-    <script src="./libs/tiny-slider/min/tiny-slider.js"></script>
-    <script src="./js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>    <script src="./js/main.js"></script>
   </body>
-</html>
+  </html>
+  
+  <!-- <link rel="stylesheet" href="./libs/tiny-slider/tiny-slider.css"> -->
+  <!-- <script src="./libs/tiny-slider/min/tiny-slider.js"></script> -->
