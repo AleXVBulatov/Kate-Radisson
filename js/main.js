@@ -190,10 +190,6 @@ const candidatesItems = [
   { id: 4, direction: "IT", workType: "Freelance", speciality: "Senior. NET Engineer (+React)", location: "Canada" },
 ];
 
-// количество найденных вакансий в строке поиска:
-const searchContainerOutput = document.querySelector(".search-container__output span");
-searchContainerOutput.textContent = candidatesItems.length;
-
 const candidatesCards = document.querySelector(".candidates__cards");
 candidatesCards.innerHTML = "";
 candidatesItems
@@ -211,4 +207,8 @@ candidatesItems
   `;
   });
 
-console.log(candidatesCards);
+// console.log(candidatesCards.children.length);
+
+// количество найденных вакансий в строке поиска:
+const searchContainerOutput = document.querySelector(".search-container__output span");
+searchContainerOutput.textContent = candidatesCards.children.length;
