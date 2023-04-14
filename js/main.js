@@ -42,8 +42,10 @@ function removeScroll(topPosition) {
 }
 // добавить скролл при закрытии меню:
 function addScroll() {
+  const scroll = document.body.style.top;
+  document.body.style.position = "";
   document.body.style.top = "";
-  document.body.style.position = "static";
+  window.scrollTo(0, parseInt(scroll || "0") * -1);
 }
 
 // 1 вариант оформления закрытия меню (предпочтительный):
