@@ -25,7 +25,7 @@ menuBtn.addEventListener("click", () => {
   navList.classList.toggle("nav__list-active");
   if (navList.classList.contains("nav__list-active")) {
     navList.lastElementChild.style.marginBottom = "25px";
-    removeScroll();
+    removeScroll(window.scrollY);
   } else {
     navList.lastElementChild.style.marginBottom = "";
     addScroll();
@@ -36,14 +36,14 @@ menuBtn.addEventListener("click", () => {
 });
 
 // убрать скролл при открытии меню:
-function removeScroll() {
-  document.body.style.top = `-${window.scrollY}px`;
+function removeScroll(topPosition) {
+  document.body.style.top = `-${topPosition}px`;
   document.body.style.position = "fixed";
 }
 // добавить скролл при закрытии меню:
 function addScroll() {
+  document.body.style.top = "";
   document.body.style.position = "static";
-  document.body.style.top = `-${window.scrollY}px`;
 }
 
 // 1 вариант оформления закрытия меню (предпочтительный):
