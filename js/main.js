@@ -25,12 +25,10 @@ menuBtn.addEventListener("click", () => {
   navList.classList.toggle("nav__list-active");
   if (navList.classList.contains("nav__list-active")) {
     navList.lastElementChild.style.marginBottom = "25px";
-    const header = document.querySelector(".header");
-    header.addEventListener("touchmove", (event) => {
-      event.preventDefault();
-    });
+    document.body.position = "fixed";
   } else {
     navList.lastElementChild.style.marginBottom = "";
+    document.body.position = "static";
   }
   headerBlur.classList.toggle("none");
   navActiveBlur.classList.toggle("none");
