@@ -28,7 +28,8 @@ menuBtn.addEventListener("click", () => {
     removeScroll(window.scrollY);
   } else {
     navList.lastElementChild.style.marginBottom = "";
-    addScroll();
+    document.body.style.position = "static";
+    addScroll(window.scrollY);
   }
   headerBlur.classList.toggle("none");
   navActiveBlur.classList.toggle("none");
@@ -41,10 +42,9 @@ function removeScroll(topPosition) {
   document.body.style.top = `-${topPosition}px`;
 }
 // добавить скролл при закрытии меню:
-function addScroll() {
+function addScroll(topPosition) {
   const scroll = document.body.style.top;
-  document.body.style.position = "";
-  document.body.style.top = "";
+  document.body.style.top = `-${topPosition}px`;
   window.scrollTo(0, parseInt(scroll || "0") * -1);
 }
 
@@ -61,6 +61,7 @@ document.body.addEventListener("click", (event) => {
     headerBlur.classList.toggle("none");
     navActiveBlur.classList.toggle("none");
     document.body.classList.toggle("no-scroll");
+    document.body.style.position = "static";
   }
   addScroll();
 });
