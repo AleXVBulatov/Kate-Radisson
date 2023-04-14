@@ -25,15 +25,27 @@ menuBtn.addEventListener("click", () => {
   navList.classList.toggle("nav__list-active");
   if (navList.classList.contains("nav__list-active")) {
     navList.lastElementChild.style.marginBottom = "25px";
-    document.body.style.position = "fixed";
+    removeScroll();
   } else {
     navList.lastElementChild.style.marginBottom = "";
-    document.body.style.position = "static";
+    addScroll();
   }
   headerBlur.classList.toggle("none");
   navActiveBlur.classList.toggle("none");
   document.body.classList.toggle("no-scroll");
 });
+
+// убрать скролл при открытии меню:
+function removeScroll() {
+  document.body.style.top = `-${window.scrollY}px`;
+  document.body.style.position = "fixed";
+}
+// добавить скролл при закрытии меню:
+function addScroll() {
+  document.body.style.position = "static";
+  document.body.style.top = `-${window.scrollY}px`;
+}
+
 // 1 вариант оформления закрытия меню (предпочтительный):
 document.body.addEventListener("click", (event) => {
   if (
@@ -47,8 +59,8 @@ document.body.addEventListener("click", (event) => {
     headerBlur.classList.toggle("none");
     navActiveBlur.classList.toggle("none");
     document.body.classList.toggle("no-scroll");
-    document.body.style.position = "static";
   }
+  addScroll();
 });
 
 // Подключение слайдера
