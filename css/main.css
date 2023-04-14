@@ -594,18 +594,18 @@ body {
 }
 .candidates__filter-title.active span::after {
   content: "";
-  width: 0px;
   height: 0px;
+  transform: rotate(0deg);
+  transition: 0.2s linear;
 }
-.candidates__filter-title span:hover,
-.candidates__filter-title.active span:hover {
+/* класс для добавления ховера только для компьютеров */
+.no-touch-filter:hover {
   background-color: var(--color-white-50);
   border-radius: 5px;
 }
 
 .candidates__settings {
-  /* display: block; */
-  width: 100%;
+  width: auto;
   height: auto;
   /* height: 510px; */
   /* overflow-y: scroll; */
@@ -613,8 +613,8 @@ body {
   background-color: #eef1f4;
 }
 
-.candidates__settings > * {
-  display: block;
+.candidates__settings > div {
+  display: flex;
   padding: 12px 15px;
 }
 .candidates__settings input {
@@ -628,13 +628,15 @@ body {
   display: none;
 }
 /*стилизуем новый*/
-.candidates__settings span {
+.candidates__settings .my-checkbox {
   display: inline-block;
   width: 18px;
   height: 18px;
   margin-right: 30px;
   padding: 3px;
   position: relative;
+  top: 2px;
+  left: 0;
   border: 2px solid #49454f;
   border-radius: 2px;
   background-color: transparent;
@@ -643,7 +645,7 @@ body {
   border: none !important;
 }
 /* ставим иконку когда чекбокс включен */
-[type="checkbox"]:checked + span::before {
+[type="checkbox"]:checked + .my-checkbox::before {
   content: "";
   position: absolute;
   top: 0;
@@ -666,6 +668,21 @@ body {
 .candidates__filter-work-type {
   /* max-height: 570px; */
 }
+
+.candidates__btn-search {
+  width: 100%;
+  padding: 10px;
+  font-size: calc(var(--font-size) * 0.85);
+  line-height: calc(var(--font-size) * 0.85 * var(--line-height-lato));
+  border-top: 20px solid var(--color-main);
+  border-end-start-radius: 10px;
+  border-end-end-radius: 10px;
+}
+.candidates__btn-search img {
+  width: calc(var(--font-size) * 0.85);
+  margin-right: 5px;
+}
+
 .candidates__container {
   width: 740px;
 }

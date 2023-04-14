@@ -7,15 +7,19 @@ const refs = {
   headerBlur: document.querySelector(".header__blur"),
   navBtnUp: document.querySelector(".nav-btn-up"),
   navActiveBlur: document.querySelector(".nav__blur"),
+  candidatesFilterBtn: document.querySelector(".candidates__filter-title span"),
 };
-const { menuBtn, menuIcon, nav, navList, headerBlur, headerTitle, navBtnUp, navActiveBlur } = refs;
+const { menuBtn, menuIcon, nav, navList, headerBlur, headerTitle, navBtnUp, navActiveBlur, candidatesFilterBtn } = refs;
 
+// секция по снятию ховера с мобильной версии:
 if ("ontouchstart" in window || (window.DocumentTouch && document instanceof DocumentTouch)) {
   console.log("this is a touch device");
 } else {
   console.log("this is not a touch device");
   navBtnUp.firstChild.classList.add("no-touch");
   navBtnUp.classList.add("no-touch");
+  // снятие ховера с кнопки в секции candidates__filter-title на мобильной версии
+  candidatesFilterBtn.classList.add("no-touch-filter");
 }
 
 // ============= кнопка menu btn toggle ================ //
@@ -118,6 +122,7 @@ new Swiper(".rewies-slider", {
 
 // ======================================================= //
 // ============= Candidates ================ //
+// Секция candidates__filter (аккордион)
 const candidates = document.querySelector(".candidates__filter");
 
 candidates.addEventListener("click", (event) => {
@@ -135,7 +140,6 @@ const candidatesToggle = (elem) => {
 
   if (candidatesSettings.closest(`.candidates__filter-${elem}`)) {
     candidatesSettings.hidden = !candidatesSettings.hidden;
-    // candidatesSettings.classList.toggle("none");
   }
   if (candidatesFilterTitle.closest(`.candidates__filter-${elem}`)) {
     candidatesFilterTitle.classList.toggle("active");
@@ -151,3 +155,60 @@ document.addEventListener("click", (event) => {
   const check = event.target.nextElementSibling;
   check.classList.toggle("check-active");
 });
+
+// Работа фильтра:
+const buttonSearch = document.querySelector("#btn-search");
+
+buttonSearch.addEventListener("click", () => {
+  const candidatesFilter = document.querySelectorAll(".candidates__filter input");
+  const candidatesRow = document.querySelector(".result-candidates__row");
+  // обнуляем список с выбранными фильтрами:
+  candidatesRow.innerHTML = "";
+  // добавляем новый список с выбранными фильтрами:
+  candidatesFilter.forEach((elem) => {
+    if (!elem.hasAttribute("checked")) return;
+    candidatesRow.innerHTML += `
+      <div class="result-candidates__box box-result">
+        <h3 class="box-result__name">${elem.parentElement.textContent}</h3>
+        <button class="box-result__btn">✕</button>
+      </div>
+    `;
+  });
+});
+
+// Создание блоков с вакансиями:
+const candidatesItems = [
+  { id: 1, direction: "DESIGN", workType: "OFFICE", speciality: "Expert UX Designer", location: "Spain" },
+  { id: 2, direction: "PROJECT MANAGEMENT", workType: "REMOTE", speciality: "Project Coordinator", location: "Poland" },
+  {
+    id: 3,
+    direction: "SOFTWARE DEVELOPMENT",
+    workType: "OFFICE",
+    speciality: "Senior. NET Engineer (+React)",
+    location: "Spain",
+  },
+  { id: 4, direction: "IT", workType: "Freelance", speciality: "Senior. NET Engineer (+React)", location: "Canada" },
+];
+
+// количество найденных вакансий в строке поиска:
+const searchContainerOutput = document.querySelector(".search-container__output span");
+searchContainerOutput.textContent = candidatesItems.length;
+
+const candidatesCards = document.querySelector(".candidates__cards");
+candidatesCards.innerHTML = "";
+candidatesItems
+  .filter((elem) => elem.location === "Spain" || elem.location === "Poland")
+  .forEach((elem) => {
+    candidatesCards.innerHTML += `
+    <div class="candidates__card">
+      <div class="candidates__card-row">
+        <h4 class="candidates__card-direction">${elem.direction}</h4>
+        <h4 class="candidates__card-work-type">${elem.workType}</h4>
+      </div>
+      <h3 class="candidates__card-title">${elem.speciality}</h3>
+      <h4 class="candidates__card-location">${elem.location}</h4>
+    </div>
+  `;
+  });
+
+console.log(candidatesCards);
