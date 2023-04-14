@@ -21,7 +21,7 @@ if ("ontouchstart" in window || (window.DocumentTouch && document instanceof Doc
 // ============= кнопка menu btn toggle ================ //
 menuBtn.addEventListener("click", () => {
   menuIcon.classList.toggle("js-menu-icon-active");
-  nav.classList.toggle("nav--mobile");
+  // nav.classList.toggle("nav--mobile");
   navList.classList.toggle("nav__list-active");
   if (navList.classList.contains("nav__list-active")) {
     navList.lastElementChild.style.marginBottom = "25px";
@@ -44,9 +44,10 @@ function removeScroll(topPosition) {
 // добавить скролл при закрытии меню:
 function addScroll(topPosition) {
   const scroll = document.body.style.top;
-  document.body.style.top = `-${topPosition}px`;
+  // document.body.style.top = `-${topPosition}px`;
   window.scrollTo(0, parseInt(scroll || "0") * -1);
 }
+// анимация при закрытии меню:
 
 // 1 вариант оформления закрытия меню (предпочтительный):
 document.body.addEventListener("click", (event) => {
