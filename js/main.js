@@ -37,8 +37,8 @@ menuBtn.addEventListener("click", () => {
 
 // убрать скролл при открытии меню:
 function removeScroll(topPosition) {
-  document.body.style.top = `-${topPosition}px`;
   document.body.style.position = "fixed";
+  document.body.style.top = `-${topPosition}px`;
 }
 // добавить скролл при закрытии меню:
 function addScroll() {
