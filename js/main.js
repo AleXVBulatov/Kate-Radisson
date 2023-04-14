@@ -42,9 +42,8 @@ function removeScroll(topPosition) {
   document.body.style.top = `-${topPosition}px`;
 }
 // добавить скролл при закрытии меню:
-function addScroll(topPosition) {
+function addScroll() {
   const scroll = document.body.style.top;
-  // document.body.style.top = `-${topPosition}px`;
   window.scrollTo(0, parseInt(scroll || "0") * -1);
 }
 // анимация при закрытии меню:
@@ -63,8 +62,8 @@ document.body.addEventListener("click", (event) => {
     navActiveBlur.classList.toggle("none");
     document.body.classList.toggle("no-scroll");
     document.body.style.position = "static";
+    addScroll();
   }
-  addScroll();
 });
 
 // Подключение слайдера
