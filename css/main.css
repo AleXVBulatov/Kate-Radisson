@@ -878,7 +878,6 @@ body {
   overflow: hidden;
   position: relative;
   padding-bottom: 67px;
-  display: flex;
 }
 .rewies-slider__wrapper {
 }
@@ -941,18 +940,25 @@ body {
 /* Настройка стилей стрелок: */
 .rewies-slider .swiper-button-prev,
 .rewies-slider .swiper-button-next {
+  position: absolute;
   margin-top: 0;
-  top: 0;
-  height: 100%;
-  width: 80px;
+  top: calc(50% - 33px);
+  height: calc(100% - 67px);
+  transform: translateY(-50%);
+  width: 50px;
+  /* background-color: red; */
+}
+.rewies-slider .swiper-button-prev::after,
+.rewies-slider .swiper-button-next::after {
+  /* color: var(--color-violet-50); */
   color: transparent;
-  background-color: transparent;
+  font-size: 30px;
 }
 .rewies-slider .swiper-button-prev {
-  left: 0;
+  left: 0px;
 }
 .rewies-slider .swiper-button-next {
-  right: 0;
+  right: 0px;
 }
 
 /* ==================== Contacts ==================== */
@@ -1447,6 +1453,11 @@ body {
   .rewies-slider__header {
     margin-bottom: 15px;
   }
+  /* Настройка стилей стрелок: */
+  .rewies-slider .swiper-button-prev,
+  .rewies-slider .swiper-button-next {
+    width: 40px;
+  }
 
   .br-2 {
     display: none;
@@ -1809,7 +1820,7 @@ body {
   /* Настройка стилей стрелок: */
   .rewies-slider .swiper-button-prev,
   .rewies-slider .swiper-button-next {
-    width: 60px;
+    width: 30px;
   }
 
   .contacts {
