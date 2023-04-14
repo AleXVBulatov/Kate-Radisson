@@ -25,10 +25,10 @@ menuBtn.addEventListener("click", () => {
   navList.classList.toggle("nav__list-active");
   if (navList.classList.contains("nav__list-active")) {
     navList.lastElementChild.style.marginBottom = "25px";
-    document.body.position = "fixed";
+    document.body.style.position = "fixed";
   } else {
     navList.lastElementChild.style.marginBottom = "";
-    document.body.position = "static";
+    document.body.style.position = "static";
   }
   headerBlur.classList.toggle("none");
   navActiveBlur.classList.toggle("none");
@@ -47,6 +47,7 @@ document.body.addEventListener("click", (event) => {
     headerBlur.classList.toggle("none");
     navActiveBlur.classList.toggle("none");
     document.body.classList.toggle("no-scroll");
+    document.body.style.position = "static";
   }
 });
 
