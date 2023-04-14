@@ -1222,8 +1222,8 @@ body {
   } */
   .nav__btn-toggle {
     display: block;
-    /* position: fixed; */
     z-index: 101;
+    top: 33px;
   }
   .header__blur,
   .header__stars {
@@ -1654,6 +1654,9 @@ body {
   }
   .header__top {
     padding: 17px 0 0 0;
+  }
+  .nav__btn-toggle {
+    top: 17px;
   }
   .header__img {
     pointer-events: none;
