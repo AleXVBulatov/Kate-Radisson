@@ -1792,6 +1792,7 @@ body {
 
   .candidates__btn-1,
   .candidates__btn-2 {
+    min-width: 170px;
     font-size: 12px;
   }
 
@@ -1987,6 +1988,14 @@ body {
     margin-bottom: 0px;
     font-size: 12px;
     line-height: calc(12px * var(--line-height-lato));
+  }
+  .candidates__buttons {
+    flex-direction: column;
+    row-gap: 12px;
+  }
+  .candidates__btn-1,
+  .candidates__btn-2 {
+    min-width: 100%;
   }
 
   .application-form {
