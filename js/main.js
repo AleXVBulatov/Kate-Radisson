@@ -434,6 +434,7 @@ function showCandidatesCards() {
     !selectedInputs[typeKey].length
   ) {
     // Отображение надписи:
+    displayQtyJobVacancies(searchArray);
     return (candidatesCards.innerHTML = `<h3 class="candidates__notFound">Установите нужные фильтры или воспользуйтесь поиском</h3>`);
   }
 
