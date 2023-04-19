@@ -611,6 +611,12 @@ body {
   /* overflow-y: scroll; */
   padding: 15px 44px;
   background-color: #eef1f4;
+  border-radius: 5px;
+}
+
+.candidates__settings label:hover,
+.candidates__settings span:hover {
+  cursor: pointer;
 }
 
 .candidates__settings > div {
@@ -667,20 +673,6 @@ body {
 }
 .candidates__filter-work-type {
   /* max-height: 570px; */
-}
-
-.candidates__btn-search {
-  width: 100%;
-  padding: 10px;
-  font-size: calc(var(--font-size) * 0.85);
-  line-height: calc(var(--font-size) * 0.85 * var(--line-height-lato));
-  border-top: 20px solid var(--color-main);
-  border-end-start-radius: 10px;
-  border-end-end-radius: 10px;
-}
-.candidates__btn-search img {
-  width: calc(var(--font-size) * 0.85);
-  margin-right: 5px;
 }
 
 .candidates__container {
@@ -756,9 +748,63 @@ body {
 }
 
 .candidates__card {
+  border-radius: 5px;
   padding: 29px;
   background-color: #eef1f4;
 }
+.candidates__card:not(:last-child) {
+  margin-bottom: 40px;
+}
+.candidates__card-row {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 20px;
+}
+.candidates__card-direction {
+  flex: 1 0 50%;
+}
+.candidates__card-other-info-block {
+  display: flex;
+  justify-content: space-between;
+  flex: 1 1 50%;
+  column-gap: 10px;
+  /* width: 250px; */
+}
+.candidates__card-subtitle {
+  margin-bottom: 18px;
+  font-size: calc(var(--font-size) * 0.7);
+  line-height: calc(var(--font-size) * 0.7 * var(--line-height-lato));
+  color: rgba(0, 0, 0, 0.5);
+}
+.candidates__card-title {
+  margin-bottom: 18px;
+  font-weight: 700;
+  font-size: calc(var(--font-size));
+  line-height: calc(var(--font-size) * var(--line-height-lato));
+}
+.candidates__card-other-info-block .candidates__card-title {
+  font-weight: 400;
+}
+.candidates__card-text {
+  text-transform: uppercase;
+  font-size: calc(var(--font-size));
+  line-height: calc(var(--font-size) * var(--line-height-lato));
+
+  color: var(--color-violet-50);
+}
+.candidates__card-tech-level {
+}
+.candidates__card-location {
+}
+.candidates__card-work-type {
+}
+.candidates__notFound {
+  color: var(--color-white-100);
+  font-weight: 400;
+}
+
+/*
+
 .candidates__card:not(:last-child) {
   margin-bottom: 40px;
 }
@@ -769,11 +815,13 @@ body {
   column-gap: 20px;
 }
 .candidates__card-direction {
+  text-transform: uppercase;
   margin-bottom: 15px;
   color: var(--color-violet-50);
 }
 .candidates__card-work-type {
-  width: 100px;
+  text-transform: uppercase;
+  width: auto;
   padding: 5px;
   text-align: center;
   border-radius: 5px;
@@ -801,7 +849,7 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
 }
-
+*/
 .candidates__buttons {
   display: flex;
   column-gap: 80px;
