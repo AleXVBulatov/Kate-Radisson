@@ -520,32 +520,30 @@ body {
   /* height: 1150px; */
   height: auto;
 }
-
 .candidates__content {
   color: var(--color-secondary);
 }
-
 .candidates__title {
   color: var(--color-white-100);
 }
-
 .candidates__row {
   display: flex;
   justify-content: space-between;
   align-items: start;
   column-gap: 30px;
 }
-
+.candidates__hidden-menu {
+  display: none;
+}
 .candidates__filter {
   width: 415px;
+  min-width: 250px;
   border-radius: 5px;
   background-color: #eef1f4;
 }
-
 .candidates__filter-locations {
   /* max-height: 570px; */
 }
-
 .candidates__filter-title {
   display: flex;
   justify-content: space-between;
@@ -677,15 +675,17 @@ body {
 
 .candidates__container {
   width: 740px;
+  /* min-width: 520px; */
+  flex: 0 1 auto;
 }
 .candidates__container-search {
-  margin-bottom: 20px;
 }
 .search-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   column-gap: 10px;
+  margin-bottom: 20px;
   width: 100%;
   height: 60px;
   padding: 18px 30px;
@@ -696,6 +696,7 @@ body {
   width: 24px;
   height: 24px;
   object-fit: contain;
+  cursor: pointer;
 }
 .search-container input {
   flex: 1 1 auto;
@@ -711,7 +712,8 @@ body {
   min-width: auto;
 }
 .candidates__container-result {
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
+  margin-bottom: 5px;
 }
 .result-candidates {
 }
@@ -743,6 +745,17 @@ body {
   background-color: #ccdef5;
 }
 
+.result-candidates__reset {
+  width: auto;
+  text-align: right;
+  margin-bottom: 10px;
+}
+.result-candidates__reset-btn {
+  background-color: transparent;
+  color: var(--color-white-50);
+  font-size: calc(var(--font-size) * 0.7);
+}
+
 .candidates__cards {
   margin-bottom: 65px;
 }
@@ -768,7 +781,6 @@ body {
   justify-content: space-between;
   flex: 1 1 50%;
   column-gap: 10px;
-  /* width: 250px; */
 }
 .candidates__card-subtitle {
   margin-bottom: 18px;
@@ -777,6 +789,7 @@ body {
   color: rgba(0, 0, 0, 0.5);
 }
 .candidates__card-title {
+  text-transform: capitalize;
   margin-bottom: 18px;
   font-weight: 700;
   font-size: calc(var(--font-size));
@@ -793,63 +806,19 @@ body {
   color: var(--color-violet-50);
 }
 .candidates__card-tech-level {
+  text-transform: capitalize;
 }
 .candidates__card-location {
+  text-transform: capitalize;
 }
 .candidates__card-work-type {
+  text-transform: capitalize;
 }
 .candidates__notFound {
   color: var(--color-white-100);
   font-weight: 400;
 }
 
-/*
-
-.candidates__card:not(:last-child) {
-  margin-bottom: 40px;
-}
-.candidates__card-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  column-gap: 20px;
-}
-.candidates__card-direction {
-  text-transform: uppercase;
-  margin-bottom: 15px;
-  color: var(--color-violet-50);
-}
-.candidates__card-work-type {
-  text-transform: uppercase;
-  width: auto;
-  padding: 5px;
-  text-align: center;
-  border-radius: 5px;
-  background-color: #ccdef5;
-}
-.candidates__card-title {
-  margin-bottom: 15px;
-  font-weight: 700;
-  font-size: calc(var(--font-size) * 1.25);
-  line-height: calc(var(--font-size) * 1.25 * var(--line-height-lato));
-}
-.candidates__card-location {
-  position: relative;
-  padding-left: 30px;
-  color: var(--color-violet-50);
-}
-.candidates__card-location:before {
-  content: "";
-  position: absolute;
-  bottom: 4px;
-  left: 0;
-  width: 16px;
-  height: 20px;
-  background-image: url(./../img/candidats/label.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-*/
 .candidates__buttons {
   display: flex;
   column-gap: 80px;
@@ -1137,6 +1106,9 @@ body {
 .none {
   display: none;
 }
+.dblock {
+  display: block;
+}
 .br-1 {
   display: none;
 }
@@ -1195,6 +1167,13 @@ body {
 
   .advantages {
     padding: 105px 0 80px;
+  }
+
+  .candidates {
+    padding: 80px 0;
+  }
+  .candidates__card:not(:last-child) {
+    margin-bottom: 30px;
   }
 
   .application-form {
@@ -1297,6 +1276,17 @@ body {
     width: calc((100% - var(--container-width)) / 2 + 960px);
   }
 
+  .candidates__settings > div {
+    display: flex;
+    padding: 10px 10px;
+  }
+  .candidates__settings .my-checkbox {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 20px;
+  }
+
   .form-container__title {
     max-width: 750px;
     text-align: center;
@@ -1366,6 +1356,16 @@ body {
     height: 50px;
   }
 
+  .candidates__card {
+    padding: 20px;
+  }
+  .candidates__filter-title {
+    padding: 15px 25px;
+  }
+  .candidates__settings {
+    padding: 15px 25px;
+  }
+
   .rewies-slider__header {
     flex-direction: column;
     align-items: flex-start;
@@ -1400,6 +1400,51 @@ body {
   }
   .who-is-Kate__img img {
     flex: none;
+  }
+
+  .candidates__row {
+    display: flex;
+    flex-direction: column;
+  }
+  .candidates__hidden-menu {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 50px;
+    padding: 0 30px;
+    border-radius: 5px;
+
+    background-color: #eef1f4;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-secondary);
+  }
+  .candidates__hidden-menu img {
+    margin-right: 20px;
+    cursor: pointer;
+  }
+  .candidates__filter {
+    margin-bottom: 30px;
+    display: none;
+    width: 300px;
+  }
+  .candidates__filter-title {
+    padding: 10px 25px;
+  }
+  .candidates__container {
+    width: 100%;
+  }
+  .search-container {
+    margin-top: 30px;
+    height: 50px;
+    padding: 0px 30px;
+  }
+  .search-container img {
+    width: 20px;
+    height: 20px;
+  }
+  .candidates__cards {
+    margin-bottom: 40px;
   }
 
   .form-container__form-aplication {
@@ -1499,6 +1544,18 @@ body {
     margin: 0 -10px;
   }
 
+  .candidates {
+    padding: 60px 0;
+  }
+  .candidates__buttons {
+    justify-content: space-between;
+    column-gap: 10px;
+  }
+  .candidates__btn-1,
+  .candidates__btn-2 {
+    min-width: 200px;
+  }
+
   .application-form {
     padding: 60px 0;
   }
@@ -1590,6 +1647,15 @@ body {
   .rewies-slider__content {
     padding: 15px;
   }
+  .candidates__card-row {
+    column-gap: 40px;
+  }
+  .candidates__card-direction {
+    flex: 1 0 40%;
+  }
+  .candidates__card-other-info-block {
+    flex: 1 1 60%;
+  }
 }
 
 @media (max-width: 600px) {
@@ -1650,6 +1716,83 @@ body {
   .advantages__card-image img {
     width: 40px;
     height: 40px;
+  }
+
+  .candidates__hidden-menu {
+    width: 100vh;
+    min-height: 40px;
+    margin-left: -25px;
+    margin-right: -25px;
+    border-radius: 0px;
+  }
+  .candidates__filter {
+    /* align-self: center; */
+    margin-bottom: 15px;
+    width: 200px;
+    margin-left: -25px;
+  }
+  .candidates__filter-title {
+    padding: 5px 25px;
+  }
+  .search-container {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    height: 40px;
+    padding: 0px 12px;
+  }
+  .search-container img {
+    width: 14px;
+    height: 14px;
+  }
+  .candidates__filter-title.active span {
+    width: 25px;
+    right: -2.5px;
+  }
+  .candidates__filter-title span {
+    position: relative;
+    display: block;
+    width: 20px;
+    height: 30px;
+  }
+  .candidates__container-result {
+    margin-bottom: 10px;
+  }
+  .result-candidates__reset-btn {
+    background-color: transparent;
+    color: var(--color-white-50);
+    font-size: calc(var(--font-size));
+  }
+  .candidates__card {
+    padding: 16px;
+  }
+  .candidates__card:not(:last-child) {
+    margin-bottom: 12px;
+  }
+  .candidates__card-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .candidates__card-text {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    font-size: 18px;
+    line-height: calc(18px * var(--line-height-lato));
+  }
+  .candidates__card-title {
+    margin-bottom: 0px;
+    font-size: 20px;
+    line-height: calc(20px * var(--line-height-lato));
+  }
+  .candidates__card-subtitle {
+    margin-bottom: 5px;
+    font-size: 14px;
+    line-height: calc(14px * var(--line-height-lato));
+  }
+
+  .candidates__btn-1,
+  .candidates__btn-2 {
+    font-size: 12px;
   }
 
   .form-container__form-aplication {
@@ -1830,6 +1973,22 @@ body {
     line-height: calc(14px * var(--line-height-lato));
   }
 
+  .candidates__card-text {
+    margin-top: 5px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    line-height: calc(16px * var(--line-height-lato));
+  }
+  .candidates__card-title {
+    font-size: 18px;
+    line-height: calc(18px * var(--line-height-lato));
+  }
+  .candidates__card-subtitle {
+    margin-bottom: 0px;
+    font-size: 12px;
+    line-height: calc(12px * var(--line-height-lato));
+  }
+
   .application-form {
     padding: 40px 0;
   }
@@ -1961,6 +2120,20 @@ body {
     row-gap: 42px;
   }
 
+  .candidates__card-text {
+    font-size: 14px;
+    line-height: calc(14px * var(--line-height-lato));
+  }
+  .candidates__card-title {
+    font-size: 16px;
+    line-height: calc(16px * var(--line-height-lato));
+  }
+  .candidates__card-subtitle {
+    margin-bottom: 0px;
+    font-size: 12px;
+    line-height: calc(12px * var(--line-height-lato));
+  }
+
   .footer__buttons {
     flex-wrap: wrap;
     row-gap: 20px;
@@ -1974,6 +2147,16 @@ body {
 }
 
 @media (max-width: 365px) {
+  .candidates__card {
+    margin-left: -25px;
+    margin-right: -25px;
+    border-radius: 0;
+  }
+  /* .candidates__card-title {
+    font-size: 14px;
+    line-height: calc(14px * var(--line-height-lato));
+  } */
+
   .footer__logo {
     flex: 1 1 100%;
   }

@@ -170,7 +170,7 @@ const candidatesFilter = document.getElementsByClassName("candidates__filter")[0
 const candidatesInputs = document.querySelectorAll(".candidates__filter input");
 const candidatesRow = document.querySelector(".result-candidates__row");
 
-const activeInputs = [];
+let activeInputs = [];
 
 // Начальный рендеринг инпутов:
 function firstRenderCheckes() {
@@ -214,9 +214,14 @@ candidatesFilter.addEventListener("click", (event) => {
   if (!event.target.matches("label") && !event.target.matches("input")) return;
 
   // Убрать выделение текста при нажатии на пункты:
-  // candidatesFilter.addEventListener("mousedown", (event) => {
-  //   event.preventDefault();
-  // });
+  candidatesFilter.addEventListener("mousedown", (event) => {
+    event.preventDefault();
+  });
+
+  // снять выделение с инпута по поиску названия вакансий при установки фильтров:
+  const searchContainer = document.querySelector(".search-container");
+  const input = searchContainer.querySelector("input");
+  input.blur();
 
   if (!event.target.matches("input")) return;
   if (event.target.checked) {
@@ -264,57 +269,57 @@ const candidatesItems = [
   {
     id: 1,
     direction: "marketing",
-    workType: "Remote/office",
+    workType: "remote/office",
     speciality: "Digital Marketing Specialist (PR|SMM)",
     location: "Ukraine",
     techLevel: "junior",
   },
-  { id: 2, direction: "design", workType: "Office", speciality: "Graphic Artist", location: "Poland", techLevel: "middle" },
-  { id: 3, direction: "sales", workType: "Relocation", speciality: "Sales Manager 1", location: "Bulgaria", techLevel: "senior" },
+  { id: 2, direction: "design", workType: "office", speciality: "Graphic Artist", location: "Poland", techLevel: "middle" },
+  { id: 3, direction: "sales", workType: "relocation", speciality: "Sales Manager 1", location: "Bulgaria", techLevel: "senior" },
   {
     id: 4,
     direction: "development",
-    workType: "Freelance",
+    workType: "freelance",
     speciality: "PHP Developer",
     location: "USA",
     techLevel: "leader",
   },
-  { id: 5, direction: "analytics", workType: "Remote/office", speciality: "Analytic 1", location: "Canada", techLevel: "expert" },
-  { id: 6, direction: "other", workType: "Office", speciality: "QA Engineer", location: "UK", techLevel: "other" },
+  { id: 5, direction: "analytics", workType: "remote/office", speciality: "Analytic 1", location: "Canada", techLevel: "expert" },
+  { id: 6, direction: "other", workType: "office", speciality: "QA Engineer", location: "UK", techLevel: "other" },
   {
     id: 7,
     direction: "marketing",
-    workType: "Relocation",
+    workType: "relocation",
     speciality: "Digital Marketing Specialist (PR|SMM)",
     location: "Germany",
     techLevel: "junior",
   },
-  { id: 8, direction: "design", workType: "Freelance", speciality: "Game Designer", location: "Sweden", techLevel: "middle" },
+  { id: 8, direction: "design", workType: "freelance", speciality: "Game Designer", location: "Sweden", techLevel: "middle" },
   {
     id: 9,
     direction: "sales",
-    workType: "Remote/office",
+    workType: "remote/office",
     speciality: "Sales Manager 2",
     location: "Singapore",
     techLevel: "senior",
   },
-  { id: 10, direction: "development", workType: "Office", speciality: "REACT Developer", location: "Spain", techLevel: "leader" },
-  { id: 11, direction: "analytics", workType: "Relocation", speciality: "Analytic 2", location: "Ukraine", techLevel: "expert" },
-  { id: 12, direction: "other", workType: "Freelance", speciality: "Support Manager", location: "Poland", techLevel: "other" },
+  { id: 10, direction: "development", workType: "office", speciality: "REACT Developer", location: "Spain", techLevel: "leader" },
+  { id: 11, direction: "analytics", workType: "relocation", speciality: "Analytic 2", location: "Ukraine", techLevel: "expert" },
+  { id: 12, direction: "other", workType: "freelance", speciality: "Support Manager", location: "Poland", techLevel: "other" },
   {
     id: 13,
     direction: "marketing",
-    workType: "Remote/office",
+    workType: "remote/office",
     speciality: "Social Media Marketing Manager",
     location: "Bulgaria",
     techLevel: "junior",
   },
-  { id: 14, direction: "design", workType: "Office", speciality: "UX Designer", location: "USA", techLevel: "middle" },
-  { id: 15, direction: "sales", workType: "Relocation", speciality: "Sales Manager 3", location: "Canada", techLevel: "senior" },
+  { id: 14, direction: "design", workType: "office", speciality: "UX Designer", location: "USA", techLevel: "middle" },
+  { id: 15, direction: "sales", workType: "relocation", speciality: "Sales Manager 3", location: "Canada", techLevel: "senior" },
   {
     id: 16,
     direction: "development",
-    workType: "Freelance",
+    workType: "freelance",
     speciality: "Python Developer",
     location: "UK",
     techLevel: "leader",
@@ -322,16 +327,16 @@ const candidatesItems = [
   {
     id: 17,
     direction: "analytics",
-    workType: "Remote/office",
+    workType: "remote/office",
     speciality: "Analytic 3",
     location: "Germany",
     techLevel: "expert",
   },
-  { id: 18, direction: "other", workType: "Office", speciality: "L1 Rust Auditor", location: "Sweden", techLevel: "other" },
+  { id: 18, direction: "other", workType: "office", speciality: "L1 Rust Auditor", location: "Sweden", techLevel: "other" },
   {
     id: 19,
     direction: "marketing",
-    workType: "Relocation",
+    workType: "relocation",
     speciality: "SMM Marketing",
     location: "Singapore",
     techLevel: "junior",
@@ -339,12 +344,47 @@ const candidatesItems = [
   {
     id: 20,
     direction: "design",
-    workType: "Freelance",
+    workType: "freelance",
     speciality: "Product Game Designer",
     location: "Spain",
     techLevel: "middle",
   },
 ];
+
+// HTML код для отображения карточек:
+function htmlCodeOfSearch(elem) {
+  return `    
+    <div class="candidates__card">
+      <div class="candidates__card-row">
+        <div class="candidates__card-direction">
+          <h4 class="candidates__card-subtitle">Directions</h4>
+          <h3 class="candidates__card-title">${elem.speciality}</h3>
+          <h4 class="candidates__card-text">${elem.direction}</h4>
+        </div>
+        <div class="candidates__card-other-info-block">
+          <div class="candidates__card-tech-level">
+            <h4 class="candidates__card-subtitle">Tech level</h4>
+            <h3 class="candidates__card-title">${elem.techLevel}</h3>
+          </div>
+          <div class="candidates__card-location">
+            <h4 class="candidates__card-subtitle">Location</h4>
+            <h3 class="candidates__card-title">${elem.location}</h3>
+          </div>
+          <div class="candidates__card-work-type">
+            <h4 class="candidates__card-subtitle">Work type</h4>
+            <h3 class="candidates__card-title">${elem.workType}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+// Отображение количества найденных карточек с вакансиями:
+function displayQtyJobVacancies(array) {
+  const searchContainerOutput = document.querySelector(".search-container__output span");
+  return (searchContainerOutput.textContent = array.length ? array.length : candidatesItems.length);
+}
 
 // Показанные все отмеченные инпуты:
 function showActiveInputs() {
@@ -370,6 +410,11 @@ function showActiveInputs() {
 
 // Показанные карточки:
 function showCandidatesCards() {
+  // Убрать input.value с инпута во время установки фильстров:
+  const searchContainer = document.querySelector(".search-container");
+  const input = searchContainer.querySelector("input");
+  input.value = "";
+
   const candidatesCards = document.querySelector(".candidates__cards");
   const selectedInputs = showActiveInputs();
   const keys = Object.keys(selectedInputs);
@@ -381,6 +426,17 @@ function showCandidatesCards() {
 
   let searchArray = [];
 
+  // Условие, чтобы при начальном рендеринге не отображалось никакой надписи
+  if (
+    !selectedInputs[locationKey].length &&
+    !selectedInputs[directionsKey].length &&
+    !selectedInputs[levelsKey].length &&
+    !selectedInputs[typeKey].length
+  ) {
+    // Отображение надписи:
+    return (candidatesCards.innerHTML = `<h3 class="candidates__notFound">Установите нужные фильтры или воспользуйтесь поиском</h3>`);
+  }
+
   if (selectedInputs[locationKey].length) {
     // const locationSearch = (searchArray.length ? searchArray : candidatesItems).filter((elem) => {
     searchArray = (searchArray.length ? searchArray : candidatesItems).filter((elem) => {
@@ -388,7 +444,7 @@ function showCandidatesCards() {
         return location === elem[locationKey].toLowerCase();
       });
     });
-    console.log(searchArray.length);
+    // console.log(searchArray.length);
   }
 
   if (selectedInputs[directionsKey].length) {
@@ -398,7 +454,7 @@ function showCandidatesCards() {
         return direction === elem[directionsKey].toLowerCase();
       });
     });
-    console.log(searchArray.length);
+    // console.log(searchArray.length);
   }
 
   if (selectedInputs[levelsKey].length) {
@@ -408,7 +464,7 @@ function showCandidatesCards() {
         return techLevel === elem[levelsKey].toLowerCase();
       });
     });
-    console.log(searchArray.length);
+    // console.log(searchArray.length);
   }
 
   if (selectedInputs[typeKey].length) {
@@ -417,125 +473,126 @@ function showCandidatesCards() {
         return workType === elem[typeKey].toLowerCase();
       });
     });
-    console.log(searchArray.length);
+    // console.log(searchArray.length);
   }
-  // "Ничего не найдено по вашему запросу"
+
+  // Отображение карточек согласно фильтрам:
   candidatesCards.innerHTML =
     (searchArray.length ? searchArray : [])
       .map((elem) => {
-        return `    
-      <div class="candidates__card">
-        <div class="candidates__card-row">
-          <div class="candidates__card-direction">
-            <h4 class="candidates__card-subtitle">Directions</h4>
-            <h3 class="candidates__card-title">${elem.speciality}</h3>
-            <h4 class="candidates__card-text">${elem.direction}</h4>
-          </div>
-          <div class="candidates__card-other-info-block">
-            <div class="candidates__card-tech-level">
-              <h4 class="candidates__card-subtitle">Tech level</h4>
-              <h3 class="candidates__card-title">${elem.techLevel}</h3>
-            </div>
-            <div class="candidates__card-location">
-              <h4 class="candidates__card-subtitle">Location</h4>
-              <h3 class="candidates__card-title">${elem.location}</h3>
-            </div>
-            <div class="candidates__card-work-type">
-              <h4 class="candidates__card-subtitle">Work type</h4>
-              <h3 class="candidates__card-title">${elem.workType}</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-      `;
+        return htmlCodeOfSearch(elem);
       })
-      .join("") || `<h3 class="candidates__notFound">Ничего не найдено по Вашему запросу!</h3>`;
+      .join("") || `<h3 class="candidates__notFound">Ничего не найдено по Вашему запросу.</h3>`;
 
   // количество найденных вакансий в строке поиска:
-  const searchContainerOutput = document.querySelector(".search-container__output span");
-  searchContainerOutput.textContent = searchArray.length ? searchArray.length : candidatesItems.length;
+  displayQtyJobVacancies(searchArray);
 }
 showCandidatesCards();
 
 // поиск по инпуту:
 function inputSearch() {
-  const input = document.querySelector(".search-container");
-  input.addEventListener("click", (event) => {
-    event.preventDefault();
-    if (event.target.tagName !== "INPUT") return;
+  const searchContainer = document.querySelector(".search-container");
+  const searchIcon = searchContainer.querySelector("img");
+  const input = searchContainer.querySelector("input");
+
+  searchIcon.addEventListener("click", (event) => {
+    if (event.target.tagName !== "IMG") return;
+    const inputText = input.value;
+    // условие по вводу количества символов:
+    if (inputText.length < 1 || inputText.startsWith(" ")) return;
+    // input.blur();
+
+    searchTitle(inputText);
+    candidatesRow.innerHTML = "";
+  });
+
+  document.body.addEventListener("keydown", (event) => {
+    if (event.code !== "Enter") return;
     const inputText = event.target.value;
-    console.log(inputText);
-    input.focus();
+    // условие по вводу количества символов:
+    if (inputText.length < 1 || inputText.startsWith(" ")) return;
+    // input.blur();
+
+    searchTitle(inputText);
+    candidatesRow.innerHTML = "";
   });
 }
 inputSearch();
-// Второй вариант:
-// Начальный рендеринг инпутов:
-// function firstRenderCheckes() {
-//   candidatesRow.innerHTML = "";
-//   candidatesInputs.forEach((elem) => {
-//     if (!elem.checked) return;
-//     activeInputs.push(elem);
-//     candidatesRow.innerHTML += `
-//       <div class="result-candidates__box box-result">
-//         <h3 class="box-result__name">${elem.parentElement.textContent}</h3>
-//         <button class="box-result__btn">✕</button>
-//       </div>
-//     `;
-//   });
-// }
-// firstRenderCheckes();
 
-// Последующий рендеринг инпутов:
-// function nextRenderCheckes(newElem) {
-//   if (!newElem.checked) return;
-//   activeInputs.push(newElem);
-//   candidatesRow.innerHTML = "";
-//   activeInputs.forEach((elem) => {
-//     candidatesRow.innerHTML += `
-//         <div class="result-candidates__box box-result">
-//           <h3 class="box-result__name">${elem.parentElement.textContent}</h3>
-//           <button class="box-result__btn">✕</button>
-//         </div>
-//       `;
-//   });
-// }
+// функция по поиску названия вакансии:
+function searchTitle(intupText) {
+  const candidatesCards = document.querySelector(".candidates__cards");
+  const findedSpecialities = candidatesItems.filter((item) => {
+    return item.speciality.toLowerCase().includes(intupText.toLowerCase());
+  });
 
-// candidatesFilter.addEventListener("click", (event) => {
-//   if (!event.target.matches("label") && !event.target.matches("input")) return;
-//   if (event.target.matches("input")) {
-//     nextRenderCheckes(event.target);
+  // Убрать отмеченные фильтры:
+  resetAllFilters();
+
+  // Отображение карточек согласно поиска:
+  candidatesCards.innerHTML =
+    (findedSpecialities.length ? findedSpecialities : [])
+      .map((elem) => {
+        return htmlCodeOfSearch(elem);
+      })
+      .join("") || `<h3 class="candidates__notFound">Ничего не найдено по Вашему запросу.</h3>`;
+
+  // Отображение количества карточек:
+  displayQtyJobVacancies(findedSpecialities);
+}
+
+// сброс всех фильтров:
+const resetBtn = document.querySelector(".result-candidates__reset-btn");
+
+function resetAllFilters() {
+  const candidatesCards = document.querySelector(".candidates__cards");
+  // Убрать отмеченные фильтры:
+  const inputs = candidatesFilter.querySelectorAll("input");
+  inputs.forEach((elem) => {
+    if (elem.checked) {
+      elem.checked = !elem.checked;
+    }
+    // корректная работа инпута:
+    const label = elem.parentElement;
+    const span = label.querySelector("span");
+    span.classList.remove("check-active");
+  });
+  activeInputs = [];
+
+  // Отображение надписи:
+  candidatesCards.innerHTML = `<h3 class="candidates__notFound">Установите нужные фильтры или воспользуйтесь поиском</h3>`;
+
+  // Сброс показанных инпутов
+  candidatesRow.innerHTML = "";
+
+  // Убрать input.value с инпута во время установки фильстров:
+  if (event.target.matches("[class$='result-candidates__reset-btn']")) {
+    const searchContainer = document.querySelector(".search-container");
+    const input = searchContainer.querySelector("input");
+    input.value = "";
+  }
+
+  displayQtyJobVacancies(candidatesCards);
+}
+resetBtn.addEventListener("click", resetAllFilters);
+
+// Кнопка открытия меню фильтров:
+const menuIconBtn = document.querySelector(".candidates__hidden-menu img");
+
+function menuIconBtnClick() {
+  const candidatesFilter = document.querySelector(".candidates__filter");
+  if (candidatesFilter.style.display === "none" || candidatesFilter.style.display === "") {
+    candidatesFilter.style.display = "block";
+  } else {
+    candidatesFilter.style.display = "none";
+  }
+}
+menuIconBtn.addEventListener("click", menuIconBtnClick);
+
+// Закрфтие меню фильтров при нажатии по экрану:
+// document.addEventListener("click", (event) => {
+//   const candidatesFilter = document.querySelector(".candidates__filter");
+//   if (event.target.alt !== "Icon-Settings") {
+//     candidatesFilter.style.display = "none";
 //   }
 // });
-
-// const candidatesCards = document.querySelector(".candidates__cards");
-// candidatesCards.innerHTML = candidatesItems
-//   // .filter((elem) => elem.workType.toLowerCase() === "office")
-//   .filter((elem) => elem.location === "Germany" || elem.location === "Poland")
-//   .map((elem) => {
-//     return `
-//     <div class="candidates__card">
-//       <div class="candidates__card-row">
-//         <div class="candidates__card-direction">
-//           <h4 class="candidates__card-subtitle">Directions</h4>
-//           <h3 class="candidates__card-title">${elem.speciality}</h3>
-//           <h4 class="candidates__card-text">${elem.direction}</h4>
-//         </div>
-//         <div class="candidates__card-other-info-block">
-//           <div class="candidates__card-tech-level">
-//             <h4 class="candidates__card-subtitle">Tech level</h4>
-//             <h3 class="candidates__card-title">${elem.techLevel}</h3>
-//           </div>
-//           <div class="candidates__card-location">
-//             <h4 class="candidates__card-subtitle">Location</h4>
-//             <h3 class="candidates__card-title">${elem.location}</h3>
-//           </div>
-//           <div class="candidates__card-work-type">
-//             <h4 class="candidates__card-subtitle">Work type</h4>
-//             <h3 class="candidates__card-title">${elem.workType}</h3>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//     `;
-//   });

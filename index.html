@@ -11,7 +11,7 @@
   />
   </head>
   <body>
-    <header id="header" class="header">
+    <header id="header" class="header none">
       <div class="container">
         <div class="header__top">
           <nav class="nav">
@@ -57,7 +57,7 @@
       <div class="header__stars"></div>
     </header>
 
-    <section id="who-is-Kate" class="who-is-Kate">
+    <section id="who-is-Kate" class="who-is-Kate none">
       <div class="container container_smaller">
         <div class="who-is-Kate__row">
           <div class="who-is-Kate__img">
@@ -76,7 +76,7 @@
       </div>
     </section>
 
-    <section id="expertise" class="expertise">
+    <section id="expertise" class="expertise none">
       <div class="container">
         <div class="expertise__contant">          
           <h2 class="expertise__title title">Our areas of expertise are IT and Digital</h2>
@@ -105,7 +105,7 @@
       </div>
     </section>
 
-    <section id="advantages" class="advantages">
+    <section id="advantages" class="advantages none">
       <div class="container">
         <div class="advantages__content">
           <h2 class="advantages__title title">Advantages</h2>
@@ -162,6 +162,9 @@
         <div class="candidates__content">
           <h2 class="candidates__title title">Find out what the most suitable specialist will cost you</h2>
           <div class="candidates__row">
+            <div class="candidates__hidden-menu">
+              <img src="./img/candidats/menu-open.svg" alt="Icon-Settings">Options
+            </div>
             <div class="candidates__filter">
               <div class="candidates__filter-locations">
                 <h3 class="candidates__filter-title active">Locations <span></span></h3>
@@ -213,7 +216,7 @@
 
             <div class="candidates__container">
               <div class="candidates__container-search search-container">
-                <img src="./img/candidats/search.svg" alt="">
+                <img src="./img/candidats/search.svg" alt="Icon">
                 <input type="text" name="candidates--input" value="">
                 <div class="search-container__output"><span>75</span> job opening</div>
               </div>
@@ -229,8 +232,10 @@
                   </div>                  
                 </div>
               </div>
+              <div class="result-candidates__reset">
+                <button class="result-candidates__reset-btn">Remove all highlights ✕</button> 
+              </div>
               <div class="candidates__cards">
-
                 <div class="candidates__card">
                   <div class="candidates__card-row">
                     <div class="candidates__card-direction">
@@ -300,7 +305,6 @@
                     </div>
                   </div>
                 </div>
-
               </div>
               <div class="candidates__buttons">
                 <button id="btn-1" class="candidates__btn-1 btn btn--color">Candidate’s monthly salary</button>
@@ -312,7 +316,7 @@
       </div>
     </section>
 
-    <section id="application-form" class="application-form">
+    <section id="application-form" class="application-form none">
       <div class="container container_smallest">
         <div class="application-form__form-container">
           <h2 class="form-container__title title">
@@ -349,7 +353,7 @@
       </div>
     </section>
     
-    <section id="rewies" class="rewies">
+    <section id="rewies" class="rewies ">
       <div class="container container-2">
         <h2 class="rewies__title title">What our clients say</h2>
         <div class="rewies__row">
@@ -511,7 +515,7 @@
       </div>
     </section>  
 
-    <section id="contacts" class="contacts">
+    <section id="contacts" class="contacts none">
       <div class="container">
         <div class="contacts__title title">Contacts</div>
         <div class="contacts__row">
@@ -539,7 +543,7 @@
       </div>
     </section>
 
-    <footer class="footer">
+    <footer class="footer none">
       <div class="container">
         <div class="footer__row">
           <div class="footer__logo nav__logo">            
