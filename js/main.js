@@ -354,7 +354,7 @@ const candidatesItems = [
 // HTML код для отображения карточек:
 function htmlCodeOfSearch(elem) {
   return `    
-    <div class="candidates__card">
+    <a class="candidates__card" href="/jobVacancy_id-${elem.id}.html" target="_blunk">
       <div class="candidates__card-row">
         <div class="candidates__card-direction">
           <h4 class="candidates__card-subtitle">Directions</h4>
@@ -376,7 +376,7 @@ function htmlCodeOfSearch(elem) {
           </div>
         </div>
       </div>
-    </div>
+    </a>
   `;
 }
 
@@ -586,19 +586,20 @@ resetBtn.addEventListener("click", resetAllFilters);
 const menuIconBtn = document.querySelector(".candidates__hidden-menu img");
 
 function menuIconBtnClick() {
-  const candidatesFilter = document.querySelector(".candidates__filter");
-  if (candidatesFilter.style.display === "none" || candidatesFilter.style.display === "") {
-    candidatesFilter.style.display = "block";
-  } else {
-    candidatesFilter.style.display = "none";
-  }
+  candidatesFilter.classList.toggle("dblock");
 }
 menuIconBtn.addEventListener("click", menuIconBtnClick);
 
-// Закрфтие меню фильтров при нажатии по экрану:
-// document.addEventListener("click", (event) => {
-//   const candidatesFilter = document.querySelector(".candidates__filter");
-//   if (event.target.alt !== "Icon-Settings") {
-//     candidatesFilter.style.display = "none";
-//   }
-// });
+// Закрытие меню фильтров при нажатии по экрану:
+document.addEventListener("click", (event) => {
+  if (event.target.closest(".candidates__hidden-menu")) return;
+  if (event.target.closest(".candidates__filter")) return;
+
+  candidatesFilter.classList.remove("dblock");
+});
+
+// Закрытие меню фильтров при нажатии на кнопку ESC:
+document.addEventListener("keydown", (event) => {
+  if (!candidatesFilter.classList.contains("dblock")) return;
+  candidatesFilter.classList.remove("dblock");
+});

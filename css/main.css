@@ -766,6 +766,7 @@ body {
 }
 
 .candidates__card {
+  display: block; /*Если вместо div будет a*/
   border-radius: 5px;
   padding: 29px;
   background-color: #eef1f4;
@@ -799,6 +800,7 @@ body {
   font-weight: 700;
   font-size: calc(var(--font-size));
   line-height: calc(var(--font-size) * var(--line-height-lato));
+  color: var(--color-secondary);
 }
 .candidates__card-other-info-block .candidates__card-title {
   font-weight: 400;
@@ -1430,9 +1432,12 @@ body {
     cursor: pointer;
   }
   .candidates__filter {
-    margin-bottom: 30px;
+    margin-bottom: 0px;
     display: none;
     width: 100%;
+  }
+  .candidates__filter.dblock {
+    display: block;
   }
   .candidates__filter-title {
     padding: 10px 25px;
