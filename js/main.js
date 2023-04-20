@@ -369,7 +369,7 @@ const candidatesItems = [
 // HTML код для отображения карточек:
 function htmlCodeOfSearch(elem) {
   return `    
-    <a class="candidates__card" href="/jobVacancy_id-${elem.id}.html" target="_blunk">
+    <a class="candidates__card" href="./jobVacancy_id-${elem.id}.html" target="_blunk">
       <div class="candidates__card-row">
         <div class="candidates__card-direction">
           <h4 class="candidates__card-subtitle">Directions</h4>
