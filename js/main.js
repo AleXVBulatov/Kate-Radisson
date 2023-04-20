@@ -435,7 +435,8 @@ function showCandidatesCards() {
   ) {
     // Отображение надписи:
     displayQtyJobVacancies(searchArray);
-    return (candidatesCards.innerHTML = `<h3 class="candidates__notFound">Установите нужные фильтры или воспользуйтесь поиском</h3>`);
+    return (candidatesCards.innerHTML = `<h3 class="candidates__notFound">
+    Set the desired filters or use the search.</h3>`);
   }
 
   if (selectedInputs[locationKey].length) {
@@ -483,7 +484,9 @@ function showCandidatesCards() {
       .map((elem) => {
         return htmlCodeOfSearch(elem);
       })
-      .join("") || `<h3 class="candidates__notFound">Ничего не найдено по Вашему запросу.</h3>`;
+      .join("") ||
+    `<h3 class="candidates__notFound">
+      Nothing was found according to your request.</h3>`;
 
   // количество найденных вакансий в строке поиска:
   displayQtyJobVacancies(searchArray);
@@ -536,7 +539,9 @@ function searchTitle(intupText) {
       .map((elem) => {
         return htmlCodeOfSearch(elem);
       })
-      .join("") || `<h3 class="candidates__notFound">Ничего не найдено по Вашему запросу.</h3>`;
+      .join("") ||
+    `<h3 class="candidates__notFound">
+      Nothing was found according to your request.</h3>`;
 
   // Отображение количества карточек:
   displayQtyJobVacancies(findedSpecialities);
@@ -561,7 +566,7 @@ function resetAllFilters() {
   activeInputs = [];
 
   // Отображение надписи:
-  candidatesCards.innerHTML = `<h3 class="candidates__notFound">Установите нужные фильтры или воспользуйтесь поиском</h3>`;
+  candidatesCards.innerHTML = `<h3 class="candidates__notFound">Set the desired filters or use the search.</h3>`;
 
   // Сброс показанных инпутов
   candidatesRow.innerHTML = "";
