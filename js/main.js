@@ -7,16 +7,66 @@ const refs = {
   headerBlur: document.querySelector(".header__blur"), // Blur элемент на header
   navActiveBlur: document.querySelector(".nav__blur"), // Blur при открытии меню
   navBtnUp: document.querySelector(".nav-btn-up"), // Кнопка UP
+  candidatesFilter: document.querySelector(".candidates__filter"), // Cекция candidates__filter
   candidatesFilterBtn: document.querySelectorAll(".candidates__filter-title span"), // Кнопка открытия фильтров в candidates__filter-title
+  candidatesInputs: document.querySelectorAll(".candidates__filter input"), // Инпуты секции candidates__filter
+  candidatesRow: document.querySelector(".result-candidates__row"), // Вывод отмеченных инпуты в секции candidates__row
+  searchContainer: document.querySelector(".search-container"), // Контейнер поиска вакансий
+  candidatesCards: document.querySelector(".candidates__cards"), // Контейнер с карточками
   menuIconBtn: document.querySelector(".candidates__hidden-menu img"), // Кнопка открытия меню фильтров:
-  candidates: document.querySelector(".candidates__filter"), // секция candidates__filter
 };
-const { menuBtn, menuIcon, nav, navList, headerBlur, navBtnUp, navActiveBlur, candidatesFilterBtn, menuIconBtn, candidates } =
-  refs;
 
-console.log(candidates);
+const {
+  menuBtn,
+  menuIcon,
+  nav,
+  navList,
+  headerBlur,
+  navBtnUp,
+  navActiveBlur,
+  candidatesFilter,
+  candidatesFilterBtn,
+  candidatesInputs,
+  candidatesRow,
+  searchContainer,
+  candidatesCards,
+  menuIconBtn,
+} = refs;
 
-// ================= menu btn =================
+const searchIcon = searchContainer.querySelector("img"); // Иконка поиска в поисковой строке
+const searchInput = searchContainer.querySelector("input"); // Инпут в поисковой строке
+
+console.log(candidatesCards);
+
+// ============================================================================== //
+// ================= Cекция по снятию ховера с мобильной версии ================= //
+if ("ontouchstart" in window || (window.DocumentTouch && document instanceof DocumentTouch)) {
+  console.log("this is a touch device");
+} else {
+  console.log("this is not a touch device");
+  navBtnUp.firstChild.classList.add("no-touch");
+  navBtnUp.classList.add("no-touch");
+
+  // снятие ховера с кнопки в секции candidates__filter-title на мобильной версии
+  candidatesFilterBtn.forEach((elem) => {
+    elem.classList.add("no-touch-filter-title");
+  });
+
+  // снятие ховера с наведение на инпуты candidates__settings на мобильной версии
+  const candidateslabel = document.querySelectorAll(".candidates__filter label");
+  candidateslabel.forEach((label) => {
+    label.classList.add("input-hover");
+  });
+
+  // снятие ховера с карточек в секции candidates__cards на мобильной версии
+  const candidatesCards = document.querySelectorAll(".candidates__card");
+  candidatesCards.forEach((card) => {
+    card.classList.add("hover");
+  });
+}
+// =============================================== //
+
+// ================= MENU BTN ================= //
 // ============= кнопка menu btn toggle ================ //
 // const menuBtn = document.querySelector(".nav__btn-toggle"), // Кнопка гамбургер меню
 // const menuIcon = document.querySelector(".menu-icon") // Элементы гамбургер меню
@@ -41,6 +91,7 @@ menuBtn.addEventListener("click", () => {
   document.body.classList.toggle("no-scroll");
 });
 
+// ================= РЕШЕНИЕ ПРОБЛЕМЫ СО СКРОЛЛОМ ================= //
 // убрать скролл при открытии меню:
 function removeScroll(topPosition) {
   document.body.style.position = "fixed";
@@ -51,9 +102,13 @@ function addScroll() {
   const scroll = document.body.style.top;
   window.scrollTo(0, parseInt(scroll || "0") * -1);
 }
-// анимация при закрытии меню:
 
-// 1 вариант оформления закрытия меню (предпочтительный):
+// ================= Оформления закрытия меню ================= //
+// const menuIcon = document.querySelector(".menu-icon") // Элементы гамбургер меню
+// const nav = document.querySelector(".nav"), // Навигация
+// const navList = document.querySelector(".nav__list"), // Элементы навигации
+// const headerBlur = document.querySelector(".header__blur"), // Blur элемент на header
+// const navActiveBlur = document.querySelector(".nav__blur"), // Blur при открытии меню
 document.body.addEventListener("click", (event) => {
   if (
     event.target.matches("[class$='nav__blur']") ||
@@ -71,7 +126,7 @@ document.body.addEventListener("click", (event) => {
   }
 });
 
-// Подключение слайдера
+// ================= Подключение слайдера ================= //
 new Swiper(".rewies-slider", {
   navigation: {
     prevEl: ".swiper-button-prev",
@@ -121,11 +176,10 @@ new Swiper(".rewies-slider", {
   },
 });
 
-// ======================================================= //
-// ============= Candidates ================ //
-// Секция candidates__filter (аккордион)
-// const candidates = document.querySelector(".candidates__filter");
-candidates.addEventListener("click", (event) => {
+// ================= Секция Candidates ================= //
+// ================= Секция candidates__filter (аккордион) ================= //
+// const candidatesFilter = document.querySelector(".candidates__filter"); // секция candidates__filter
+candidatesFilter.addEventListener("click", (event) => {
   if (event.target.tagName !== "SPAN" || !event.target.closest(".candidates__filter-title")) return;
   if (event.target.closest(".candidates__filter-locations")) return candidatesToggle("locations");
   if (event.target.closest(".candidates__filter-directions")) return candidatesToggle("directions");
@@ -134,11 +188,11 @@ candidates.addEventListener("click", (event) => {
 });
 
 const candidatesToggle = (element) => {
-  const candidatesFilter = document.querySelector(`.candidates__filter-${element}`);
-  const candidatesSettings = candidatesFilter.querySelector(".candidates__settings");
-  const candidatesFilterTitle = candidatesFilter.querySelector(".candidates__filter-title");
+  const candidatesFilterSections = document.querySelector(`.candidates__filter-${element}`);
+  const candidatesSettings = candidatesFilterSections.querySelector(".candidates__settings");
+  const candidatesFilterTitle = candidatesFilterSections.querySelector(".candidates__filter-title");
 
-  const elements = Array.from(candidates.children);
+  const elements = Array.from(candidatesFilter.children);
   elements.forEach((elem) => {
     const pverElemSet = elem.firstElementChild;
     const prevElemTit = elem.lastElementChild;
@@ -162,15 +216,13 @@ document.addEventListener("click", (event) => {
   check.classList.toggle("check-active");
 });
 
-// Работа фильтра:
-// const candidatesFilter = document.querySelector(".candidates__filter");
-const candidatesFilter = document.getElementsByClassName("candidates__filter")[0];
-const candidatesInputs = document.querySelectorAll(".candidates__filter input");
-const candidatesRow = document.querySelector(".result-candidates__row");
-
+// ================= Работа фильтра ================= //
+// const candidatesFilter = document.querySelector(".candidates__filter"); // Cекция candidates__filter
+// const candidatesInputs = document.querySelectorAll(".candidates__filter input"); // Инпуты секции candidates__filter
+// const candidatesRow = document.querySelector(".result-candidates__row"); // Вывод отмеченных инпуты в секции candidates__row
 let activeInputs = [];
 
-// Начальный рендеринг инпутов:
+// ================= Начальный рендеринг инпутов: ================= //
 function firstRenderCheckes() {
   candidatesRow.innerHTML = [...candidatesInputs]
     .map((elem) => {
@@ -188,7 +240,7 @@ function firstRenderCheckes() {
 }
 firstRenderCheckes();
 
-// Последующий рендеринг инпутов:
+// ================= Последующий рендеринг инпутов: ================= //
 function nextRenderCheckes() {
   candidatesRow.innerHTML = activeInputs
     .map((elem) => {
@@ -201,13 +253,12 @@ function nextRenderCheckes() {
     })
     .join("");
 
-  const list = [...candidatesInputs].filter((elem) => {
-    return elem.checked;
-  });
-  // console.log(list);
   showCandidatesCards();
 }
 
+// ================= Событие при нажатии на инпуты: ================= //
+// const candidatesFilter = document.querySelector(".candidates__filter"); // Cекция candidates__filter
+// const searchContainer = document.querySelector(".search-container"); // Контейнер поиска вакансий
 candidatesFilter.addEventListener("click", (event) => {
   if (!event.target.matches("label") && !event.target.matches("input")) return;
 
@@ -217,7 +268,6 @@ candidatesFilter.addEventListener("click", (event) => {
   });
 
   // снять выделение с инпута по поиску названия вакансий при установки фильтров:
-  const searchContainer = document.querySelector(".search-container");
   const input = searchContainer.querySelector("input");
   input.blur();
 
@@ -230,8 +280,9 @@ candidatesFilter.addEventListener("click", (event) => {
   }
 });
 
+// ================= Удалить снятый инпут-элемент из массива activeInputs: ================= //
 function deleteElement(delElem) {
-  const deleteElem = activeInputs.findIndex((elem, index) => {
+  const deleteElem = activeInputs.findIndex((elem) => {
     return delElem.value === elem.value;
     // return delElem.dataset.index === elem.dataset.index;
   });
@@ -240,7 +291,8 @@ function deleteElement(delElem) {
   nextRenderCheckes();
 }
 
-// Удаление блока с candidatesRow:
+// ================= Удаление блока с candidatesRow: ================= //
+// const candidatesRow = document.querySelector(".result-candidates__row"), // Вывод отмеченных инпуты в секции candidates__row
 candidatesRow.addEventListener("click", (event) => {
   event.preventDefault();
   if (!event.target.matches("[class$='box-result__btn']")) return;
@@ -256,6 +308,7 @@ candidatesRow.addEventListener("click", (event) => {
   if (!event.target.checked) {
     deleteElement(findElem);
   }
+
   // корректная работа инпута:
   const label = findElem.parentElement;
   const span = label.querySelector("span");
@@ -349,7 +402,7 @@ const candidatesItems = [
   },
 ];
 
-// HTML код для отображения карточек:
+// ================= HTML код для отображения карточек: ================= //
 function htmlCodeOfSearch(elem) {
   return `    
     <a class="candidates__card" href="./jobVacancy_id-${elem.id}.html" target="_blunk">
@@ -378,13 +431,13 @@ function htmlCodeOfSearch(elem) {
   `;
 }
 
-// Отображение количества найденных карточек с вакансиями:
+// ================= Отображение количества найденных карточек с вакансиями: ================= //
 function displayQtyJobVacancies(array) {
   const searchContainerOutput = document.querySelector(".search-container__output span");
   return (searchContainerOutput.textContent = array.length ? array.length : candidatesItems.length);
 }
 
-// Показанные все отмеченные инпуты:
+// ================= Создает объект с отмеченными инпутами в каждой категории: ================= //
 function showActiveInputs() {
   const location = [];
   const direction = [];
@@ -406,14 +459,14 @@ function showActiveInputs() {
   };
 }
 
-// Показанные карточки:
+// ================= Показанные карточки: ================= //
+// const searchContainer = document.querySelector(".search-container"); // Контейнер поиска вакансий
+// const candidatesCards = document.querySelector(".candidates__cards"); // Контейнер с карточками
+// const searchInput = searchContainer.querySelector("input"); // Инпут в поисковой строке
 function showCandidatesCards() {
   // Убрать input.value с инпута во время установки фильстров:
-  const searchContainer = document.querySelector(".search-container");
-  const input = searchContainer.querySelector("input");
-  input.value = "";
+  searchInput.value = "";
 
-  const candidatesCards = document.querySelector(".candidates__cards");
   const selectedInputs = showActiveInputs();
   const keys = Object.keys(selectedInputs);
 
@@ -431,12 +484,13 @@ function showCandidatesCards() {
     !selectedInputs[levelsKey].length &&
     !selectedInputs[typeKey].length
   ) {
-    // Отображение надписи:
+    // Отображение надписи при очистке всех фильтров:
     displayQtyJobVacancies(searchArray);
     return (candidatesCards.innerHTML = `<h3 class="candidates__notFound">
     Set the desired filters or use the search.</h3>`);
   }
 
+  // Последовательная работа фильтров:
   if (selectedInputs[locationKey].length) {
     // const locationSearch = (searchArray.length ? searchArray : candidatesItems).filter((elem) => {
     searchArray = (searchArray.length ? searchArray : candidatesItems).filter((elem) => {
@@ -491,15 +545,14 @@ function showCandidatesCards() {
 }
 showCandidatesCards();
 
-// поиск по инпуту:
+// ================= Поиск по инпуту: ================= //
+// const searchContainer = document.querySelector(".search-container"); // Контейнер поиска вакансий
+// const searchIcon = searchContainer.querySelector("img"); // Иконка поиска в поисковой строке
+// const searchInput = searchContainer.querySelector("input"); // Инпут в поисковой строке
 function inputSearch() {
-  const searchContainer = document.querySelector(".search-container");
-  const searchIcon = searchContainer.querySelector("img");
-  const input = searchContainer.querySelector("input");
-
   searchIcon.addEventListener("click", (event) => {
     if (event.target.tagName !== "IMG") return;
-    const inputText = input.value;
+    const inputText = searchInput.value;
     // условие по вводу количества символов:
     if (inputText.length < 1 || inputText.startsWith(" ")) return;
     // input.blur();
@@ -521,9 +574,9 @@ function inputSearch() {
 }
 inputSearch();
 
-// функция по поиску названия вакансии:
+// ================= Функция по поиску названия вакансии: ================= //
+// const candidatesCards = document.querySelector(".candidates__cards"); // Контейнер с карточками
 function searchTitle(intupText) {
-  const candidatesCards = document.querySelector(".candidates__cards");
   const findedSpecialities = candidatesItems.filter((item) => {
     return item.speciality.toLowerCase().includes(intupText.toLowerCase());
   });
@@ -545,7 +598,7 @@ function searchTitle(intupText) {
   displayQtyJobVacancies(findedSpecialities);
 }
 
-// сброс всех фильтров:
+// ================= Сброс всех фильтров: ================= //
 const resetBtn = document.querySelector(".result-candidates__reset-btn");
 
 function resetAllFilters() {
@@ -599,32 +652,3 @@ document.addEventListener("keydown", (event) => {
   if (!candidatesFilter.classList.contains("dblock")) return;
   candidatesFilter.classList.remove("dblock");
 });
-
-// ================================================ //
-// секция по снятию ховера с мобильной версии:
-if ("ontouchstart" in window || (window.DocumentTouch && document instanceof DocumentTouch)) {
-  console.log("this is a touch device");
-} else {
-  console.log("this is not a touch device");
-  navBtnUp.firstChild.classList.add("no-touch");
-  navBtnUp.classList.add("no-touch");
-
-  // снятие ховера с кнопки в секции candidates__filter-title на мобильной версии
-  candidatesFilterBtn.forEach((elem) => {
-    elem.classList.add("no-touch-filter-title");
-  });
-
-  // снятие ховера с наведение на инпуты candidates__settings на мобильной версии
-  const candidateslabel = document.querySelectorAll(".candidates__filter label");
-  candidateslabel.forEach((label) => {
-    label.classList.add("input-hover");
-  });
-
-  // снятие ховера с карточек в секции candidates__cards на мобильной версии
-  firstRenderCheckes();
-  const candidatesCards = document.querySelectorAll(".candidates__card");
-  candidatesCards.forEach((card) => {
-    card.classList.add("hover");
-  });
-}
-// =============================================== //
