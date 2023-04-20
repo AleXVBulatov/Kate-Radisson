@@ -1,45 +1,29 @@
-// ================= menu btn =================
+// ================= Исходные данные =================
 const refs = {
-  menuBtn: document.querySelector(".nav__btn-toggle"),
-  menuIcon: document.querySelector(".menu-icon"),
-  nav: document.querySelector(".nav"),
-  navList: document.querySelector(".nav__list"),
-  headerBlur: document.querySelector(".header__blur"),
-  navBtnUp: document.querySelector(".nav-btn-up"),
-  navActiveBlur: document.querySelector(".nav__blur"),
-  candidatesFilterBtn: document.querySelectorAll(".candidates__filter-title span"),
+  menuBtn: document.querySelector(".nav__btn-toggle"), // Кнопка гамбургер меню
+  menuIcon: document.querySelector(".menu-icon"), // Элементы гамбургер меню
+  nav: document.querySelector(".nav"), // Навигация
+  navList: document.querySelector(".nav__list"), // Элементы навигации
+  headerBlur: document.querySelector(".header__blur"), // Blur элемент на header
+  navActiveBlur: document.querySelector(".nav__blur"), // Blur при открытии меню
+  navBtnUp: document.querySelector(".nav-btn-up"), // Кнопка UP
+  candidatesFilterBtn: document.querySelectorAll(".candidates__filter-title span"), // Кнопка открытия фильтров в candidates__filter-title
+  menuIconBtn: document.querySelector(".candidates__hidden-menu img"), // Кнопка открытия меню фильтров:
+  candidates: document.querySelector(".candidates__filter"), // секция candidates__filter
 };
-const { menuBtn, menuIcon, nav, navList, headerBlur, headerTitle, navBtnUp, navActiveBlur, candidatesFilterBtn } = refs;
+const { menuBtn, menuIcon, nav, navList, headerBlur, navBtnUp, navActiveBlur, candidatesFilterBtn, menuIconBtn, candidates } =
+  refs;
 
-// ================================================ //
-// секция по снятию ховера с мобильной версии:
-if ("ontouchstart" in window || (window.DocumentTouch && document instanceof DocumentTouch)) {
-  console.log("this is a touch device");
-} else {
-  console.log("this is not a touch device");
-  navBtnUp.firstChild.classList.add("no-touch");
-  navBtnUp.classList.add("no-touch");
+console.log(candidates);
 
-  // снятие ховера с кнопки в секции candidates__filter-title на мобильной версии
-  candidatesFilterBtn.forEach((elem) => {
-    elem.classList.add("no-touch-filter-title");
-  });
-
-  // снятие ховера с наведение на инпуты candidates__settings на мобильной версии
-  const candidateslabel = document.querySelectorAll(".candidates__filter label");
-  candidateslabel.forEach((label) => {
-    label.classList.add("input-hover");
-  });
-
-  // снятие ховера с карточек в секции candidates__cards на мобильной версии
-  const candidatesCards = document.querySelectorAll(".candidates__card");
-  candidatesCards.forEach((card) => {
-    card.classList.add("hover");
-  });
-}
-// =============================================== //
-
+// ================= menu btn =================
 // ============= кнопка menu btn toggle ================ //
+// const menuBtn = document.querySelector(".nav__btn-toggle"), // Кнопка гамбургер меню
+// const menuIcon = document.querySelector(".menu-icon") // Элементы гамбургер меню
+// const nav = document.querySelector(".nav"), // Навигация
+// const navList = document.querySelector(".nav__list"), // Элементы навигации
+// const headerBlur = document.querySelector(".header__blur"), // Blur элемент на header
+// const navActiveBlur = document.querySelector(".nav__blur"), // Blur при открытии меню
 menuBtn.addEventListener("click", () => {
   menuIcon.classList.toggle("js-menu-icon-active");
   // nav.classList.toggle("nav--mobile");
@@ -140,8 +124,7 @@ new Swiper(".rewies-slider", {
 // ======================================================= //
 // ============= Candidates ================ //
 // Секция candidates__filter (аккордион)
-const candidates = document.querySelector(".candidates__filter");
-
+// const candidates = document.querySelector(".candidates__filter");
 candidates.addEventListener("click", (event) => {
   if (event.target.tagName !== "SPAN" || !event.target.closest(".candidates__filter-title")) return;
   if (event.target.closest(".candidates__filter-locations")) return candidatesToggle("locations");
@@ -598,8 +581,6 @@ function resetAllFilters() {
 resetBtn.addEventListener("click", resetAllFilters);
 
 // Кнопка открытия меню фильтров:
-const menuIconBtn = document.querySelector(".candidates__hidden-menu img");
-
 function menuIconBtnClick() {
   candidatesFilter.classList.toggle("dblock");
 }
@@ -618,3 +599,32 @@ document.addEventListener("keydown", (event) => {
   if (!candidatesFilter.classList.contains("dblock")) return;
   candidatesFilter.classList.remove("dblock");
 });
+
+// ================================================ //
+// секция по снятию ховера с мобильной версии:
+if ("ontouchstart" in window || (window.DocumentTouch && document instanceof DocumentTouch)) {
+  console.log("this is a touch device");
+} else {
+  console.log("this is not a touch device");
+  navBtnUp.firstChild.classList.add("no-touch");
+  navBtnUp.classList.add("no-touch");
+
+  // снятие ховера с кнопки в секции candidates__filter-title на мобильной версии
+  candidatesFilterBtn.forEach((elem) => {
+    elem.classList.add("no-touch-filter-title");
+  });
+
+  // снятие ховера с наведение на инпуты candidates__settings на мобильной версии
+  const candidateslabel = document.querySelectorAll(".candidates__filter label");
+  candidateslabel.forEach((label) => {
+    label.classList.add("input-hover");
+  });
+
+  // снятие ховера с карточек в секции candidates__cards на мобильной версии
+  firstRenderCheckes();
+  const candidatesCards = document.querySelectorAll(".candidates__card");
+  candidatesCards.forEach((card) => {
+    card.classList.add("hover");
+  });
+}
+// =============================================== //
