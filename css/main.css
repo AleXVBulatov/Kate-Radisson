@@ -1414,16 +1414,17 @@ body {
   .candidates__hidden-menu {
     display: flex;
     align-items: center;
-    width: 100%;
+    width: calc(100% + 50px);
+    margin-left: -25px;
     min-height: 50px;
     padding: 0 30px;
-    border-radius: 5px;
 
     background-color: #eef1f4;
     text-transform: uppercase;
     font-weight: 500;
     color: var(--color-secondary);
   }
+
   .candidates__hidden-menu img {
     margin-right: 20px;
     cursor: pointer;
@@ -1431,10 +1432,19 @@ body {
   .candidates__filter {
     margin-bottom: 30px;
     display: none;
-    width: 300px;
+    width: 100%;
   }
   .candidates__filter-title {
     padding: 10px 25px;
+  }
+  .candidates__settings div {
+    display: inline-block;
+    width: 24.5%;
+    /* width: auto; */
+    /* margin-right: 20px; */
+  }
+  .candidates__settings .my-checkbox {
+    margin-right: 10px;
   }
   .candidates__container {
     width: 100%;
@@ -1563,6 +1573,9 @@ body {
 
   .candidates {
     padding: 60px 0;
+  }
+  .candidates__settings div {
+    width: 32%;
   }
   .candidates__buttons {
     justify-content: space-between;
@@ -1735,18 +1748,18 @@ body {
     height: 40px;
   }
 
+  .candidates__settings {
+    padding: 15px 15px;
+  }
   .candidates__hidden-menu {
-    width: 100vh;
-    min-height: 40px;
+    width: calc(100% + 50px);
     margin-left: -25px;
-    margin-right: -25px;
+    /* margin-right: -25px; */
+    min-height: 40px;
     border-radius: 0px;
   }
   .candidates__filter {
-    /* align-self: center; */
     margin-bottom: 15px;
-    width: 200px;
-    margin-left: -25px;
   }
   .candidates__filter-title {
     padding: 5px 25px;
@@ -1862,6 +1875,11 @@ body {
     padding-left: 0;
     padding-right: 0;
   }
+
+  .candidates__settings div {
+    width: 49.5%;
+  }
+
   .swiper-slide-prev .rewies-slider__content::after,
   .swiper-slide-next .rewies-slider__content::after {
     content: "";
@@ -1998,6 +2016,9 @@ body {
     line-height: calc(14px * var(--line-height-lato));
   }
 
+  .candidates__settings .my-checkbox {
+    margin-right: 10px;
+  }
   .candidates__card-text {
     margin-top: 5px;
     margin-bottom: 20px;
@@ -2180,6 +2201,14 @@ body {
 }
 
 @media (max-width: 365px) {
+  .candidates__filter {
+    width: calc(100% + 50px);
+    margin-left: -25px;
+    margin-right: -25px;
+  }
+  .candidates__filter-title {
+    border-radius: 0px;
+  }
   .candidates__card {
     margin-left: -25px;
     margin-right: -25px;
@@ -2227,4 +2256,14 @@ body {
   .nav__list-active {
     row-gap: 32px;
   }
+
+  /* .candidates__settings {
+    padding: 15px 20px;
+  }
+  .candidates__settings .my-checkbox {
+    margin-right: 5px;
+  }
+  .candidates__settings > div {
+    padding: 10px 5px;
+  } */
 }
