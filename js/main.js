@@ -1,3 +1,8 @@
+import candidatesItems from "./../libs/candidadesItems.mjs";
+
+// Создание блоков с вакансиями:
+// const candidatesItems = [{}, {} ..., {}]; массив объектов (находится в другом файле)
+
 // ================= Исходные данные =================
 const refs = {
   menuBtn: document.querySelector(".nav__btn-toggle"), // Кнопка гамбургер меню
@@ -14,7 +19,6 @@ const refs = {
   candidatesRow: document.querySelector(".result-candidates__row"), // Вывод отмеченных инпуты в секции candidates__row
   searchContainer: document.querySelector(".search-container"), // Контейнер поиска вакансий
   candidatesCards: document.querySelector(".candidates__cards"), // Контейнер с карточками
-  candidatesCardsNodeList: document.querySelectorAll(".candidates__card"), // Все карточки в псевдомассиве NodeList
   filteBtnReset: document.querySelector(".result-candidates__reset-btn"), // Кнопка сброса всех фильтров
   menuIconBtn: document.querySelector(".candidates__hidden-menu img"), // Кнопка открытия меню фильтров:
 };
@@ -34,43 +38,15 @@ const {
   candidatesRow,
   searchContainer,
   candidatesCards,
-  candidatesCardsNodeList,
   filteBtnReset,
   menuIconBtn,
 } = refs;
 
 const searchIcon = searchContainer.querySelector("img"); // Иконка поиска в поисковой строке
 const searchInput = searchContainer.querySelector("input"); // Инпут в поисковой строке
-let activeInputs = [];
 
-// ============================================================================== //
-// ================= Cекция по снятию ховера с мобильной версии ================= //
-if ("ontouchstart" in window || (window.DocumentTouch && document instanceof DocumentTouch)) {
-  console.log("this is a touch device");
-} else {
-  console.log("this is not a touch device");
-  navBtnUp.firstChild.classList.add("no-touch");
-  navBtnUp.classList.add("no-touch");
-
-  // снятие ховера с кнопки в секции candidates__filter-title на мобильной версии
-  candidatesFilterBtn.forEach((elem) => {
-    elem.classList.add("no-touch-filter-title");
-  });
-
-  // снятие ховера с наведение на инпуты candidates__settings на мобильной версии
-  candidateslabel.forEach((label) => {
-    label.classList.add("input-hover");
-  });
-
-  // снятие ховера с карточек в секции candidates__cards на мобильной версии
-  // const candidatesCardsNodeList = document.querySelectorAll(".candidates__card"); // Все карточки в псевдомассиве NodeList
-  // showCandidatesCards();
-  // console.log(candidatesCardsNodeList);
-  // candidatesCardsNodeList.forEach((card) => {
-  //   card.classList.add("hover");
-  // });
-}
-// =============================================== //
+const activeInputs = []; // массив содержащий активные чекбоксы
+let typeDevice = ""; // Тип устройства (определяется функцией typeOfDevice() при загрузке страницы)
 
 // ================= MENU BTN ================= //
 // ============= кнопка menu btn toggle ================ //
@@ -186,7 +162,9 @@ new Swiper(".rewies-slider", {
 // ================= Секция candidates__filter (аккордион) ================= //
 // const candidatesFilter = document.querySelector(".candidates__filter"); // секция candidates__filter
 candidatesFilter.addEventListener("click", (event) => {
-  if (event.target.tagName !== "SPAN" || !event.target.closest(".candidates__filter-title")) return;
+  // if (event.target.tagName !== "SPAN" || !event.target.closest(".candidates__filter-title")) return; // нажатие только на span (+ -)
+  if (event.target.matches("[class$='.candidates__filter-title']")) return;
+
   if (event.target.closest(".candidates__filter-locations")) return candidatesToggle("locations");
   if (event.target.closest(".candidates__filter-directions")) return candidatesToggle("directions");
   if (event.target.closest(".candidates__filter-tech-levels")) return candidatesToggle("tech-levels");
@@ -321,97 +299,11 @@ candidatesRow.addEventListener("click", (event) => {
   span.classList.remove("check-active");
 });
 
-// Создание блоков с вакансиями:
-const candidatesItems = [
-  {
-    id: 1,
-    direction: "marketing",
-    workType: "remote/office",
-    speciality: "Digital Marketing Specialist (PR|SMM)",
-    location: "Ukraine",
-    techLevel: "junior",
-  },
-  { id: 2, direction: "design", workType: "office", speciality: "Graphic Artist", location: "Poland", techLevel: "middle" },
-  { id: 3, direction: "sales", workType: "relocation", speciality: "Sales Manager 1", location: "Bulgaria", techLevel: "senior" },
-  {
-    id: 4,
-    direction: "development",
-    workType: "freelance",
-    speciality: "PHP Developer",
-    location: "USA",
-    techLevel: "leader",
-  },
-  { id: 5, direction: "analytics", workType: "remote/office", speciality: "Analytic 1", location: "Canada", techLevel: "expert" },
-  { id: 6, direction: "other", workType: "office", speciality: "QA Engineer", location: "UK", techLevel: "other" },
-  {
-    id: 7,
-    direction: "marketing",
-    workType: "relocation",
-    speciality: "Digital Marketing Specialist (PR|SMM)",
-    location: "Germany",
-    techLevel: "junior",
-  },
-  { id: 8, direction: "design", workType: "freelance", speciality: "Game Designer", location: "Sweden", techLevel: "middle" },
-  {
-    id: 9,
-    direction: "sales",
-    workType: "remote/office",
-    speciality: "Sales Manager 2",
-    location: "Singapore",
-    techLevel: "senior",
-  },
-  { id: 10, direction: "development", workType: "office", speciality: "REACT Developer", location: "Spain", techLevel: "leader" },
-  { id: 11, direction: "analytics", workType: "relocation", speciality: "Analytic 2", location: "Ukraine", techLevel: "expert" },
-  { id: 12, direction: "other", workType: "freelance", speciality: "Support Manager", location: "Poland", techLevel: "other" },
-  {
-    id: 13,
-    direction: "marketing",
-    workType: "remote/office",
-    speciality: "Social Media Marketing Manager",
-    location: "Bulgaria",
-    techLevel: "junior",
-  },
-  { id: 14, direction: "design", workType: "office", speciality: "UX Designer", location: "USA", techLevel: "middle" },
-  { id: 15, direction: "sales", workType: "relocation", speciality: "Sales Manager 3", location: "Canada", techLevel: "senior" },
-  {
-    id: 16,
-    direction: "development",
-    workType: "freelance",
-    speciality: "Python Developer",
-    location: "UK",
-    techLevel: "leader",
-  },
-  {
-    id: 17,
-    direction: "analytics",
-    workType: "remote/office",
-    speciality: "Analytic 3",
-    location: "Germany",
-    techLevel: "expert",
-  },
-  { id: 18, direction: "other", workType: "office", speciality: "L1 Rust Auditor", location: "Sweden", techLevel: "other" },
-  {
-    id: 19,
-    direction: "marketing",
-    workType: "relocation",
-    speciality: "SMM Marketing",
-    location: "Singapore",
-    techLevel: "junior",
-  },
-  {
-    id: 20,
-    direction: "design",
-    workType: "freelance",
-    speciality: "Product Game Designer",
-    location: "Spain",
-    techLevel: "middle",
-  },
-];
-
 // ================= HTML код для отображения карточек: ================= //
 function htmlCodeOfSearch(elem) {
   return `    
-    <a class="candidates__card" href="./jobVacancy_id-${elem.id}.html" target="_blunk">
+    <a class="candidates__card ${typeDevice === "desktop" ? "hover" : ""} " 
+    href="./jobVacancy_id-${elem.id}.html" target="_blunk">
       <div class="candidates__card-row">
         <div class="candidates__card-direction">
           <h4 class="candidates__card-subtitle">Directions</h4>
@@ -498,7 +390,6 @@ function showCandidatesCards() {
 
   // Последовательная работа фильтров:
   if (selectedInputs[locationKey].length) {
-    // const locationSearch = (searchArray.length ? searchArray : candidatesItems).filter((elem) => {
     searchArray = (searchArray.length ? searchArray : candidatesItems).filter((elem) => {
       return selectedInputs[locationKey].find((location) => {
         return location === elem[locationKey].toLowerCase();
@@ -508,7 +399,6 @@ function showCandidatesCards() {
   }
 
   if (selectedInputs[directionsKey].length) {
-    // const directionsSearch = (searchArray.length ? searchArray : candidatesItems).filter((elem) => {
     searchArray = (searchArray.length ? searchArray : candidatesItems).filter((elem) => {
       return selectedInputs[directionsKey].find((direction) => {
         return direction === elem[directionsKey].toLowerCase();
@@ -518,7 +408,6 @@ function showCandidatesCards() {
   }
 
   if (selectedInputs[levelsKey].length) {
-    // const levelsSearch = searchArray.filter((elem) => {
     searchArray = (searchArray.length ? searchArray : candidatesItems).filter((elem) => {
       return selectedInputs[levelsKey].find((techLevel) => {
         return techLevel === elem[levelsKey].toLowerCase();
@@ -561,7 +450,8 @@ function inputSearch() {
     const inputText = searchInput.value;
     // условие по вводу количества символов:
     if (inputText.length < 1 || inputText.startsWith(" ")) return;
-    // input.blur();
+
+    searchInput.blur(); // Убрать фокус после ввода
 
     searchTitle(inputText);
     candidatesRow.innerHTML = "";
@@ -572,7 +462,8 @@ function inputSearch() {
     const inputText = event.target.value;
     // условие по вводу количества символов:
     if (inputText.length < 1 || inputText.startsWith(" ")) return;
-    // input.blur();
+
+    searchInput.blur(); // Убрать фокус после ввода
 
     searchTitle(inputText);
     candidatesRow.innerHTML = "";
@@ -623,7 +514,7 @@ function resetAllFilters() {
     const span = label.querySelector("span");
     span.classList.remove("check-active");
   });
-  activeInputs = [];
+  activeInputs.splice(0, activeInputs.length);
 
   // Отображение надписи:
   candidatesCards.innerHTML = `<h3 class="candidates__notFound">Set the desired filters or use the search.</h3>`;
@@ -662,3 +553,35 @@ document.addEventListener("keydown", (event) => {
   if (!candidatesFilter.classList.contains("dblock")) return;
   candidatesFilter.classList.remove("dblock");
 });
+
+// ============================================================================== //
+// ================= Cекция по снятию ховера с мобильной версии ================= //
+
+function typeOfDevice() {
+  if ("ontouchstart" in window || (window.DocumentTouch && document instanceof DocumentTouch)) {
+    console.log("this is a touch device");
+    typeDevice = "mobile";
+  } else {
+    console.log("this is not a touch device");
+    typeDevice = "desktop";
+
+    // снятие ховера с кнопки UP на мобильной версии
+    navBtnUp.firstChild.classList.add("no-touch");
+    navBtnUp.classList.add("no-touch");
+
+    // снятие ховера с кнопки в секции candidates__filter-title на мобильной версии
+    candidatesFilterBtn.forEach((elem) => {
+      elem.classList.add("no-touch-filter-title");
+    });
+
+    // снятие ховера с наведение на инпуты candidates__settings на мобильной версии
+    candidateslabel.forEach((label) => {
+      label.classList.add("input-hover");
+    });
+
+    // снятие ховера с карточек в секции candidates__cards на мобильной версии
+    showCandidatesCards(); // функция htmlCodeOfSearch считывает значение переменной typeDevice
+  }
+}
+typeOfDevice();
+// =============================================== //

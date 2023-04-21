@@ -554,6 +554,13 @@ body {
   line-height: calc(var(--font-size) * 1.25 * var(--line-height-lato));
   border-radius: 5px;
   background-color: #ccdef5;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 1);
+}
+.candidates__filter-title:hover {
+  /* outline: 1px solid var(--color-secondary); */
+  /* background-color: #eef1f4; */
+  /* color: #fff !important; */
 }
 .candidates__filter-title span {
   position: relative;
@@ -573,8 +580,9 @@ body {
   width: 100%;
   height: 4px;
   transform: translateY(-50%);
-  background-color: black;
+  background-color: rgba(0, 0, 0, 1);
 }
+
 .candidates__filter-title span::after {
   content: "";
   position: absolute;
@@ -585,21 +593,31 @@ body {
   transform: translateY(-50%) rotate(90deg);
   background-color: black;
   transition: 0.2s linear;
+
+  background-color: rgba(0, 0, 0, 1);
+}
+.candidates__filter-title.active {
+  color: #fff;
 }
 .candidates__filter-title.active span {
   width: 30px;
   right: -2.5px;
 }
+.candidates__filter-title.active span::before {
+  background-color: #fff;
+}
 .candidates__filter-title.active span::after {
-  content: "";
   height: 0px;
   transform: rotate(0deg);
   transition: 0.2s linear;
+
+  background-color: rgba(0, 0, 0, 1);
 }
+
 /* класс для добавления ховера только для компьютеров */
 .no-touch-filter-title:hover {
-  position: relative;
-  transform: scale(0.8);
+  /* position: relative; */
+  /* transform: scale(0.8); */
 }
 
 .candidates__settings {
@@ -775,7 +793,7 @@ body {
   padding: 29px;
   background-color: #eef1f4;
 }
-.candidates__card:hover {
+.candidates__card.hover:hover {
   /* position: relative;
   left: 2px; */
   background-color: #ccdef5;
