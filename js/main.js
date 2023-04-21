@@ -9,10 +9,13 @@ const refs = {
   navBtnUp: document.querySelector(".nav-btn-up"), // Кнопка UP
   candidatesFilter: document.querySelector(".candidates__filter"), // Cекция candidates__filter
   candidatesFilterBtn: document.querySelectorAll(".candidates__filter-title span"), // Кнопка открытия фильтров в candidates__filter-title
+  candidateslabel: document.querySelectorAll(".candidates__filter label"), // Все блоки ткги label в секции candidates__filter
   candidatesInputs: document.querySelectorAll(".candidates__filter input"), // Инпуты секции candidates__filter
   candidatesRow: document.querySelector(".result-candidates__row"), // Вывод отмеченных инпуты в секции candidates__row
   searchContainer: document.querySelector(".search-container"), // Контейнер поиска вакансий
   candidatesCards: document.querySelector(".candidates__cards"), // Контейнер с карточками
+  candidatesCardsNodeList: document.querySelectorAll(".candidates__card"), // Все карточки в псевдомассиве NodeList
+  filteBtnReset: document.querySelector(".result-candidates__reset-btn"), // Кнопка сброса всех фильтров
   menuIconBtn: document.querySelector(".candidates__hidden-menu img"), // Кнопка открытия меню фильтров:
 };
 
@@ -26,17 +29,19 @@ const {
   navActiveBlur,
   candidatesFilter,
   candidatesFilterBtn,
+  candidateslabel,
   candidatesInputs,
   candidatesRow,
   searchContainer,
   candidatesCards,
+  candidatesCardsNodeList,
+  filteBtnReset,
   menuIconBtn,
 } = refs;
 
 const searchIcon = searchContainer.querySelector("img"); // Иконка поиска в поисковой строке
 const searchInput = searchContainer.querySelector("input"); // Инпут в поисковой строке
-
-console.log(candidatesCards);
+let activeInputs = [];
 
 // ============================================================================== //
 // ================= Cекция по снятию ховера с мобильной версии ================= //
@@ -53,16 +58,17 @@ if ("ontouchstart" in window || (window.DocumentTouch && document instanceof Doc
   });
 
   // снятие ховера с наведение на инпуты candidates__settings на мобильной версии
-  const candidateslabel = document.querySelectorAll(".candidates__filter label");
   candidateslabel.forEach((label) => {
     label.classList.add("input-hover");
   });
 
   // снятие ховера с карточек в секции candidates__cards на мобильной версии
-  const candidatesCards = document.querySelectorAll(".candidates__card");
-  candidatesCards.forEach((card) => {
-    card.classList.add("hover");
-  });
+  // const candidatesCardsNodeList = document.querySelectorAll(".candidates__card"); // Все карточки в псевдомассиве NodeList
+  // showCandidatesCards();
+  // console.log(candidatesCardsNodeList);
+  // candidatesCardsNodeList.forEach((card) => {
+  //   card.classList.add("hover");
+  // });
 }
 // =============================================== //
 
@@ -220,7 +226,7 @@ document.addEventListener("click", (event) => {
 // const candidatesFilter = document.querySelector(".candidates__filter"); // Cекция candidates__filter
 // const candidatesInputs = document.querySelectorAll(".candidates__filter input"); // Инпуты секции candidates__filter
 // const candidatesRow = document.querySelector(".result-candidates__row"); // Вывод отмеченных инпуты в секции candidates__row
-let activeInputs = [];
+// let activeInputs = [];
 
 // ================= Начальный рендеринг инпутов: ================= //
 function firstRenderCheckes() {
@@ -599,13 +605,16 @@ function searchTitle(intupText) {
 }
 
 // ================= Сброс всех фильтров: ================= //
-const resetBtn = document.querySelector(".result-candidates__reset-btn");
+// const filteBtnReset = document.querySelector(".result-candidates__reset-btn"); // Кнопка сброса всех фильтров
+// const candidatesInputs = document.querySelectorAll(".candidates__filter input"); // Инпуты секции candidates__filter
+// const candidatesCards = document.querySelector(".candidates__cards"); // Контейнер с карточками
+// const searchContainer = document.querySelector(".search-container"); // Контейнер поиска вакансий
+// const searchInput = searchContainer.querySelector("input"); // Инпут в поисковой строке
+filteBtnReset.addEventListener("click", resetAllFilters);
 
 function resetAllFilters() {
-  const candidatesCards = document.querySelector(".candidates__cards");
   // Убрать отмеченные фильтры:
-  const inputs = candidatesFilter.querySelectorAll("input");
-  inputs.forEach((elem) => {
+  candidatesInputs.forEach((elem) => {
     if (elem.checked) {
       elem.checked = !elem.checked;
     }
@@ -624,20 +633,21 @@ function resetAllFilters() {
 
   // Убрать input.value с инпута во время установки фильстров:
   if (event.target.matches("[class$='result-candidates__reset-btn']")) {
-    const searchContainer = document.querySelector(".search-container");
-    const input = searchContainer.querySelector("input");
-    input.value = "";
+    searchInput.value = "";
   }
 
   displayQtyJobVacancies(candidatesCards);
 }
-resetBtn.addEventListener("click", resetAllFilters);
 
-// Кнопка открытия меню фильтров:
+// ================= Кнопка меню фильтров на планшете и мобильном: ================= //
+// const menuIconBtn = document.querySelector(".candidates__hidden-menu img"); // Кнопка открытия меню фильтров:
+// const candidatesFilter = document.querySelector(".candidates__filter"); // секция candidates__filter
+
+// открытия меню фильтров:
+menuIconBtn.addEventListener("click", menuIconBtnClick);
 function menuIconBtnClick() {
   candidatesFilter.classList.toggle("dblock");
 }
-menuIconBtn.addEventListener("click", menuIconBtnClick);
 
 // Закрытие меню фильтров при нажатии по экрану:
 document.addEventListener("click", (event) => {

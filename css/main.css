@@ -613,19 +613,18 @@ body {
 }
 
 .candidates__settings label.input-hover:hover {
-  position: relative;
-  left: 1px;
   cursor: pointer;
+  color: var(--color-violet-100);
 }
+/* .candidates__settings label.input-hover .my-checkbox:hover {
+  background-color: red;
+} */
 
 .candidates__settings > div {
   display: flex;
   padding: 12px 15px;
 }
-/* .candidates__settings > div:hover {
-  position: relative;
-  left: 1px;
-} */
+
 .candidates__settings input {
   margin-right: 30px;
   width: 18px;
@@ -776,15 +775,10 @@ body {
   padding: 29px;
   background-color: #eef1f4;
 }
-/* .candidates__card:visited {
-  background-color: rgb(237, 230, 241);
-} */
-.candidates__card.hover:hover {
-  position: relative;
-  left: 2px;
+.candidates__card:hover {
+  /* position: relative;
+  left: 2px; */
   background-color: #ccdef5;
-
-  /* box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.5); */
 }
 
 .candidates__card:not(:last-child) {
