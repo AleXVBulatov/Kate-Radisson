@@ -1085,7 +1085,8 @@ body {
 
 .contacts__map {
   flex: 0 0 50%;
-  width: 630px;
+  /* width: 630px;
+  height: 300px; */
 }
 .contacts__map img {
   height: 100%;
@@ -1339,6 +1340,13 @@ body {
     height: 60px;
   }
 
+  .contacts__info {
+    flex: 1 1 40%;
+  }
+  .contacts__map {
+    flex: 0 0 60%;
+  }
+
   .br-2 {
     display: block;
   }
@@ -1410,6 +1418,10 @@ body {
   }
   .rewies-slider__card-image {
     margin-bottom: 15px;
+  }
+
+  .br-2 {
+    display: none;
   }
 
   .footer__row {
@@ -2129,6 +2141,9 @@ body {
     width: 30px;
   }
 
+  .br-2 {
+    display: block;
+  }
   .contacts {
     padding: 40px 0 0 0;
   }
@@ -2291,6 +2306,10 @@ body {
 
   .nav__list-active {
     row-gap: 32px;
+  }
+
+  .br-2 {
+    display: none;
   }
 
   /* .candidates__settings {
