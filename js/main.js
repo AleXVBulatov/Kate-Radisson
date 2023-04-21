@@ -303,30 +303,31 @@ candidatesRow.addEventListener("click", (event) => {
 // ================= HTML код для отображения карточек: ================= //
 function htmlCodeOfSearch(elem) {
   return `    
-    <a class="candidates__card ${typeDevice === "desktop" ? "hover" : ""} " 
-    href="./jobVacancy_id-${elem.id}.html" target="_blunk">
-      <div class="candidates__card-row">
-        <div class="candidates__card-direction">
-          <h4 class="candidates__card-subtitle">Directions</h4>
-          <h3 class="candidates__card-title">${elem.speciality}</h3>
-          <h4 class="candidates__card-text">${elem.direction}</h4>
+    <div class="candidates__card ${typeDevice === "desktop" ? "hover" : ""}">
+      <a class="candidates__link" href="./jobVacancy_id-${elem.id}.html" target="_blunk">
+        <div class="candidates__card-row">
+          <div class="candidates__card-direction">
+            <h4 class="candidates__card-subtitle">Directions</h4>
+            <h3 class="candidates__card-title">${elem.speciality}</h3>
+            <h4 class="candidates__card-text">${elem.direction}</h4>
+          </div>
+          <div class="candidates__card-other-info-block">
+            <div class="candidates__card-tech-level">
+              <h4 class="candidates__card-subtitle">Tech level</h4>
+              <h3 class="candidates__card-title">${elem.techLevel}</h3>
+            </div>
+            <div class="candidates__card-location">
+              <h4 class="candidates__card-subtitle">Location</h4>
+              <h3 class="candidates__card-title">${elem.location}</h3>
+            </div>
+            <div class="candidates__card-work-type">
+              <h4 class="candidates__card-subtitle">Work type</h4>
+              <h3 class="candidates__card-title">${elem.workType}</h3>
+            </div>
+          </div>
         </div>
-        <div class="candidates__card-other-info-block">
-          <div class="candidates__card-tech-level">
-            <h4 class="candidates__card-subtitle">Tech level</h4>
-            <h3 class="candidates__card-title">${elem.techLevel}</h3>
-          </div>
-          <div class="candidates__card-location">
-            <h4 class="candidates__card-subtitle">Location</h4>
-            <h3 class="candidates__card-title">${elem.location}</h3>
-          </div>
-          <div class="candidates__card-work-type">
-            <h4 class="candidates__card-subtitle">Work type</h4>
-            <h3 class="candidates__card-title">${elem.workType}</h3>
-          </div>
-        </div>
-      </div>
-    </a>
+      </a>
+    </div>
   `;
 }
 

@@ -790,16 +790,19 @@ body {
   margin-bottom: 65px;
 }
 
-.candidates__card:link {
-  display: block; /*Если вместо div будет a*/
+.candidates__card {
   border-radius: 5px;
   padding: 29px;
   background-color: #eef1f4;
+  cursor: pointer;
 }
 .candidates__card.hover:hover {
   /* position: relative;
   left: 2px; */
   background-color: #ccdef5;
+}
+.candidates__link {
+  display: block;
 }
 
 .candidates__card:not(:last-child) {
