@@ -534,6 +534,7 @@ body {
 }
 .candidates__hidden-menu {
   display: none;
+  cursor: pointer;
 }
 .candidates__filter {
   width: 415px;
@@ -598,6 +599,7 @@ body {
 }
 .candidates__filter-title.active {
   color: #fff;
+  /* color: #eef1f4; */
 }
 .candidates__filter-title.active span {
   width: 30px;
@@ -605,6 +607,7 @@ body {
 }
 .candidates__filter-title.active span::before {
   background-color: #fff;
+  /* background-color: #eef1f4; */
 }
 .candidates__filter-title.active span::after {
   height: 0px;

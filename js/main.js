@@ -14,13 +14,13 @@ const refs = {
   navBtnUp: document.querySelector(".nav-btn-up"), // Кнопка UP
   candidatesFilter: document.querySelector(".candidates__filter"), // Cекция candidates__filter
   candidatesFilterBtn: document.querySelectorAll(".candidates__filter-title span"), // Кнопка открытия фильтров в candidates__filter-title
-  candidateslabel: document.querySelectorAll(".candidates__filter label"), // Все блоки ткги label в секции candidates__filter
+  candidatesLabel: document.querySelectorAll(".candidates__filter label"), // Все блоки теги label в секции candidates__filter
   candidatesInputs: document.querySelectorAll(".candidates__filter input"), // Инпуты секции candidates__filter
   candidatesRow: document.querySelector(".result-candidates__row"), // Вывод отмеченных инпуты в секции candidates__row
   searchContainer: document.querySelector(".search-container"), // Контейнер поиска вакансий
   candidatesCards: document.querySelector(".candidates__cards"), // Контейнер с карточками
   filteBtnReset: document.querySelector(".result-candidates__reset-btn"), // Кнопка сброса всех фильтров
-  menuIconBtn: document.querySelector(".candidates__hidden-menu img"), // Кнопка открытия меню фильтров:
+  menuIconBtn: document.querySelector(".candidates__hidden-menu"), // Кнопка открытия меню фильтров:
 };
 
 const {
@@ -33,7 +33,7 @@ const {
   navActiveBlur,
   candidatesFilter,
   candidatesFilterBtn,
-  candidateslabel,
+  candidatesLabel,
   candidatesInputs,
   candidatesRow,
   searchContainer,
@@ -164,7 +164,8 @@ new Swiper(".rewies-slider", {
 candidatesFilter.addEventListener("click", (event) => {
   // if (event.target.tagName !== "SPAN" || !event.target.closest(".candidates__filter-title")) return; // нажатие только на span (+ -)
   if (event.target.matches("[class$='.candidates__filter-title']")) return;
-
+  if (event.target.closest(".candidates__settings")) return; // Чтобы не срабатывало на
+  // console.log(event.target);
   if (event.target.closest(".candidates__filter-locations")) return candidatesToggle("locations");
   if (event.target.closest(".candidates__filter-directions")) return candidatesToggle("directions");
   if (event.target.closest(".candidates__filter-tech-levels")) return candidatesToggle("tech-levels");
@@ -458,7 +459,7 @@ function inputSearch() {
   });
 
   document.body.addEventListener("keydown", (event) => {
-    if (event.code !== "Enter") return;
+    if (event.code !== "Enter" || !searchInput.value) return;
     const inputText = event.target.value;
     // условие по вводу количества символов:
     if (inputText.length < 1 || inputText.startsWith(" ")) return;
@@ -544,13 +545,12 @@ function menuIconBtnClick() {
 document.addEventListener("click", (event) => {
   if (event.target.closest(".candidates__hidden-menu")) return;
   if (event.target.closest(".candidates__filter")) return;
-
   candidatesFilter.classList.remove("dblock");
 });
 
 // Закрытие меню фильтров при нажатии на кнопку ESC:
 document.addEventListener("keydown", (event) => {
-  if (!candidatesFilter.classList.contains("dblock")) return;
+  if (!candidatesFilter.classList.contains("dblock") || event.code !== "Escape") return;
   candidatesFilter.classList.remove("dblock");
 });
 
@@ -575,7 +575,7 @@ function typeOfDevice() {
     });
 
     // снятие ховера с наведение на инпуты candidates__settings на мобильной версии
-    candidateslabel.forEach((label) => {
+    candidatesLabel.forEach((label) => {
       label.classList.add("input-hover");
     });
 
