@@ -1091,6 +1091,10 @@ body {
   /* width: 630px;
   height: 300px; */
 }
+.contacts__map iframe {
+  width: 100%;
+  height: 300px;
+}
 .contacts__map img {
   height: 100%;
   width: 100%;
@@ -2168,6 +2172,10 @@ body {
   .contacts__info-tel {
     font-size: 16px;
     line-height: calc(16px * var(--line-height-lato));
+  }
+  .contacts__map iframe {
+    width: 100%;
+    height: 215px;
   }
 
   .footer__row {
