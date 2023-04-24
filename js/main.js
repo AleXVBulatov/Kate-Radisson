@@ -108,6 +108,15 @@ document.body.addEventListener("click", (event) => {
   }
 });
 
+// ================= Скрытие кнопки вверх: ================= //
+window.addEventListener("scroll", () => {
+  if (window.pageYOffset < 946) {
+    navBtnUp.classList.add("none");
+  } else {
+    navBtnUp.classList.remove("none");
+  }
+});
+
 // ================= Подключение слайдера ================= //
 new Swiper(".rewies-slider", {
   navigation: {
