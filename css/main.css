@@ -215,7 +215,7 @@ body {
   font-weight: 700;
   font-family: var(--font-family-Ubuntu);
   font-size: calc(var(--font-size) * 1.9);
-  line-height: calc(var(--font-size) * 1.9 * var(--line-height-ubuntu));
+  line-height: calc(var(--font-size) * 2.85 * var(--line-height-ubuntu));
   color: var(--color-white-100);
 }
 .header__buttons {
@@ -1190,8 +1190,8 @@ body {
     margin-bottom: 15px;
   }
   .header__img img {
-    width: calc(536px / 1.2);
-    height: calc(536px / 1.2);
+    width: calc(536px / 1.25);
+    height: calc(536px / 1.25);
   }
   .header__stars:before {
     left: -50px;
@@ -1993,7 +1993,7 @@ body {
   .header__title {
     margin-bottom: 80px;
     font-size: 20px;
-    line-height: calc(20px * var(--line-height-ubuntu));
+    line-height: calc(20px * var(--line-height-ubuntu) * 1.5);
   }
   .header__btn-1 {
     display: none;
@@ -2225,7 +2225,7 @@ body {
   .header__title {
     margin-bottom: 70px;
     font-size: 18px;
-    line-height: calc(18px * var(--line-height-ubuntu));
+    line-height: calc(18px * var(--line-height-ubuntu) * 1.5);
   }
   .header__btn-2 {
     width: 100%;
@@ -2308,7 +2308,7 @@ body {
   .header__title {
     margin-bottom: 50px;
     font-size: 16px;
-    line-height: calc(16px * var(--line-height-ubuntu));
+    line-height: calc(16px * var(--line-height-ubuntu) * 1.5);
   }
   .header__btn-2 {
     font-size: 12px;
