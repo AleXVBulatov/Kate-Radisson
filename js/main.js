@@ -110,7 +110,11 @@ document.body.addEventListener("click", (event) => {
 
 // ================= Скрытие кнопки вверх: ================= //
 window.addEventListener("scroll", () => {
-  if (window.pageYOffset > 800) {
+  const whoIsKateBlock = document.querySelector("#who-is-Kate"); // блок
+  const coordWhoIsKateBlock = whoIsKateBlock.getBoundingClientRect(); // координаты блока who is kate
+  const coordWhoIsKateBlockTop = coordWhoIsKateBlock.top + window.pageYOffset; // отметка верха блока относительно документа
+
+  if (window.pageYOffset > coordWhoIsKateBlockTop) {
     navBtnUp.classList.remove("none");
   } else {
     navBtnUp.classList.add("none");
