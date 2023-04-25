@@ -110,10 +110,10 @@ document.body.addEventListener("click", (event) => {
 
 // ================= Скрытие кнопки вверх: ================= //
 window.addEventListener("scroll", () => {
-  if (window.pageYOffset < 800 || window.pageYOffset === 0) {
-    navBtnUp.classList.add("none");
-  } else {
+  if (window.pageYOffset > 800) {
     navBtnUp.classList.remove("none");
+  } else {
+    navBtnUp.classList.add("none");
   }
 });
 
